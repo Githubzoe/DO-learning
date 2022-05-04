@@ -1,0 +1,35 @@
+Comuter Science Leranring
+
+scripting
+
+shell scripting
+
+powershell scripting
+
+Conditions 
+loops
+Paralla exectution
+
+regular experessions
+
+data strcutures
+
+ALgorithms
+
+Big O
+
+
+Languages:
+
+python
+
+Javascript
+
+Groovy
+
+Terraform HCL
+
+Yaml
+
+Jason
+

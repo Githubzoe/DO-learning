@@ -1,0 +1,56 @@
+git commands
+
+https://github.com/joshnh/Git-Commands
+
+git init devops
+
+git config --global init.defaultBranch dev
+
+git branch -m dev
+
+git status
+
+git add .    // to stage all files
+
+git rm --cached <file>..." to unstage
+
+git config --global user.email "afzaaluet@gmail.com"
+
+git config --global user.name "Afzaal Ahmad"
+
+git log   // commit history
+
+git branch Ops
+
+Head is on dev branch
+git merge ops
+
+git log --all --oneline   // status of all branches
+
+git branch -d ops   //deleting ops branch
+
+git stash puch   //stash away the change in a file
+
+working directory is clean
+
+git stash list // to see stashed (Hold ki hoi) changes
+
+git stash apply // reapply changes to working
+
+git stash pop
+
+git stash clear
+
+
+git branch
+git branch -a
+
+git checkout branch name
+
+git merge dev
+
+
+
+
+
+

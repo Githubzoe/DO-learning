@@ -1,0 +1,26 @@
+
+PS Interview:
+
+$Net = $( New - Object – ComObject Wscript.Network )
+
+$Net.MapNetworkDrive( "S:", \\expert\afzaal )
+
+
+
+In here the drive letter is “S:” and the Network share is called ‘expert’ on a computer called ‘afzaal’
+
+
+
+
+Mention what are the three ways that PowerShell uses to ‘Select’?
+
+The most common way is in a WMI Query Language (WQL) statement. 
+
+In this technique Wmiobject uses ‘-query’ to introduce a classic ‘Select * from’ a phrase
+
+
+The second context for ‘Select’ in PowerShell is Select-String. 
+
+
+This cmdlet checks for a word, phrase or any pattern match
+Another way is Select Object

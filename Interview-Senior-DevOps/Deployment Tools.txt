@@ -1,0 +1,14 @@
+Continuesous Deployuement 
+
+
+Following are some of the popular Continuous Deployment tools:
+
+Jenkins
+Azure Pipelines for Deployment
+DeployBot
+TeamCity
+Bamboo
+ElectricFlow
+AWS CodeDeploy
+Octopus Deploy
+Shippable

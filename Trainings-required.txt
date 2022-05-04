@@ -1,0 +1,25 @@
+Need to check:
+
+certficate services
+
+ad certifcate services
+
+Set alarm for certficate expiry
+
+MS Deploy
+
+Kafaka
+
+permethuis ghafrana
+
+splunk
+
+KVM
+
+Powershell scripting
+
+Bash Scripting
+
+
+
+

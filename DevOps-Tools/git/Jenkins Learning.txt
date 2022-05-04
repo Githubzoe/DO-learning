@@ -1,0 +1,10 @@
+git commands
+
+git init project555
+
+git config --global init.defaultBranch serve
+
+git branch -m serve
+
+git status
+
