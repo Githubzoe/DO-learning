@@ -51,6 +51,20 @@ git merge dev
 
 
 
+git remote -v
+origin  https://github.com/afzaal0007/afzaal-devops.git (fetch)
+origin  https://github.com/afzaal0007/afzaal-devops.git (push)
+
+
+Change your remote's URL from HTTPS to SSH with the git remote set-url command.
+
+git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
+$ git remote set-url origin git@github.com:afzaal0007/afzaal-devops.git
+
+ Change remote name from 'origin' to 'desitny'
+ 
+git remote rename origin desitny
+
 
 
 

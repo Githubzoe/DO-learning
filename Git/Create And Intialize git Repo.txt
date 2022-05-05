@@ -24,3 +24,16 @@ git branch -M main
 
 git push -u origin main
 
+
+Adding SSH key for access to git hub
+
+ssh-keygen -t ed25519 -C "afzaaluet@gmail.com"
+
+/c/Users/l/.ssh/
+
+$ ssh-add ~/.ssh/githubkey
+Identity added: /c/Users/l/.ssh/githubkey (afzaaluet@gmail.com)
+
+ssh-add ~/.ssh/githubkey
+
+
