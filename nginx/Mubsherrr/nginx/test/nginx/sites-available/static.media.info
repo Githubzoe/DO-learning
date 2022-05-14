@@ -1,0 +1,132 @@
+server {
+  listen 80;
+  #listen 443;
+
+  root /srv/static-files;
+
+  index index.html index.htm;
+
+  # Catch-all server name
+  server_name fnn.static.media.info;
+
+  #error_page 404 /404.html;
+
+  # redirect server error pages to the static page /50x.html
+  #
+  #error_page 500 502 503 504 /50x.html;
+  #location = /50x.html {
+  #  root /usr/share/nginx/www;
+  #}
+
+  # deny access to .htaccess files, if Apache's document root
+  # concurs with nginx's one
+  location ~ /\.ht {
+    deny all;
+  }
+
+  #
+  # Compress static content
+  #
+
+  gzip on;
+  gzip_min_length 1000;
+  gzip_types text/plain text/html text/css application/json application/javascript application/x-javascript text/javascript text/xml application/xml application/rss+xml application/atom+xml application/rdf+xml;
+  gzip_vary on;
+
+  # make sure gzip does not lose large gzipped js or css files
+   # see http://blog.leetsoft.com/2007/7/25/nginx-gzip-ssl
+  gzip_buffers 16 8k;
+
+  # Disable gzip for certain browsers.
+  gzip_disable “MSIE [1-6].(?!.*SV1)”;
+
+  # Log Configuration
+  #access_log /var/log/nginx/static.mubasher.info/access.log;
+  #error_log /var/log/nginx/static.mubasher.info/error.log;
+
+  #
+  # More tweaks for static content
+  #
+  location ~* \.(?:ico|css|js|gif|jpe?g|png)$ {
+    # Add expires header
+    expires 1w;
+
+    # Allow public caching
+    add_header Pragma public;
+    add_header Cache-Control "public";
+
+    # Do not log
+    #access_log off;
+  }
+
+  location / {
+    if ($http_origin ~* (www\.media\.info|services\.media\.net|media\.info|secure\.media\.info)) {
+      set $cors "true";
+    }
+
+    # Nginx doesn't support nested If statements. This is where things get slightly nasty.
+    # Determine the HTTP request method used
+
+    if ($request_method = 'OPTIONS') {
+      set $cors "${cors}options";
+    }
+    if ($request_method = 'GET') {
+      set $cors "${cors}get";
+    }
+    if ($request_method = 'POST') {
+      set $cors "${cors}post";
+    }
+
+    if ($cors = "true") {
+      # Catch all incase there's a request method we're not dealing with properly
+      add_header 'Access-Control-Allow-Origin' "$http_origin";
+    }
+
+    if ($cors = "trueget") {
+      add_header 'Access-Control-Allow-Origin' "$http_origin";
+      add_header 'Access-Control-Allow-Credentials' 'true';
+      add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
+      add_header 'Access-Control-Allow-Headers' 'DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type';
+    }
+
+    if ($cors = "trueoptions") {
+      add_header 'Access-Control-Allow-Origin' "$http_origin";
+
+      #
+      # Om nom nom cookies
+      #
+
+      add_header 'Access-Control-Allow-Credentials' 'true';
+      add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
+
+      #
+      # Custom headers and headers various browsers *should* be OK with but aren't
+      #
+
+      add_header 'Access-Control-Allow-Headers' 'DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type';
+
+      #
+      # Tell client that this pre-flight info is valid for 20 days
+      #
+
+      add_header 'Access-Control-Max-Age' 1728000;
+      add_header 'Content-Type' 'text/plain charset=UTF-8';
+      add_header 'Content-Length' 0;
+      return 204;
+    }
+
+    if ($cors = "truepost") {
+      add_header 'Access-Control-Allow-Origin' "$http_origin";
+      add_header 'Access-Control-Allow-Credentials' 'true';
+      add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
+      add_header 'Access-Control-Allow-Headers' 'DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type';
+
+    }
+  }
+
+  if ($http_referer ~* (verti-ka.com)) {
+    rewrite .* /logo.html break;
+  }
+}
+
+

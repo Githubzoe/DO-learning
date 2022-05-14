@@ -1,0 +1,56 @@
+server {
+#listen 443 ssl;
+#ssl_certificate      /etc/nginx/ssl/nginx.cert;
+#ssl_certificate_key  /etc/nginx/ssl/nginx.key; 
+  server_name www.fnn.media.info;
+
+  location ~ ^/(sitemap_.*\.xml) {
+    root /srv/static-files/sitemap/ar/;
+    allow all;
+  }
+
+  error_page 404 /error/4xx.html;
+  error_page 410 /error/410.html;
+  error_page 500 501 502 503 504 /error/5xx.html;
+  recursive_error_pages on;
+  location ^~ /error/ {
+    root /srv/www/errors/ar;
+  }
+
+  include /etc/nginx/include.d/mubasher.info.common.conf;
+}
+
+server {
+#listen 443 ssl;
+#ssl_certificate      /etc/nginx/ssl/nginx.cert;
+#ssl_certificate_key  /etc/nginx/ssl/nginx.key; 
+  server_name fnn.english.media.info;
+
+  location ~ ^/(sitemap_.*\.xml) {
+      root /srv/static-files/sitemap/en/;
+      allow all;
+  }
+
+  if ($request_uri ~* (.*)/radio(.*)) {
+    set $url_start $1;
+    rewrite .* $url_start/home-page redirect;
+    break;
+  }
+
+  error_page 404 /error/4xx.html;
+  error_page 410 /error/410.html;
+  error_page 500 501 502 503 504 /error/5xx.html;
+  recursive_error_pages   on;
+  location ^~ /error/ {
+    root /srv/www/errors/en;
+  }
+
+  include /etc/nginx/include.d/mubasher.info.common.conf;
+}
+
+server {
+  listen 80 default_server;
+  server_name _;
+  rewrite ^ $scheme://www.fnn.media.info permanent;
+}
+
