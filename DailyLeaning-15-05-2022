@@ -1,6 +1,6 @@
 My Daily Learning work
 
-docker instLLED
+docker installed
 
 terraform installed
 
@@ -20,6 +20,7 @@ Node JS Repository
 https://hub.docker.com/repository/docker/afzaaluet/nodejs
 
 To push a new tag to this repository,
+
 docker push afzaaluet/nodejs:tagname
 
 You can push a new image to this repository using the CLI
@@ -27,3 +28,10 @@ You can push a new image to this repository using the CLI
 docker tag local-image:tagname new-repo:tagname
 docker push new-repo:tagname
 Make sure to change tagname with your desired image repository tag.
+
+Repos Symbolic links
+
+~/mylearningfiles
+
+~/devops
+
