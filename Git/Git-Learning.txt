@@ -65,6 +65,29 @@ $ git remote set-url origin git@github.com:afzaal0007/afzaal-devops.git
  
 git remote rename origin desitny
 
+ssh -vT git@github.com
+
+ssh -T git@github.com
 
 
+Verify that you have a private key generated and loaded into SSH.
+
+ssh-add -l -E  SHA256 2048 SHA256:z/dORqyKLMg4E1wl4O1rEphXfJHBxD261HRAb3t20C0 afzaaluet@gmail.com
+  /root/.ssh/id_ed25519
+
+afzaaluet@gmail.com
+
+
+
+/root/.ssh/id_ed25519
+
+
+git remote set-url origin git@github.com:afzaal0007/afzaal-devops.git
+
+Use the git remote rename command to rename an existing remote.
+
+The git remote rename command takes two arguments:
+
+An existing remote name, for example, origin
+A new name for the remote, for example, destination
 
