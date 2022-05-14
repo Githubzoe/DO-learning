@@ -1,0 +1,11 @@
+
+
+sudo apt install nodejs
+
+node -v or node –version
+
+node app.js
+
+node afzaal.js
+
+node mobile-app.js

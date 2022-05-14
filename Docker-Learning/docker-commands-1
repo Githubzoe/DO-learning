@@ -1,0 +1,21 @@
+DOcker Commands
+
+docker run -it ubuntu bash
+
+https://docs.docker.com/get-started/
+
+docker build -t afzaal-dcoker .
+
+docker image ls
+
+docker run afzaal-docker
+
+docker tag ac569d6a63a7  afzaaluet/nodejs:afzaal-docker
+
+docker push afzaaluet/nodejs:helloafzaalcontainer
+
+docker login -u afzaaluet
+
+Your password will be stored unencrypted in /root/.docker/config.json.
+
+docker ps
