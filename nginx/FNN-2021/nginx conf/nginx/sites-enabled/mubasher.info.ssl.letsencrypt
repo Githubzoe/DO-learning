@@ -1,0 +1,49 @@
+server {
+        
+
+listen               443 ssl;
+    
+    
+    ssl                  on;
+    ssl_certificate      /etc/ssl/certificate.crt; 
+    ssl_certificate_key  /etc/ssl/private.key;
+
+#listen 80;
+ #       listen [::]:80;
+
+        root /usr/share/mysite;
+        index index.php index.html index.htm;
+
+        # Make site accessible from http://localhost/
+        server_name fnn.mubasher.info www.mubasher.info;
+
+        # Logs
+#        access_log /usr/share/logs/access.log;
+#        error_log /usr/share/logs/error.log info;
+
+       # location / {
+        #        try_files $uri $uri/ =404;
+         #       auth_basic "Admin Login";
+          #      auth_basic_user_file /etc/nginx/auth;
+        #}
+
+        location /.well-known/ {
+                auth_basic "off";
+        }
+
+        error_page 404 /404.html;
+        error_page 500 502 503 504 /50x.html;
+        location = /50x.html {
+                root /usr/share/nginx/html;
+        }
+
+        location ~ \.php$ {
+                try_files $uri =404;
+                fastcgi_split_path_info ^(.+\.php)(/.+)$;
+                fastcgi_pass unix:/var/run/php5-fpm.sock;
+                fastcgi_index index.php;
+                fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+                include fastcgi_params;
+        }
+}
+

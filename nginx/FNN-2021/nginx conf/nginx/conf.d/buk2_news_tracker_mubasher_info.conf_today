@@ -1,0 +1,17 @@
+server {
+        listen 80;
+
+        server_name  fnn.news-tracker.mubasher.info;
+
+
+        location / {
+                #alias /usr/share/nginx/www/news_tracker/;
+		alias /usr/share/nginx/www/news_tracker/news-id-map/build/;
+                index index.html;
+                #try_files $uri $uri/ =404;
+        }
+
+        location /api {
+                proxy_pass http://172.17.247.51:9070/api/v1/narrative;
+}
+}

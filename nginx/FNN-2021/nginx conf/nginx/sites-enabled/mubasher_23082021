@@ -1,0 +1,276 @@
+server {
+        listen 80;
+        listen 443 ssl;
+        server_name fnn.services.mubasher.net fnn.mubasher.info fnn.secure.mubasher.info;
+ssl on;
+#ssl_certificate      /etc/ssl/certificate.crt; 
+#ssl_certificate_key  /etc/ssl/private.key;
+
+
+
+	ssl_certificate /srv/servers/per-server/web1/ssl-certs/_.mubasher.info/signed_by_godaddy/mubasher.info-ssl-combined.crt;
+	ssl_certificate_key /srv/servers/per-server/web1/ssl-certs/_.mubasher.info/_.mubasher.info_private_unencrypted.key;
+
+
+
+	# See: https://library.linode.com/web-servers/nginx/configuration/ssl
+	keepalive_timeout 70;
+
+        #rewrite ^(.*)$ https://www.mubasher.info$1 permanent;
+	rewrite ^(.*)$ https://www.fnn.mubasher.info$1 permanent;
+
+}
+
+server {
+	listen 80;
+        #listen 443 ssl;
+	server_name www.fnn.mubasher.info;
+
+        access_log /var/log/nginx/mubasher.info-access.log combined;
+#	error_log  /var/log/nginx/mubasher.info-error.log warn;
+
+
+        location ~ ^/(sitemap_.*\.xml) {
+                root /srv/staticFileServer/sitemap/ar/;
+                allow all;
+        }
+
+	location ~ ^/(k8wwzjorrro5c645eaoh0zgyldyyxg.html) {
+                root /srv/staticFileServer/;
+                allow all;
+	
+		proxy_set_header Connection "";
+                proxy_set_header    X-Real-IP   $remote_addr;
+                proxy_set_header    Host        $http_host;
+                proxy_set_header    X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header    X-Originating-Country $geoip_country_name;
+                proxy_set_header    X-Originating-Country-Code $geoip_country_code;
+
+                add_header X-Country $geoip_country_code;
+                add_header X-Country_name $geoip_country_name;
+
+        }
+
+
+        error_page 404 /error/4xx.html;
+        error_page 410 /error/410.html;
+        error_page 500 501 502 503 504 /error/5xx.html;
+        recursive_error_pages   on;
+        location ^~ /error/ {
+            root /srv/www/errors/ar;
+        }
+
+	location ^~ /telegram {
+		proxy_pass http://134.213.65.118:8092/whatsappDispatcher/telegram;
+		proxy_set_header X-Real-IP $remote_addr;
+		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+	}
+	include /etc/nginx/include.d/mubasher.info.common.conf;
+	return 301 https://www.fnn.mubasher.info$request_uri;
+}
+
+server {
+        listen 443 ssl;
+        server_name www.fnn.mubasher.info;
+
+	access_log /var/log/nginx/mubasher.info-access.log combined;
+
+	deny 76.76.21.21; #Block https://thndr.app/
+	deny 164.160.104.253; #Block https://www.sigma-cap.com
+
+	add_header X-Frame-Options DENY;
+
+        location ~* /EGX/rssStoryList.html {
+                        return 403;
+        }
+             
+#	if ($request_filename ~* /markets/EGX/stocks/FAIT) {
+#                rewrite ^ https://www.mubasher.info permanent;
+#        }
+
+#        if ($request_filename ~* /markets/EGX/stocks/FAITA) {
+#                rewrite ^ https://www.mubasher.info permanent;
+#        }
+
+        location ~ ^/(sitemap_.*\.xml) {
+                root /srv/staticFileServer/sitemap/ar/;
+                allow all;
+		
+                proxy_set_header Connection "";
+                proxy_set_header    X-Real-IP   $remote_addr;
+                proxy_set_header    Host        $http_host;
+                proxy_set_header    X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header    X-Originating-Country $geoip_country_name;
+                proxy_set_header    X-Originating-Country-Code $geoip_country_code;
+
+                add_header X-Country $geoip_country_code;
+                add_header X-Country_name $geoip_country_name;
+
+        }
+
+        location ~ ^/(k8wwzjorrro5c645eaoh0zgyldyyxg.html) {
+                root /srv/staticFileServer/;
+                allow all;
+                proxy_set_header Connection "";
+                proxy_set_header    X-Real-IP   $remote_addr;
+                proxy_set_header    Host        $http_host;
+                proxy_set_header    X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header    X-Originating-Country $geoip_country_name;
+                proxy_set_header    X-Originating-Country-Code $geoip_country_code;
+
+                add_header X-Country $geoip_country_code;
+                add_header X-Country_name $geoip_country_name;
+        }
+
+
+        error_page 404 /error/4xx.html;
+        error_page 410 /error/410.html;
+        error_page 500 501 502 503 504 /error/5xx.html;
+        recursive_error_pages   on;
+        location ^~ /error/ {
+            root /srv/www/errors/ar;
+        }
+
+        location ^~ /telegram {
+                proxy_pass http://134.213.65.118:8092/whatsappDispatcher/telegram;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        }
+        include /etc/nginx/include.d/mubasher.info.common.conf;
+}
+
+server {
+        listen 80;
+        #listen 443 ssl;
+        server_name fnn.english.mubasher.info;
+	
+	deny 76.76.21.21; #Block https://thndr.app/
+        deny 164.160.104.253; #Block https://www.sigma-cap.com
+
+	add_header X-Frame-Options DENY;
+
+	location ~ ^/(sitemap_.*\.xml) {
+                root /srv/staticFileServer/sitemap/en/;
+                allow all;
+
+                proxy_set_header Connection "";
+        	proxy_set_header    X-Real-IP   $remote_addr;
+        	proxy_set_header    Host        $http_host;
+        	proxy_set_header    X-Forwarded-For $proxy_add_x_forwarded_for;
+        	proxy_set_header    X-Originating-Country $geoip_country_name;
+        	proxy_set_header    X-Originating-Country-Code $geoip_country_code;  
+         
+     		add_header X-Country $geoip_country_code;
+     		add_header X-Country_name $geoip_country_name; 
+                
+        }
+
+        location ~ ^/(k8wwzjorrro5c645eaoh0zgyldyyxg.html) {
+                root /srv/staticFileServer/;
+                allow all;
+        }
+
+
+	if ($request_uri ~* (.*)/radio(.*)) {
+		set $url_start $1;
+		rewrite .* $url_start/home-page redirect;
+		break;
+
+	}
+
+        error_page 404 /error/4xx.html;
+        error_page 410 /error/410.html;
+        error_page 500 501 502 503 504 /error/5xx.html;
+        recursive_error_pages   on;
+        location ^~ /error/ {
+            root /srv/www/errors/en;
+        }
+	location /nginx_status {
+          stub_status on;
+          access_log   off;
+          #allow 41.33.46.98; 
+	  #allow 127.0.0.1;
+          #deny all;
+        }        
+        include /etc/nginx/include.d/mubasher.info.common.conf;
+	return 301 https://fnn.english.mubasher.info$request_uri;
+}
+
+server {
+        listen 443 ssl;
+        server_name fnn.english.mubasher.info;
+
+		deny 76.76.21.21; #Block https://thndr.app/
+        deny 164.160.104.253; #Block https://www.sigma-cap.com
+	
+        add_header X-Frame-Options DENY;
+
+        location ~* /EGX/rssStoryList.html {
+                        return 403;
+        }
+
+#	if ($request_filename ~* /markets/EGX/stocks/FAIT) {
+#                rewrite ^ https://english.mubasher.info permanent;
+#        }
+
+#        if ($request_filename ~* /markets/EGX/stocks/FAITA) {
+#                rewrite ^ https://english.mubasher.info permanent;
+#      	 }
+
+        location ~ ^/(sitemap_.*\.xml) {
+                root /srv/staticFileServer/sitemap/en/;
+                allow all;
+        }
+
+        location ~ ^/(k8wwzjorrro5c645eaoh0zgyldyyxg.html) {
+                root /srv/staticFileServer/;
+                allow all;
+        }
+
+
+        if ($request_uri ~* (.*)/radio(.*)) {
+                set $url_start $1;
+                rewrite .* $url_start/home-page redirect;
+                break;
+        }
+
+        error_page 404 /error/4xx.html;
+        error_page 410 /error/410.html;
+        error_page 500 501 502 503 504 /error/5xx.html;
+        recursive_error_pages   on;
+        location ^~ /error/ {
+            root /srv/www/errors/en;
+        }
+        location /nginx_status {
+          stub_status on;
+          access_log   off;
+          #allow 41.33.46.98;
+          #allow 127.0.0.1;
+          #deny all;
+        }
+        include /etc/nginx/include.d/mubasher.info.common.conf;
+}
+
+server {
+	listen 80 default_server;
+	server_name _;
+	rewrite ^ $scheme://www.fnn.mubasher.info permanent;
+	#return	301 https://www.mubasher.info;
+}
+
+server {
+        listen 443 ssl default_server;
+	ssl on;
+#ssl_certificate      /etc/ssl/certificate.crt;
+#ssl_certificate_key  /etc/ssl/private.key;
+
+	ssl_certificate /srv/servers/per-server/web1/ssl-certs/_.mubasher.info/signed_by_godaddy/mubasher.info-ssl-combined.crt;	ssl_certificate_key /srv/servers/per-server/web1/ssl-certs/_.mubasher.info/_.mubasher.info_private_unencrypted.key;
+
+
+
+	# See: https://library.linode.com/web-servers/nginx/configuration/ssl
+	keepalive_timeout 70;
+	server_name _;
+	rewrite ^ $scheme://www.fnn.mubasher.info permanent;
+	#return	301 https://www.mubasher.info;
+}
