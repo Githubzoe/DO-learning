@@ -1,0 +1,17 @@
+/storage/logs/apache2/*.log /storage/logs/apache2/*/*.log {
+	daily
+	missingok
+	rotate 30
+	compress
+	notifempty
+	create 640 root adm
+	sharedscripts
+	postrotate
+		/etc/init.d/apache2 reload > /dev/null
+	endscript
+	prerotate
+		if [ -d /etc/logrotate.d/httpd-prerotate ]; then \
+			run-parts /etc/logrotate.d/httpd-prerotate; \
+		fi; \
+	endscript
+}

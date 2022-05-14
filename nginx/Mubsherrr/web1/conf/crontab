@@ -1,0 +1,46 @@
+# /etc/crontab: system-wide crontab
+# Unlike any other crontab you don't have to run the `crontab'
+# command to install the new version when you edit this file
+# and files in /etc/cron.d. These files also have username fields,
+# that none of the other crontabs do.
+
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/srv/servers/common/scripts
+
+###################################################################################################
+# System (default) cron jobs
+#
+# m h dom mon dow user	command
+17 *	* * *	root    cd / && run-parts --report /etc/cron.hourly
+25 6	* * *	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.daily )
+47 6	* * 7	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.weekly )
+52 6	1 * *	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.monthly )
+
+0 */4   * * *   root    /home/info-hawk/space_monitor.sh
+*/5 *   * * *   root    /home/info-hawk/space_monitor.sh
+
+###################################################################################################
+# Our custom cronb jobs below
+#
+# m h dom mon dow user	command
+
+# gealth checks
+*/1 * * * *  root /srv/servers/common/scripts/performance-check-all-pipes-connections.sh >> /storage/logs/health_checks/all-pipes.log
+
+# Backup
+# 30 2 * * * root /srv/backup-tools/run-all.sh && /srv/backup-tools/utilities/rotate.sh /storage/backup 5
+# 30 2 * * * root /srv/backup-tools/toolbox/static-files.sh
+
+# log all pipes connections 
+*1 * * * * root /srv/servers/common/scripts/performance-check-all-pipes-connections.sh >>/srv/logs/all-pipes-connections.log
+
+# Compress MIS logs
+1 1 * * * root /usr/bin/python /srv/servers/common/scripts/compress.py -d /srv/logs/mis_logs/ -p \*.log.\* >> /srv/logs/compress.log
+
+# delete log files older than 14 days
+30 8 * * * root /root/scripts/deletelogfiles.sh >> /root/scripts/log-delete/`date +\%Y-\%m-\%d`-logdelete.log 2>&1 
+
+# tracking the load average
+#*/1 * * * * root /root/scripts/checkload.sh >> /root/scripts/log-checkload/`date +\%Y-\%m-\%d`-checkload.log 2>&1
+
+#* * * * * root /root/scripts/ulimit.sh

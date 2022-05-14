@@ -1,0 +1,175 @@
+server {
+        listen 80;
+        listen 443 ssl;
+        server_name services.mubasher.net mubasher.info secure.mubasher.info;
+
+	ssl on;
+	ssl_certificate /srv/servers/per-server/web1/ssl-certs/_.mubasher.info/signed_by_godaddy/mubasher.info-ssl-combined.crt;
+	ssl_certificate_key /srv/servers/per-server/web1/ssl-certs/_.mubasher.info/_.mubasher.info_private_unencrypted.key;
+	# See: https://library.linode.com/web-servers/nginx/configuration/ssl
+	keepalive_timeout 70;
+
+        #rewrite ^(.*)$ https://www.mubasher.info$1 permanent;
+	rewrite ^(.*)$ https://www.mubasher.info$1 permanent;
+}
+
+server {
+	listen 80;
+        #listen 443 ssl;
+	server_name www.mubasher.info;
+
+        location ~ ^/(sitemap_.*\.xml) {
+                root /srv/staticFileServer/sitemap/ar/;
+                allow all;
+        }
+
+	location ~ ^/(k8wwzjorrro5c645eaoh0zgyldyyxg.html) {
+                root /srv/staticFileServer/;
+                allow all;
+        }
+
+
+        error_page 404 /error/4xx.html;
+        error_page 410 /error/410.html;
+        error_page 500 501 502 503 504 /error/5xx.html;
+        recursive_error_pages   on;
+        location ^~ /error/ {
+            root /srv/www/errors/ar;
+        }
+
+	location ^~ /telegram {
+		proxy_pass http://134.213.65.118:8092/whatsappDispatcher/telegram;
+		proxy_set_header X-Real-IP $remote_addr;
+		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+	}
+	include /etc/nginx/include.d/mubasher.info.common.conf;
+	return 301 https://www.mubasher.info$request_uri;
+}
+
+server {
+        listen 443 ssl;
+        server_name www.mubasher.info;
+
+        location ~ ^/(sitemap_.*\.xml) {
+                root /srv/staticFileServer/sitemap/ar/;
+                allow all;
+        }
+
+        location ~ ^/(k8wwzjorrro5c645eaoh0zgyldyyxg.html) {
+                root /srv/staticFileServer/;
+                allow all;
+        }
+
+
+        error_page 404 /error/4xx.html;
+        error_page 410 /error/410.html;
+        error_page 500 501 502 503 504 /error/5xx.html;
+        recursive_error_pages   on;
+        location ^~ /error/ {
+            root /srv/www/errors/ar;
+        }
+
+        location ^~ /telegram {
+                proxy_pass http://134.213.65.118:8092/whatsappDispatcher/telegram;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        }
+        include /etc/nginx/include.d/mubasher.info.common.conf;
+}
+
+server {
+        listen 80;
+        #listen 443 ssl;
+        server_name english.mubasher.info;
+
+        location ~ ^/(sitemap_.*\.xml) {
+                root /srv/staticFileServer/sitemap/en/;
+                allow all;
+        }
+
+        location ~ ^/(k8wwzjorrro5c645eaoh0zgyldyyxg.html) {
+                root /srv/staticFileServer/;
+                allow all;
+        }
+
+
+	if ($request_uri ~* (.*)/radio(.*)) {
+		set $url_start $1;
+		rewrite .* $url_start/home-page redirect;
+		break;
+	}
+
+        error_page 404 /error/4xx.html;
+        error_page 410 /error/410.html;
+        error_page 500 501 502 503 504 /error/5xx.html;
+        recursive_error_pages   on;
+        location ^~ /error/ {
+            root /srv/www/errors/en;
+        }
+	location /nginx_status {
+          stub_status on;
+          access_log   off;
+          #allow 41.33.46.98; 
+	  #allow 127.0.0.1;
+          #deny all;
+        }        
+        include /etc/nginx/include.d/mubasher.info.common.conf;
+	return 301 https://english.mubasher.info$request_uri;
+}
+
+server {
+        listen 443 ssl;
+        server_name english.mubasher.info;
+
+        location ~ ^/(sitemap_.*\.xml) {
+                root /srv/staticFileServer/sitemap/en/;
+                allow all;
+        }
+
+        location ~ ^/(k8wwzjorrro5c645eaoh0zgyldyyxg.html) {
+                root /srv/staticFileServer/;
+                allow all;
+        }
+
+
+        if ($request_uri ~* (.*)/radio(.*)) {
+                set $url_start $1;
+                rewrite .* $url_start/home-page redirect;
+                break;
+        }
+
+        error_page 404 /error/4xx.html;
+        error_page 410 /error/410.html;
+        error_page 500 501 502 503 504 /error/5xx.html;
+        recursive_error_pages   on;
+        location ^~ /error/ {
+            root /srv/www/errors/en;
+        }
+        location /nginx_status {
+          stub_status on;
+          access_log   off;
+          #allow 41.33.46.98;
+          #allow 127.0.0.1;
+          #deny all;
+        }
+        include /etc/nginx/include.d/mubasher.info.common.conf;
+}
+
+server {
+	listen 80 default_server;
+	server_name _;
+	rewrite ^ $scheme://www.mubasher.info permanent;
+	#return	301 https://www.mubasher.info;
+}
+
+server {
+        listen 443 ssl default_server;
+	ssl on;
+	ssl_certificate /srv/servers/per-server/web1/ssl-certs/_.mubasher.info/signed_by_godaddy/mubasher.info-ssl-combined.crt;
+	ssl_certificate_key /srv/servers/per-server/web1/ssl-certs/_.mubasher.info/_.mubasher.info_private_unencrypted.key;
+	# See: https://library.linode.com/web-servers/nginx/configuration/ssl
+	keepalive_timeout 70;
+	server_name _;
+	rewrite ^ $scheme://www.mubasher.info permanent;
+	#return	301 https://www.mubasher.info;
+}
