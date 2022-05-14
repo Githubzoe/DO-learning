@@ -1,3 +1,5 @@
 Linux Commands
 
-echo $0
+SSH Private key location
+
+/home/johndoe/.ssh/id_rsa
