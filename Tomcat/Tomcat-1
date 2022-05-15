@@ -1,0 +1,11 @@
+Tomcat
+
+/opt/tomcat/apache-tomcat-9.0.53
+
+jvmroute variable in server.xml
+
+jvmroute to set route for nginx
+
+jvmroute = set value for session id
+
+

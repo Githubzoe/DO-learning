@@ -1,0 +1,9 @@
+Jira
+Query for screend tciekts
+
+
+project = "SYS" AND NOT reporter = qm:0221f559-72ef-4d3f-9357-a8606b044a62:678abc23-37c3-4575-9cd4-c6273e2ee9d6 AND NOT reporter = qm:0221f559-72ef-4d3f-9357-a8606b044a62:2e298c65-c058-4cf7-b505-aeba38c81fb3 AND NOT reporter = qm:0221f559-72ef-4d3f-9357-a8606b044a62:2f938f1a-db60-422e-ba19-bb51b407176d AND NOT reporter = qm:0221f559-72ef-4d3f-9357-a8606b044a62:ebd3a8b1-b1a1-4f9b-962f-9cad5afe23d3 AND NOT reporter = qm:0221f559-72ef-4d3f-9357-a8606b044a62:ac883a48-a5b4-425e-b46a-994f77e18ba7 ORDER BY reporter
+
+
+
+

@@ -1,0 +1,18 @@
+nginx performance tuning
+
+Tuning the Operating System
+Increase the value of the net.core.somaxconn kernel parameter from its default value (128) to a value high enough for a large burst of traffic. In this example, it’s increased to 4096.
+
+sudo sysctl -w net.core.somaxconn=4096
+
+Use a text editor to add the following line to /etc/sysctl.conf:
+
+net.core.somaxconn = 4096
+
+Tuning NGINX
+If you set the somaxconn kernel parameter to a value greater than 512, change the backlog parameter to the NGINX listen directive to match:
+
+server {
+    listen 80 backlog=4096;
+    # ...
+}

@@ -1,0 +1,135 @@
+ Load Balancing
+ 
+ HTTP Load Balancing
+
+ Use NGINX’s HTTP module to load balance over HTTP servers
+using the upstream block:
+
+upstream backend {
+ server 10.10.12.45:80 weight=1;
+ server app.example.com:80 weight=2;
+}
+server {
+    location / {
+ proxy_pass http://backend;
+ }
+}
+
+This configuration balances load across two HTTP servers on port
+80. The weight parameter instructs NGINX to pass twice as many
+connections to the second server, and the weight parameter defaults
+to 1.
+
+
+ destinations—any combination of
+Unix sockets, IP addresses, and DNS records, or a mix
+
+
+
+
+
+TCP Load Balancing
+
+Use NGINX’s stream module to load balance over TCP servers
+using the upstream block:
+
+stream {
+ upstream mysql_read {
+ server read1.example.com:3306 weight=5;
+ server read2.example.com:3306;
+ server 10.10.12.34:3306 backup;
+ }
+ server {
+ listen 3306;
+ proxy_pass mysql_read;
+ }
+}
+
+
+
+
+
+ UDP Load Balancing
+
+
+ stream {
+ upstream ntp {
+ server ntp1.example.com:123 weight=2;
+ server ntp2.example.com:123;
+ }
+ server {
+ listen 123 udp;
+ proxy_pass ntp;
+ }
+}
+
+
+reuseport parameter. 
+
+Examples of these types of services are
+OpenVPN, Voice over Internet Protocol (VoIP), virtual desktop sol‐
+utions, and Datagram Transport Layer Security (DTLS)
+
+
+OpenVPN connections
+and proxy them to the OpenVPN service running locally:
+stream {
+ server {
+ listen 1195 udp reuseport;
+ proxy_pass 127.0.0.1:1194;
+ }
+}
+
+
+sticky cookie
+
+Use the sticky cookie directive to instruct NGINX Plus to create
+and track a cookie:
+
+upstream backend {
+ server backend1.example.com;
+ server backend2.example.com;
+ sticky cookie
+ affinity
+ expires=1h
+ domain=.example.com
+ httponly
+ secure
+ path=/;
+}
+
+
+Sticky Learn
+
+Use the sticky learn directive to discover and track cookies that
+are created by the upstream application:
+upstream backend {
+ server backend1.example.com:8080;
+ server backend2.example.com:8081;
+ sticky learn
+ create=$upstream_cookie_cookiename
+ lookup=$cookie_cookiename
+ zone=client_sessions:2m;
+}
+
+
+sticky directive is
+provided the learn parameter. Shared memory for tracking cookies
+is specified with the zone parameter, with a name and size
+
+
+Sticky Routing
+
+Use the sticky directive with the route parameter to use variables
+about the request to route:
+map $cookie_jsessionid $route_cookie {
+ ~.+\.(?P<route>\w+)$ $route;
+}
+map $request_uri $route_uri {
+ ~jsessionid=.+\.(?P<route>\w+)$ $route;
+}
+upstream backend {
+ server backend1.example.com route=a;
+ server backend2.example.com route=b;
+ sticky route $route_cookie $route_uri;
+}

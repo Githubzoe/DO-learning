@@ -1,0 +1,109 @@
+FNN Servers
+
+
+there are 2 servers & 1 RDS
+
+ssh directfn@fnn.web1.directfn.com
+
+ssh directfn@fnn.fileserver.dirctfn.com
+79.125.65.126 fnn.web1.directfn.com
+52.51.230.225 fnn.fileserver.dirctfn.com
+
+scp . ssh directfn@79.125.65.126:/tmp/nginx09112021.zip
+
+
+
+show variables like "max_connections";
+set global max_connections = 200;
+
+max connection.. 1000
+
+tomcat restart
+
+mysuperstrongpassword
+
+
+home/talha/mysql/docker file cat  for password
+
+https://ubiq.co/database-blog/how-to-increase-max-connections-in-mysql/
+
+mysql> show variables like "max_connections";
+
+show status where `variable_name` = 'Threads_connected';
+
+FNN:-
+https://fnn.mubasher.info/
+
+FNN Admin:-
+https://fnn.mubasher.info/mism/adminLogin.html?error=common.error.loginFirst
+
+
+tomcat max pool size 500 above 
+
+
+https://fnn.english.mubahser.info
+
+
+cd /srv/tomcat-tc/logs/
+tail -100 catalina.out
+
+cd /root/mis_logs/
+tail -f general.log
+
+ps aux | grep -i tom
+
+
+startup and shutdown script
+
+/srv/tomcat-tc/bin
+
+./stop.sh 
+
+./startup.sh 
+
+FNN meeting 18-10-2021
+
+
+https://gfmtech.atlassian.net/jira/software/projects/FNN/boards/25/backlog?selectedIssue=FNN-39
+
+
+
+
+UPDATE `theme` SET `name` = 'almysryalyoum', `slug` = 'almysryalyoum' WHERE (`id` = '1');
+UPDATE `theme` SET `name` = 'masrawy', `slug` = 'masrawy' WHERE (`id` = '2');
+
+/usr/bin/sh /home/script/on-boot.sh
+ shript
+
+cd /srv/tomcat-tc/bin/
+
+
+location / {
+  proxy_pass http://127.0.0.1:8080;
+  proxy_set_header Host $http_host;
+  proxy_set_header X-Forwarded-Proto $scheme;
+  proxy_set_header X-Forwarded-Server $host;
+  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+  proxy_intercept_errors on;
+  add_header X-Cached "N/A";
+
+                proxy_set_header Connection "";
+                proxy_set_header    X-Real-IP   $remote_addr;
+                proxy_set_header    Host        $http_host;
+                proxy_set_header    X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header    X-Originating-Country $geoip_country_name;
+                proxy_set_header    X-Originating-Country-Code $geoip_country_code;
+
+                add_header X-Country $geoip_country_code;
+                add_header X-Country_name $geoip_country_name;
+                proxy_headers_hash_max_size 512;
+                proxy_headers_hash_bucket_size 128;
+
+}
+
+
+
+docker run --name mynginx2 --mount type=bind source=/var/www,target=/usr/share/nginx/html,readonly --mount type=bind,source=/var/nginx/conf,target=/etc/nginx/conf,readonly -p 80:80 -d nginx
+
+
+\\wsl$

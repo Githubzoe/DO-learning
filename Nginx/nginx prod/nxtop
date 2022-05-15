@@ -1,0 +1,41 @@
+nxtop
+
+pip install ngxtop
+
+ngxtop
+
+ngxtop top remote_addr
+
+ngxtop -i 'status >= 404'
+
+ngxtop –l /path/access.log
+
+ngxtop –f common –l /path/access.log
+
+
+sudo apt-get install goaccess
+
+
+goaccess -f /path/to/nginx/access.log
+goaccess -f /path/to/apache/access.log
+goaccess -f /path/to/lighttpd/access.log
+goaccess -f /path/to/lighttpd/access.log /path/to/lighttpd/access.log.1
+zcat /path/to/nginx/access.log.*.gz | goaccess access.log -
+goaccess [options] /path/to/lighttpd/access.log
+
+
+goaccess -f /var/log/nginx/access.log
+
+How do I generate an HTML report?
+
+goaccess -f /var/log/nginx/access.log --log-format=COMBINED -o www.nixcraft.com.log.html
+
+How do I use goaccess over an ssh based session?
+The syntax is:
+$ ssh vivek@server1.cyberciti.biz 'cat /var/log/nginx/access.log'|goaccess --log-format=COMBINED -a -
+$ ssh vivek@server1.cyberciti.biz 'cat /var/log/nginx/access.log'|goaccess --log-format=COMBINED -
+$ ssh vivek@server1.cyberciti.biz 'cat /var/log/nginx/access.log'|goaccess --log-format=COMBINED -o www.nixcraft.com.log.htm -
+
+How do I view real time stats in browser?
+Run it as follows:
+$ goaccess -f access.log -o report.html --real-time-html --addr=192.168.1.254 --port=8022

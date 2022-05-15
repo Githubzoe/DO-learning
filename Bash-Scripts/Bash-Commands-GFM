@@ -1,0 +1,52 @@
+AWS aAccounts
+
+UAT
+
+ssh -vi gfm.pem centos@IP
+
+
+ssh -vi ec2-user@ip
+
+
+Prod
+
+ ssh -i "ec2-du-keypair.pem" ec2-user@ec2-IP.eu-west-1.compute.amazonaws.com
+
+
+sudo systemctl stop du-config-server.service
+sudo systemctl stop du-api-gateway.service 
+sudo systemctl stop du-email.service 
+sudo systemctl stop du-payment.service 
+sudo systemctl stop du-predict.service 
+sudo systemctl stop du-service-registery.service
+sudo systemctl stop du-user.service 
+sudo systemctl stop du-zipkin.service
+ 
+sudo systemctl start du-service-registery.service 
+sudo systemctl start du-zipkin.service 
+
+ 
+
+sudo systemctl start du-user.service 
+sudo systemctl start du-payment.service 
+sudo systemctl start du-predict.service 
+sudo systemctl start du-api-gateway.service 
+sudo systemctl start du-config-server.service 
+sudo systemctl start du-email.service
+
+Credentails
+
+https://bitbucket.org/gfm-devops/knowledge_transfer.git
+
+nagiosadmin
+
+nagios
+
+Uat-db
+
+Ssh port: 3222
+
+Database IP: localhost
+
+Port: 3306
+

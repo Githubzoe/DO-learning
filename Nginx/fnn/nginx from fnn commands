@@ -1,0 +1,43 @@
+ssh -vi fnn-test.pem ubuntu@18.132.230.53
+
+scp  -i fnn-test.pem ubuntu@18.132.230.53:/tmp/etcngin.zip .
+
+scp -i fnn-test.pem ubuntu@18.132.230.53:/tmp/usrsharenginx.zip .
+ 
+
+apt update 
+
+apt updagre
+
+remove nginx core
+
+nginx 1.20
+
+
+/etc/apt/sources.list
+deb https://nginx.org/packages/ubuntu/ focal nginx
+
+rsync -Wav --progress /etc/nginx root@18.132.230.53:/etc
+
+rsync -Wav --progress . root@fnn-test:/etc
+
+rsync -avzh --progress /etc/nginx root@18.132.230.53:/etc
+
+rsync -chavzPW --stats ubuntu@root@18.132.230.53:/etc/nginx .
+
+
+rsync -Wav --progress /usr/share/nginx root@fnn-test:/usr/share
+
+dpkg -l | grep -i nginx
+
+rsync -Wav --progress /srv/servers/per-server/web1 root@fnn-test:srv/servers/per-server/
+
+apt remove nginx-core
+
+/etc/apt/sources.list
+deb https://nginx.org/packages/ubuntu/ focal nginx
+
+copy trusted.gpg from fnn
+
+18.132.230.53
+

@@ -1,0 +1,328 @@
+FNN meeting
+
+https://gfmtech.atlassian.net/jira/software/projects/FNN/boards/25/backlog?selectedIssue=FNN-39
+
+sub domain based .. languge Routing
+
+/en
+/ar
+
+info single tom cat
+
+fnn = multiple news agencies
+
+
+mulitple domians o single tomcat
+
+
+sub domain hard coded 
+
+
+
+tomcat main file
+
+srv/tomcat-tc/conf
+context.xml    // FNN URLS configured here in this file
+
+mubasher.geo.com
+
+
+languge as parparmeter = pass in URL for nginx
+
+
+
+
+file which is forwarding traffic to local host 8080
+
+check .. how manulple and how getting reponse  = URL manuplation
+
+langugae paramter = variable based routing
+
+pass parameters and uris
+
+and how we are getting back reponses
+
+imp point
+
+nginx -> local host 8080
+
+parameters and uri varibles pass and what is the reponse
+
+next : mubsher.geo.com -> get agency name -> pass it to local host 8080
+
+country fix to eg
+
+language .. thorugh URL and pass it to tomcat..
+
+mubasher.geo.com/en
+
+handle multiple parameters of URL and pass it on to tomcat 8080
+
+last parmater will be lanaguge
+
+mubasher.geo.com/companies/ekho/en
+
+request uri will be parsed
+
+
+as request header passed to tomcat
+
+
+reponse on same URL 
+
+
+
+ir restart.. automatic wapis aa rehi hein k nehi
+
+
+
+lanugae and sub domain issue:
+
+Lanague should be passed as parameters
+lanaguge should not be defined based on sub domain
+
+
+
+
+
+
+kam kerne walay:
+
+sub domain sey nikalna hey agency ki naam = publsher ka nam
+
+URL ka last parameter nikalna hy = 
+
+set value in the header = heard coded = country name = eg
+
+
+INAP pay UAT of FNN:
+
+
+server {
+listen 80 default_server;
+ 
+
+    #listen 443 ssl default_server;
+
+    server_name     ~^(?<subdomain>.+)\.mubasher\.info$;
+ 
+ 
+root    /var/www/html/$subdomain/;
+
+    index index.html index.htm index.nginx-debian.html;
+ 
+ 
+    location / {
+
+        try_files $uri $uri/ =404;
+    }
+ 
+}
+
+http://example.com$request_uri permanent; or better still location /whatever { return http://example.com$request_uri;
+
+
+
+Header ki key
+
+
+white lableing:
+
+landing multiple domain domains 
+
+
+
+./configure --prefix=/usr/local/nginx \
+--add-module=/usr/local/src/echo-nginx-module-master \
+--prefix=/usr/share/nginx \
+--sbin-path=/usr/sbin/nginx \
+--modules-path=/usr/lib64/nginx/modules \
+--conf-path=/etc/nginx/nginx.conf \
+--error-log-path=/var/log/nginx/error.log \
+--http-log-path=/var/log/nginx/access.log \
+--http-client-body-temp-path=/var/lib/nginx/tmp/client_body \
+--http-proxy-temp-path=/var/lib/nginx/tmp/proxy \
+--http-fastcgi-temp-path=/var/lib/nginx/tmp/fastcgi \
+--http-uwsgi-temp-path=/var/lib/nginx/tmp/uwsgi \
+--http-scgi-temp-path=/var/lib/nginx/tmp/scgi \
+--pid-path=/run/nginx.pid \
+--lock-path=/run/lock/subsys/nginx \
+--user=nginx \
+--group=nginx \
+--with-file-aio \
+--with-ipv6 \
+--with-http_auth_request_module \
+--with-http_ssl_module \
+--with-http_v2_module \
+--with-http_realip_module \
+--with-http_addition_module \
+--with-http_xslt_module=dynamic \
+--with-http_image_filter_module=dynamic \
+--with-http_geoip_module=dynamic \
+--with-http_sub_module \
+--with-http_dav_module \
+--with-http_flv_module \
+--with-http_mp4_module \
+--with-http_gunzip_module \
+--with-http_gzip_static_module \
+--with-http_random_index_module \
+--with-http_secure_link_module \
+--with-http_degradation_module \
+--with-http_slice_module \
+--with-http_stub_status_module \
+--with-http_perl_module=dynamic \
+--with-mail=dynamic \
+--with-mail_ssl_module \
+--with-pcre \
+--with-pcre-jit \
+--with-stream=dynamic \
+--with-stream_ssl_module \
+--with-debug 
+
+
+Symlink /usr/lib/nginx/modules to /etc/nginx/modules directory. etc/nginx/modules is a standard place for NGINX modules:
+
+sudo ln -s /usr/lib/nginx/modules /etc/nginx/modules
+
+
+--add-module=/usr/local/src/echo-nginx-module-0.61
+
+./configure --prefix=/usr/local/nginx \ 
+--add-module=/usr/local/src/echo-nginx-module-0.61 \
+            --sbin-path=/usr/sbin/nginx \ 
+            --modules-path=/usr/lib/nginx/modules \ 
+            --conf-path=/etc/nginx/nginx.conf \
+            --error-log-path=/var/log/nginx/error.log \
+            --pid-path=/var/run/nginx.pid \
+            --lock-path=/var/run/nginx.lock \
+            --user=nginx \
+            --group=nginx \
+            --build=Ubuntu \
+            --builddir=nginx-1.15.0 \
+            --with-select_module \
+            --with-poll_module \
+            --with-threads \
+            --with-file-aio \
+            --with-http_ssl_module \
+            --with-http_v2_module \
+            --with-http_realip_module \
+            --with-http_addition_module \
+            --with-http_xslt_module=dynamic \
+            --with-http_image_filter_module=dynamic \
+            --with-http_geoip_module=dynamic \
+            --with-http_sub_module \
+            --with-http_dav_module \
+            --with-http_flv_module \
+            --with-http_mp4_module \
+            --with-http_gunzip_module \
+            --with-http_gzip_static_module \
+            --with-http_auth_request_module \
+            --with-http_random_index_module \
+            --with-http_secure_link_module \
+            --with-http_degradation_module \
+            --with-http_slice_module \
+            --with-http_stub_status_module \
+            --with-http_perl_module=dynamic \
+            --with-perl_modules_path=/usr/share/perl/5.26.1 \
+            --with-perl=/usr/bin/perl \
+            --http-log-path=/var/log/nginx/access.log \
+            --http-client-body-temp-path=/var/cache/nginx/client_temp \
+            --http-proxy-temp-path=/var/cache/nginx/proxy_temp \
+            --http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp \
+            --http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp \
+            --http-scgi-temp-path=/var/cache/nginx/scgi_temp \
+            --with-mail=dynamic \
+            --with-mail_ssl_module \
+            --with-stream=dynamic \
+            --with-stream_ssl_module \
+            --with-stream_realip_module \
+            --with-stream_geoip_module=dynamic \
+            --with-stream_ssl_preread_module \
+            --with-compat \
+            --with-pcre=../pcre-8.42 \
+            --with-pcre-jit \
+            --with-zlib=../zlib-1.2.11 \
+            --with-openssl=../openssl-1.1.0h \
+            --with-openssl-opt=no-nextprotoneg \
+            --with-compat --add-dynamic-module=../ngx_http_auth_pam_module \
+            --with-debug
+
+
+            ./configure --prefix=/usr/share/nginx --sbin-path=/usr/sbin/nginx --modules-path=/usr/lib64/nginx/modules --conf-path=/etc/nginx/nginx conf --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --http-client-body-temp-path=/var/lib/nginx/tmp/client_body --http-proxy-temp-path=/var/lib/nginx/tmp/proxy --http-fastcgi-temp-path=/var/lib/nginx/tmp/fastcgi --http-uwsgi-temp-path=/var/lib/nginx/tmp/uwsgi --http-scgi-temp-path=/var/lib/nginx/tmp/scgi --pid-path=/run/nginx.pid --lock-path=/run/lock/subsys/nginx --user=nginx --group=nginx --with-file-aio --with-ipv6 --with-http_auth_request_module --with-http_ssl_module --with-http_v2_module --with-http_realip_module --with-http_addition_module --with-http_xslt_module=dynamic --with-http_image_filter_module=dynamic --with-http_geoip_module=dynamic --with-http_sub_module --with-http_dav_module --with-http_flv_module --with-http_mp4_module --with-http_gunzip_module --with-http_gzip_static_module --with-http_random_index_module --with-http_secure_link_module --with-http_degradation_module --with-http_slice_module --with-http_stub_status_module --with-http_perl_module=dynamic --with-mail=dynamic --with-mail_ssl_module --with-pcre --with-pcre-jit --with-stream=dynamic --with-stream_ssl_module --with-google_perftools_module --with-debug --with-cc-opt='-O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -m64 -mtune=generic' --with-ld-opt='-Wl,-z,relro -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -Wl,-E' --with-compat --add-dynamic-module=../ngx_http_auth_pam_module/
+
+
+
+
+./configure --prefix=/etc/nginx \ 
+--add-module=/usr/local/src/echo-nginx-module-master \
+            --sbin-path=/usr/sbin/nginx \ 
+            --modules-path=/usr/lib/nginx/modules \ 
+            --conf-path=/usr/local/nginx/nginx.conf\
+            --error-log-path=/var/log/nginx/error.log \
+            --pid-path=/var/run/nginx.pid \
+            --lock-path=/var/run/nginx.lock \
+            --user=nginx \
+            --group=nginx \
+            --build=Ubuntu \
+            --builddir=nginx-1.15.0 \
+            --with-select_module \
+            --with-poll_module \
+            --with-threads \
+            --with-file-aio \
+            --with-http_ssl_module \
+            --with-http_v2_module \
+            --with-http_realip_module \
+            --with-http_addition_module \
+            --with-http_xslt_module=dynamic \
+            --with-http_image_filter_module=dynamic \
+            --with-http_geoip_module=dynamic \
+            --with-http_sub_module \
+            --with-http_dav_module \
+            --with-http_flv_module \
+            --with-http_mp4_module \
+            --with-http_gunzip_module \
+            --with-http_gzip_static_module \
+            --with-http_auth_request_module \
+            --with-http_random_index_module \
+            --with-http_secure_link_module \
+            --with-http_degradation_module \
+            --with-http_slice_module \
+            --with-http_stub_status_module \
+            --with-http_perl_module=dynamic \
+            --with-perl_modules_path=/usr/share/perl/5.26.1 \
+            --with-perl=/usr/bin/perl \
+            --http-log-path=/var/log/nginx/access.log \
+            --http-client-body-temp-path=/var/cache/nginx/client_temp \
+            --http-proxy-temp-path=/var/cache/nginx/proxy_temp \
+            --http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp \
+            --http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp \
+            --http-scgi-temp-path=/var/cache/nginx/scgi_temp \
+            --with-mail=dynamic \
+            --with-mail_ssl_module \
+            --with-stream=dynamic \
+            --with-stream_ssl_module \
+            --with-stream_realip_module \
+            --with-stream_geoip_module=dynamic \
+            --with-stream_ssl_preread_module \
+            --with-compat \
+            --with-pcre=../pcre-8.42 \
+            --with-pcre-jit \
+            --with-zlib=../zlib-1.2.11 \
+            --with-openssl=../openssl-1.1.0h \
+            --with-openssl-opt=no-nextprotoneg \
+            --with-debug
+
+
+
+./configure
+    --sbin-path=/usr/local/nginx/nginx
+    --add-module=/usr/local/src/echo-nginx-module-master \
+    --conf-path=/usr/local/nginx/nginx.conf
+    --pid-path=/usr/local/nginx/nginx.pid
+    --with-http_ssl_module
+    --with-pcre=../pcre-8.44
+    --with-zlib=../zlib-1.2.11
+
+
+
+    nginx.conf -> sites-enabled -> mubaser.info -> include.d -> mubasher.info.common.conf

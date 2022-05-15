@@ -1,0 +1,188 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<!-- The contents of this file will be loaded for each web application -->
+<Context sessionCookieDomain=".mubasher.info">
+
+  <!-- Default set of monitored resources -->
+  <WatchedResource>WEB-INF/web.xml</WatchedResource>
+
+  <!-- Uncomment this to disable session persistence across Tomcat restarts -->
+  <!--
+    <Manager pathname="" />
+    -->
+
+  <!-- Uncomment this to enable Comet connection tacking (provides events
+     on session expiration as well as webapp lifecycle) -->
+  <!--
+    <Valve className="org.apache.catalina.valves.CometConnectionManagerValve" />
+    -->
+
+  <Environment name="hostName" override="false" type="java.lang.String" value="https://fnn.mubasher.info" />
+	  <!--  <Environment name="hostName" override="false" type="java.lang.String" value="https://almasryalyoum.mubasher.info" /> -->
+  <Environment name="englishHostName" override="false" type="java.lang.String" value="https://fnn.english.mubasher.info" />
+  <Environment name="rssFeedHostName" override="false" type="java.lang.String" value="https://feeds.devnap.mubasher.info" />
+  <Environment name="fileServerURL" value="https://fnn-static.mubasher.info/" type="java.lang.String" />
+  <Environment name="fileServerPhysicalPath" value="/srv/staticFileServer/" type="java.lang.String" />
+
+  <Environment name="jdbc.driver.class" override="false" type="java.lang.String" value="com.mysql.jdbc.Driver" />
+	
+		<!-- <Environment name="jdbc.url" override="false" type="java.lang.String" value="jdbc:mysql://fnn.rs.db.mubasher.info:3306/mubasher_live?autoReconnect=true&amp;characterEncoding=utf-8&amp;" />
+  <Environment name="jdbc.username" override="false" type="java.lang.String" value="admin" />
+  <Environment name="jdbc.password" override="false" type="java.lang.String" value="0stf1x915a7" /> --> 
+		 <Environment name="jdbc.url" override="false" type="java.lang.String" value="jdbc:mysql://127.0.0.1:3306/mubasher_live?autoReconnect=true&amp;characterEncoding=utf-8&amp;" />
+  <Environment name="jdbc.username" override="false" type="java.lang.String" value="root" />
+  <Environment name="jdbc.password" override="false" type="java.lang.String" value="mysuperstrongpassword" /> 
+
+  <Environment name="jdbc.max.active.connections" override="false" type="java.lang.String" value="400" />
+  <Environment name="jdbc.max.idle.time" override="false" type="java.lang.String" value="5000" />
+  <Environment name="jdbc.max.wait.time" override="false" type="java.lang.String" value="10000" />
+
+  <Environment name="sessionCookieDomain" override="false" type="java.lang.String" value=".mubasher.info" />
+  <!-- Slave Configuration -->
+  <!--
+  <Environment name="jdbc.slave.url" override="false" type="java.lang.String" value="jdbc:mysql://fnn.rs.db.mubasher.info:3306/mubasher_live?autoReconnect=true&amp;characterEncoding=utf-8&amp;" />
+  <Environment name="jdbc.slave.username" override="false" type="java.lang.String" value="admin" />
+	  <Environment name="jdbc.slave.password" override="false" type="java.lang.String" value="0stf1x915a7" />
+  -->
+	  <Environment name="jdbc.slave.url" override="false" type="java.lang.String" value="jdbc:mysql://127.0.0.1:3306/mubasher_live?autoReconnect=true&amp;characterEncoding=utf-8&amp;" />
+  <Environment name="jdbc.slave.username" override="false" type="java.lang.String" value="root" />
+          <Environment name="jdbc.slave.password" override="false" type="java.lang.String" value="mysuperstrongpassword" />
+
+
+	  <Environment name="applicationDeploymentPath" override="false" type="java.lang.String" value="/srv/tomcat-tc/webapps/ROOT/"/>
+  <Environment name="mail.host" value="localhost" type="java.lang.String" override="false" />
+  <Environment name="mail.port" value="25" type="java.lang.String" override="false" />
+  <Environment name="mail.protocol" value="smtp" type="java.lang.String" override="false" />
+
+  <Environment name="fdcWebServiceWSDLURL" override="false" type="java.lang.String" value="http://fdc.egyptdc.com/financial-center/webservice/" />
+  <Environment name="fdcWebServiceBaseCurrency" override="false" type="java.lang.String" value="USD" />
+  <Environment name="fdcWebServiceBaseCurrencyArName" override="false" type="java.lang.String" value="ﺩﻭﻻﺭ ﺄﻣﺮﻴﻜﻳ" />
+  <Environment name="fdcWebServiceBaseCurrencyEnName" override="false" type="java.lang.String" value="United States Dollar" />
+  <Environment name="fdcWebServiceUserName" override="false" type="java.lang.String" value="mubasher_live" />
+  <Environment name="fdcWebServiceSecretKey" override="false" type="java.lang.String" value="M#92Bd$Q" />
+
+  <Environment name="exceptionMailRecipients" override="false" type="java.lang.String" value="mmedia@directfn.com" />
+  <Environment name="exceptionMailSender" override="false" type="java.lang.String" value="exception_reporter@mubasher.edc" />
+
+  <Environment name="integration.messaging.server.host" type="java.lang.String" value="localhost" />
+  <Environment name="integration.messaging.server.username" type="java.lang.String" value="mubasher" />
+  <Environment name="integration.messaging.server.password" type="java.lang.String" value="mubasher" />
+
+  <Environment name="integration.testing.messaging.server.host" type="java.lang.String" value="" />
+  <Environment name="integration.testing.messaging.server.username" type="java.lang.String" value="" />
+  <Environment name="integration.testing.messaging.server.password" type="java.lang.String" value="" />
+
+  <Environment name="integration.messaging.service.propagateExceptions" type="java.lang.Boolean" value="false" />
+
+  <Environment name="bridgeServerURL" value="fnn.rs.lb.mubasher.info" type="java.lang.String" />
+  <Environment name="bridgeServerPort" value="9034" type="java.lang.Integer" />
+  <Environment name="feedUserName" override="false" type="java.lang.String" value="BridgeClient1" />
+  <Environment name="feedPassword" override="false" type="java.lang.String" value="11111111111" />
+  <Environment name="autoCorrectionEnabled" override="false" type="java.lang.Boolean" value="true" />
+
+  <Environment name="luceneIndexfileServerPhysicalPath" override="false" type="java.lang.String" value="/srv/static-files/lucene/index/" />
+
+  <Environment name="caseAnnoucementRefIdMin" override="false" type="java.lang.Integer" value="94000" />
+  <Environment name="caseAnnoucementRefIdMax" override="false" type="java.lang.Integer" value="123000" />
+
+  <Environment name="mobileAppToturialPath" override="false" type="java.lang.String" value="http://52.51.230.225/iMubasher.flv" />
+  <Environment name="marketRevisedNotificationRecipient" override="false" type="java.lang.String" value="your_mail_here@egyptdc.com" />
+
+  <Environment name="storyMiscellaneousCategoryId" override="false" type="java.lang.String" value="1006" />
+
+  <Environment name="storyReportsCategoryId" override="false" type="java.lang.String" value="2" />
+
+  <Environment name="c3p0.idleConnectionTestPeriod" type="java.lang.String" value="1800" />
+  <Environment name="c3p0.preferredTestQuery" type="java.lang.String" value="select 1;" />
+  <Environment name="c3p0.unreturnedConnectionTimeout" type="java.lang.String" value="420" />
+  <Environment name="c3p0.debugUnreturnedConnectionStackTraces" type="java.lang.String" value="True" />
+
+  <!--<Environment name="mixLoginUserName" type="java.lang.String" value="EDCMIXUSER02"/>-->
+  <Environment name="mixLoginUserName" type="java.lang.String" value="MEDIA_3"/> <!-- EDCMIXUSER06-->
+  <Environment name="mixLoginPassword" type="java.lang.String" value="2wsx" />
+ <Environment name="mixAutoStartup" type="java.lang.Boolean" value="true" />
+
+
+
+  <Environment name="enableSSLForLoginForm" override="false" type="java.lang.Boolean" value="false" />
+  <Environment name="socialUserName" type="java.lang.String" value="mubasher@mubasher.info" />
+  <Environment name="socialPassword" type="java.lang.String" value="mubasher" />
+  
+  <Environment name="publishTweetUrl" type="java.lang.String" value="http://172.16.2.123:8080/social/api/publish/tweet" />
+
+  <Environment name="mix.announcements.enabled.exchanges" type="java.lang.String" value="LBBSE, DIFX, BSE, LSM, KSE, DSE, ISX, PSE, ASE, DSM, TDWL, CASE, ADSM, TNTSE, CSE, MSM, DFM" />
+
+
+  <!-- EXCHANGES local emails configuration -->
+  <Environment name="localMail.host" override="false" type="java.lang.String" value="smtp.gmail.com" />
+  <Environment name="localMail.port" override="false" type="java.lang.String" value="587" />
+  <Environment name="localMail.protocol" override="false" type="java.lang.String" value="smtp" />
+  <Environment name="localMail.fromAlias" override="false" type="java.lang.String" value="Tools-Utils Admin" />
+  <Environment name="localMail.from" override="false" type="java.lang.String" value="MubasherResearchPlatform@mubasher.com" />
+  <Environment name="localMail.username" override="false" type="java.lang.String" value="mail@mubasher.info" />
+  <Environment name="localMail.password" override="false" type="java.lang.String" value="x" />
+  <Environment name="exceptionMailRecipients" override="false" type="java.lang.String" value="infoteam@mubasher.info" />
+  <Environment name="exceptionMailSender" override="false" type="java.lang.String" value="exception_reporter@mubasher.edc" />
+  <Environment name="hostName" override="false" type="java.lang.String" value="http://lex.dev.mubasher.info" />
+
+  <!-- Addthis API -->
+  <Environment name="addthis.username" type="java.lang.String" value="sysops@mubasher.info" />
+  <Environment name="addthis.password" type="java.lang.String" value="mubasheradmin1" />
+  <Environment name="addthis.api.domain" type="java.lang.String" value="api.addthis.com" />
+  <Environment name="addthis.analytics.url" type="java.lang.String" value="https://api.addthis.com/analytics/1.0/pub/shares/url.json" />
+  <Environment name="addthis.pubid" type="java.lang.String" value="ra-4e8871f72cfdebda" />
+
+  <Environment name="MixHostPath" override="false" type="java.lang.String" value="uds.feedgma.com/DfnUDS/" />
+  <Environment name="MixUserName" override="false" type="java.lang.String" value="MEDIA_3" />
+  <Environment name="MixPassword" override="false" type="java.lang.String" value="2wsx" />
+  <Environment name="MixEnableSecondLevelCache" override="false" type="java.lang.Boolean" value="true" />
+
+  <!-- Crawlers AMQP config -->
+  <Environment name="crawlers.rabbitmq.server.host" type="java.lang.String" value="localhost" />
+  <Environment name="crawlers.rabbitmq.server.username" type="java.lang.String" value="crawlers" />
+  <Environment name="crawlers.rabbitmq.server.password" type="java.lang.String" value="crawlerspass" />
+  <Environment name="crawlers.rabbitmq.server.vhost" type="java.lang.String" value="crawlers" />
+
+  <Environment name="isNewsletterEnabledOnServer" override="false" type="java.lang.Boolean" value="true" />
+
+    <Environment name="quicksearchApiEndpoint" type="java.lang.String" value="http://localhost:9090/v1" />
+  
+  <!-- Removed in 58.x -->
+
+  
+    <Environment name="adminconsumer.rabbitmq.server.host" type="java.lang.String" value="localhost" />
+  <Environment name="adminconsumer.rabbitmq.server.username" type="java.lang.String" value="news_admin" />
+  <Environment name="adminconsumer.rabbitmq.server.password" type="java.lang.String" value="news_admin" />
+  <Environment name="adminconsumer.rabbitmq.server.vhost" type="java.lang.String" value="news_admin" />
+  <Environment name="adminconsumer.mail.smtp.host" type="java.lang.String" value="localhost" />
+  <Environment name="adminconsumer.mail.smtp.port" type="java.lang.String" value="25" />
+  <Environment name="adminconsumer.mail.charset" type="java.lang.String" value="UTF-8" />
+  <Environment name="adminconsumer.exceptions.mailRecipients" type="java.lang.String" value="infoteam@mubasher.info" />
+  
+    <Environment name="encryptionKey" type="java.lang.String" value="kaWrashpaneftUvEsIqueckenujFeph3" />
+
+
+  <!-- OMS Registration Api-->
+            <Environment name="oms.registration.api.uri" type="java.lang.String" value="http://trdgmuat2-mtplus.mubashertrade.com/registration/api"/>
+
+ <!-- Redirect URLs -->
+          <Environment name="tawasol.sso.redirect.domain" override="false" type="java.lang.String" value="testing.tawasul.mubasher.info"/>
+          <Environment name="tawasul.login.with.mubasher.url" override="false" type="java.lang.String" value="http://testing.tawasul.mubasher.info/social/auths/login/mubasher"/>
+          <Environment name="academy.sso.redirect.domain" override="false" type="java.lang.String" value="testing.academy.mubasher.info"/>
+
+  </Context>

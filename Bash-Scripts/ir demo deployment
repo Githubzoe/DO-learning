@@ -1,0 +1,100 @@
+
+build..ir deve
+
+demo prod ir .. ir demo tool..
+
+http://ir-demo.directfn.com/#
+
+ssh -P 3222 UserName@IP
+
+
+access_log /var/log/nginx/ir_access.log;
+error_log  /var/log/nginx/ir_error.log;
+
+
+factsheet
+
+usr/share/nginx/html/directfn/
+
+
+https://ir.directfn.com/demo/ir/demo/en/factsheet/tdwl/4240
+
+
+"Mounts": [
+{
+"Type": "bind",
+"Source": "/storage/apps/main/www",
+"Destination": "/usr/share/nginx/html",
+"Mode": "rw",
+"RW": true,
+"Propagation": "rprivate"
+},
+{
+"Type": "bind",
+"Source": "/storage/apps/main/nginx/conf",
+"Destination": "/etc/nginx/conf.d",
+"Mode": "rw",
+"RW": true,
+"Propagation": "rprivate"
+}
+],
+
+"Binds": [
+"/storage/apps/main/nginx/conf:/etc/nginx/conf.d:rw",
+"/storage/apps/main/www:/usr/share/nginx/html:rw"
+]
+
+
+dig +short myip.opendns.com @resolver1.opendns.com
+
+
+task 428:
+
+
+scp demoprddist.zip -P 3222 UserName@IP:/home/mediauser/temp
+
+/storage/apps/main/www/ir-demo
+
+
+
+172.20.152.22    ir.pri.directfn.com.private /usr/share/nginx/html
+
+3 demo folders
+
+URL ask.. and also ask demo, demo1, demo2 ask about folder
+
+/usr/share/nginx/html/ir-static/demo
+
+
+same for primary and secondry server
+
+172.20.156.23    ir.sec.directfn.com.private
+
+
+ir-demo.directfn.net
+UAT server
+ir.directfn.com
+Prod server
+ir-demo.directfn.com
+Docker container
+
+
+https://ir.directfn.com/demo/ir/demo/en/stockoverview/dfm/dib
+
+
+
+8080
+8060
+
+8465   
+
+netstat -nltp find process id and 
+pwdx process id
+
+pwdx mulitple processes
+
+
+
+
+
+

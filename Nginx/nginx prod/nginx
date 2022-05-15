@@ -1,0 +1,120 @@
+
+
+
+
+NGINX utilizes Perl Compatible Regular Expressions (PCRE).
+
+
+These locations are literal string matches and match any part of an HTTP request following the host segment:
+
+
+With NGINX, requests are always fulfilled with the most specific match possible
+
+~ When location directives are followed by a ~ (tilde), NGINX will perform a regular expression match, which is always case-sensitive
+
+
+location ~ IndexPage\.php$ { }
+
+indexPage.php would be a match with the first of the above example  
+
+
+location ~ ^/BlogPlanet(/|/index\.php)$ { }
+
+In the second example, the regular expression ^/BlogPlanet(/|/index\.php)$ { } would match requests for /BlogPlanet/ and /BlogPlanet/index.php but not /BlogPlanet, /blogplanet/, or /blogplanet/index.php. 
+
+
+Defining optional (sub-) URI paths in Nginx locations using PCRE regular expressions
+
+
+
+ps -ef | grep nginx
+
+nginx -s reload
+
+
+Main = HTTP, events
+
+Http -> Server -> Location
+
+ps -ax | grep nginx
+
+kill -s QUIT 1628
+
+stop — fast shutdown
+quit — graceful shutdown
+reload — reloading the configuration file
+reopen — reopening the log files
+
+nginx -s quit 
+
+reload nginx in docker
+
+nginx -s reload
+
+nginx -T | less
+
+https://www.nginx.com/resources/wiki/start/
+https://www.nginx.com/resources/wiki/start/topics/tutorials/config_pitfalls/
+https://wiki.debian.org/Nginx/DirectoryStructure
+
+/etc/nginx/sites-availble/afzaal.conf
+/etc/nginx/sites-availble/default.conf
+
+/etc/nginx/nginx.conf
+
+sudo chown -R www-data:www-data /var/www/nginx-afzal.com
+
+sudo ln -s /etc/nginx/sites-available/nginx-afzal.com /etc/nginx/sites-enabled/
+
+sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/nginx-afzal.com
+
+cp /etc/nginx/sites-available/default /etc/nginx/sites-available/nginx-afzal.com
+
+grep -R default_server /etc/nginx/sites-enabled/
+
+
+--prefix=/usr/share/nginx 
+
+--conf-path=/etc/nginx/nginx.conf 
+
+--http-log-path=/var/log/nginx/access.log --error-log-path=/var/log/nginx/error.log 
+
+--lock-path=/var/lock/nginx.lock --pid-path=/run/nginx.pid 
+
+--modules-path=/usr/lib/nginx/modules 
+
+--http-client-body-temp-path=/var/lib/nginx/body 
+
+--http-fastcgi-temp-path=/var/lib/nginx/fastcgi 
+
+--http-proxy-temp-path=/var/lib/nginx/proxy 
+
+--http-scgi-temp-path=/var/lib/nginx/scgi 
+
+--http-uwsgi-temp-path=/var/lib/nginx/uwsgi 
+
+--with-debug 
+--with-compat 
+--with-pcre-jit 
+--with-http_ssl_module 
+--with-http_stub_status_module 
+--with-http_realip_module 
+--with-http_auth_request_module 
+--with-http_v2_module 
+--with-http_dav_module 
+--with-http_slice_module 
+--with-threads 
+--with-http_addition_module 
+--with-http_gunzip_module 
+--with-http_gzip_static_module 
+--with-http_image_filter_module=dynamic 
+--with-http_sub_module 
+--with-http_xslt_module=dynamic 
+--with-stream=dynamic 
+--with-stream_ssl_module 
+--with-mail=dynamic 
+--with-mail_ssl_module
+
+https://www.nginx.com/resources/wiki/start/
+# https://www.nginx.com/resources/wiki/start/topics/tutorials/config_pitfalls/
+# https://wiki.debian.org/Nginx/DirectoryStructure

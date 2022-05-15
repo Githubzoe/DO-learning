@@ -1,0 +1,183 @@
+ nginx directives
+
+request uri = ?
+
+ server_name directive defines
+the hostname or names of which requests should be directed to this
+server
+
+The server directive is provided a Unix socket, IP
+address, or an FQDN, along with a number of optional parameters.
+
+optional parameters
+
+weight of the server in the balancing algorithm; 
+whether the server is in standby mode, avail‐able, or unavailable;
+and how to determine if the server is unavail‐able
+
+location block defines a configuration based on the path in the
+URL. The path, or portion of the URL after the domain, is referred
+to as the URI. NGINX will best match the URI requested to a location block. The example uses / to match all requests.
+
+
+root
+directive shows NGINX where to look for static files when serving
+content for the given context.
+
+The URI of the request is appended to
+the root directive’s value when looking for the requested file
+
+If we
+had provided a URI prefix to the location directive, this would be
+included in the appended path, unless we used the alias directory
+rather than root.
+
+ HTTP, TCP, and UDP load balancing
+
+
+ check:
+
+ rewrite directive
+ return directive
+ if directive
+ map variable in nginx
+ $uri
+ $route_cookie
+ $route_uri
+ $cookie_jsessionid
+ map
+
+ hash map
+
+ set variables dynamically in nginx 
+
+ try_file
+
+ server
+ location
+server_name
+ iRules in nginx
+
+sticky cookie
+sticky route
+stciky learn
+
+reponse uri
+
+nginx routing application based on json session id
+
+capturing session-id and put in $route_cookie, $route_uri
+
+nginx shared memroy zone
+
+nginx session id and cookie
+
+log_format
+
+log_format sticky "Request: $request \n
+Status: $status \n
+Client: $remote_addr \n
+Upstream IP: $upstream_addr \n
+Route URI: $route_uri \n
+Route Cookie: $route_cookie \n";
+
+
+http context
+
+ur l cookie
+
+proxy_pass realted to server context
+proxy_pass
+
+server context
+
+proxy_set_header
+
+
+proxy_bind directive + transparent parameters
+
+proxy_protocol
+
+proxy_protcol Guide
+
+Ip transparancy
+
+Masquarting traffic
+
+proxy_protcol parameters
+
+http variable
+
+Http Header details
+
+roxy_protocol Example
+log_format combined '$proxy_protocol_addr
+$remote_user [$time_local]
+'"$request" $status $body_bytes_sent
+'"$http_referer" "$http_user_agent"
+server {
+proxy_protocol;
+ssl proxy_protocol;
+listen 80
+listen 443
+set_real_ip_from 192.168.1.0/24;
+real_ip_header proxy_protocol;
+proxy_set_header X-Real-IP
+proxy_set_header X-Forwarded-For $proxy_protocol_addr;
+$proxy_protocol_addr;
+}
+
+
+nginx using persistant hybridb cache
+
+NGINX Caching Basics
+• proxy_cache_path: Sets path
+• proxy_cache: invokes the cache
+• proxy_cache_key: Sets key
+proxy_cache_path /data/nginx/cache levels=1:2 keys_zone=my_cache:20m ina
+server {
+proxy_cache_key $scheme$host$request_uri;
+proxy_set_header Host $host;
+proxy_set_header X-Real-IP $remote_addr;
+proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+location /application1 {
+proxy_cache my_cache;
+proxy_cache_valid any l10m;
+proxy_pass https://backend.server;
+}
+}
+
+
+NGINX Caching Basics
+• proxy_cache_path: Sets path
+• proxy_cache: invokes the cache
+proxy_cache_key: sets key
+he_path /data/nginx/cache levels=1:2 keys_zone=my_cache:20m inactive=5m;
+_cache_key $scheme$host$request uri;
+|_set_header Host $host;
+|_set_header X-Real-IP $remote_addr;
+_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+ion /application1 {
+roxy_cache my_cache;
+roxy_cache_valid any 10m;
+roxy_pass https://backend.server;
+
+
+Micro Caching
+
+Microcaching Example
+proxy_cache_path /tmp/cache keys_zone=cache:10m levels=1:2 inactive=600s
+server {
+listen external-ip:80;
+# Externa1 IP address
+proxy_cache cache;
+proxy_cace_valid 200 1s;
+status_zone wordpress; # NGINX Plus status monitoring
+location / {
+proxy_http_version 1.1; # Always upgrade to HTTP/1.1
+proxy_set_header Connection ""; # Enable keepalives
+proxy_set_header Accept-Encoding ""; # Optimize encoding
+proxy_pass http://wordpress-upstreams;
+}
+upstream wordpress-upstreams {
+zone wordpress 128k;

@@ -1,0 +1,19 @@
+nginx testing for log files
+
+Lab 3.3: Tomcat Route Test
+1. Test multiple times using curl:
+curl http://<localhost>:8080
+
+
+2. Run a tail -f Command on your upstream_access.log
+
+Do you notice the IP address changing?
+
+3. Open a browser, and step through the app via the
+following URI:
+<localhost>/examples/servlets/servlet/SessionExample
+
+
+4. Execute the application and refresh your browser
+several times. What can you observe in the log now?
+Which IP address is the request hitting?

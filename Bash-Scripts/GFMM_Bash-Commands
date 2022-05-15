@@ -1,0 +1,331 @@
+Commands
+
+alias lh='ls -ltrah --color=auto'
+
+add my laptop public key in the servers
+
+ .ssh/authorized_keys 
+
+
+nginx -T | less
+
+
+tcpdump -vv -i eth1 port 80
+
+ps -ef | grep nginx
+
+ps aux |grep java
+
+ps -ef | grep nagios
+
+export PATH="$PATH:/
+
+grep -R default_server /etc/nginx/sites-enabled/
+
+sudo adduser `id -un` kvm
+
+df -h
+
+ps aux |grep tom
+
+unzip -O abc.zip -d /usr/local/
+
+find /var/www/test.local/ -type f exec chmod 644 {} \;
+
+find /var/www/test.local/ -type d -exec chmod 755_{} \;
+
+find . -type f -exec grep -l "fnn.rs.db.mubasher.info" {} +
+
+
+find / -type f -iname 404.html
+
+find / -type f -iname context.xml
+
+ps -aux |grep java
+
+ps -ef | grep nagios
+
+export PATH="$PATH:/
+
+grep -R default_server /etc/nginx/sites-enabled/
+
+sudo adduser `id -un` kvm
+
+sudo adduser `id -un` libvirt
+
+java home 
+sudo update-java-alternatives -l
+
+
+pa aux | grep -i java
+pa aux | grep -i quote
+
+
+ps auxww | grep nginx
+
+lsof -p PID
+
+pwdx 3389
+
+vim ~/.bash_history 
+
+cat ~/.bash_history 
+
+grep -i locate ~/.bash_history
+
+history | grep ps aux
+history | grep ps
+history | grep "ps aux"
+
+scp coomandslogs directfn@79.125.65.126:/tmp/
+
+ll -tr
+
+df -h
+
+for i in {1...10};do curl locaihost > /dev/null;done
+
+for i in {1...10};do curl localhost/_> /dev/null;done
+
+for i in {1...10};do curl localhost/images/ > /dev/null;done
+
+
+sudo 1sof -P -n -i :80 -i :443 |grep LISTEN
+
+
+current listen queue
+sudo netstat -plan |grep nginx
+
+netstat -Lan    // to view process queue
+
+netstat -ntlp
+
+netstat -ap | grep http
+
+
+systemctl status nginx mysqld php7.2-fpm | grep -E "(Loaded |Active)"
+
+
+
+tcpdump -vv -i eth1 port 80
+
+
+
+let encrpt
+
+
+fa$29%1
+
+sudo certbot --nginx -d mubashercapital.com -d www.mubashercapital.com 
+
+/etc/letsencrypt/live/mubashercapital.com/fullchain.pem
+/etc/letsencrypt/live/uat.mubashercapital.com/fullchain.pem;
+
+cron job to renew certficate 
+
+baqi sites check ker lein for lets scyrtop
+
+
+zero.. ssl website..
+
+zerossl.com
+
+
+aptick .. old version .. for migrating ubunutu
+
+free office  for linux
+
+L sync .. for one drive moubting
+
+r Clone   for one drive mounting and synching
+
+
+34.248.208.233    data.globalfinancialmedia.com
+
+if ($request_uri ~*
+
+if ($request_uri ~* "^(.*)/markets/BK/stocks/EKHOLDING"){
+
+    rewrite "(.*)//(info-base/home-page)$" /$1/home-page permanent;
+
+}
+if ($request_uri ~* "^(.*)/markets/BK/stocks/EKHOLDING
+
+
+return 301 https://$host;
+
+
+root ROOT;
+
+access_log /var/log/nginx/mubasher.info/access.log;
+error_log /var/log/nginx/mubasher.info/error.log;
+
+location ^~ /mubasherFileServer/ {
+  alias /srv/static-files/;
+
+
+location ^~ /assets/ {
+  alias /srv/portal-ui/META-INF/resources/assets-dist/;
+
+
+if ($request_uri ~* (.*)/news/IMF2015Q1) {
+  set $url_start $1;
+
+
+  location /markets/EGX/stocks/EKHO/ {
+  proxy_pass http://127.0.0.1;
+
+  }
+
+
+location /services/ {
+  proxy_pass http://127.0.0.1:48080;
+  proxy_set_header Host $http_host;
+  proxy_set_header X-Forwarded-Server $host;
+  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+  add_header X-Cached "N/A";
+
+  include /etc/nginx/mubasher-redirections.conf;  # include the old URL redirections
+  include /etc/nginx/mubasher-old-redirections/*.conf;
+  
+ 
+  include /etc/nginx/mubasher-seo-redirections.conf;
+;
+  include /etc/nginx/include.d/mubasher-case-egx-redirections.conf;
+}
+
+
+# http://wiki.nginx.org/Pitfalls
+# http://wiki.nginx.org/QuickStart
+# http://wiki.nginx.org/Configuration
+
+
+
+if ($request_uri ~* (.*)/radio(.*)) {
+    set $url_start $1;
+    rewrite .* $url_start/home-page redirect;
+    break;
+  }
+
+https://www1.mubasher.info/countries/sa/markets/EGX/stocks/EKHO
+https://www1.mubasher.info/countries/sa/markets/BK/stocks/EKHOLDING
+https://www1.mubasher.info/countries/sa/markets/EGX/stocks/EKHOa
+https://www1.mubasher.info/countries/sa/
+
+
+pwdx [MED pid]_x000D_
+
+https://fnn.mubasher.info/markets/EGX/stocks/EKHO
+
+location /markets/EGX/stocks/EKHO {
+  proxy_pass http://127.0.0.1:8080;
+  proxy_set_header Host $http_host;
+  proxy_set_header X-Forwarded-Proto $scheme;
+  proxy_set_header X-Forwarded-Server $host;
+  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+  proxy_intercept_errors on;
+  add_header X-Cached "N/A";
+
+                proxy_set_header Connection "";
+                proxy_set_header    X-Real-IP   $remote_addr;
+                proxy_set_header    Host        $http_host;
+                proxy_set_header    X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header    X-Originating-Country $geoip_country_name;
+                proxy_set_header    X-Originating-Country-Code $geoip_country_code;
+
+                add_header X-Country $geoip_country_code;
+                add_header X-Country_name $geoip_country_name;
+                proxy_headers_hash_max_size 512;
+                proxy_headers_hash_bucket_size 128;
+
+
+  # Homepage (2 minute cache time)
+  location ~ "^/countries/[a-zA-Z]{2}" {
+    proxy_pass http://127.0.0.1:8080;
+    proxy_set_header Host $http_host;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_set_header X-Forwarded-Server $host;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_read_timeout 360s;
+
+    proxy_cache   mis-cache;
+    proxy_cache_valid  200 2m;
+    proxy_cache_valid  301 1d;
+
+    proxy_cache_key $cache_key;
+    proxy_cache_use_stale error timeout updating http_500 http_502 http_503;
+    proxy_cache_lock on;
+    proxy_cache_lock_timeout 20s;
+    proxy_ignore_headers "Set-Cookie";
+    proxy_cache_bypass $cache_bypass;
+    proxy_no_cache $cache_bypass;
+    add_header X-Cache-Bypass $cache_bypass;
+    add_header X-Cache-Key $cache_key;
+    add_header X-Cached $upstream_cache_status;
+    add_header X-Frame-Options DENY;
+                proxy_set_header Connection "";
+                proxy_set_header    X-Real-IP   $remote_addr;
+                proxy_set_header    Host        $http_host;
+                proxy_set_header    X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header    X-Originating-Country $geoip_country_name;
+                proxy_set_header    X-Originating-Country-Code $geoip_country_code;
+
+                add_header X-Country $geoip_country_code;
+                add_header X-Country_name $geoip_country_name;
+                proxy_headers_hash_max_size 512;
+     		proxy_headers_hash_bucket_size 128; 
+ 
+  }
+
+
+
+
+
+
+Oracle VM up
+oracle listener up
+
+prvite subnet..
+
+clone them and put 
+
+
+IR uat .. testing
+
+
+docker restart 8d395060507a 
+
+docker start 8d395060507a 
+
+
+  Downloads/ETEL.zip   directfn@ir-demo.directfn.net.private:/home/directfn/
+
+  nginx27102021.zip  directfn@directfn@ir-demo.directfn.net.private:/home/directfn/afzaal/nginx27102021
+
+scp  directfn@directfn@ir-demo.directfn.net.private:/home/directfn/afzaal/nginx27102021/nginx27102021.zip
+
+
+
+
+
+
+
+mv *-11-*.txt /srv/med_logs/
+
+tar -cvzf 
+
+
+tar -xzf application.zip
+
+
+
+ docker run --name some-nginx -v /:/usr/share/nginx/html:ro -d nginx
+
+
+ rsync -Wav --progress /etc/nginx root@fnn-test:/etc
+
+ rsync -Wav --progress /usr/share/nginx root@fnn-test:/usr/share
+
+ dpkg -l | grep -i nginx
+
+ zip -r

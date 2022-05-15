@@ -1,0 +1,15 @@
+nginx commands
+
+
+nginx -T | less
+
+see all nginx configuration in one location
+
+
+
+for i in {1...10};do curl locaihost > /dev/null;done
+
+for i in {1...10};do curl localhost/_> /dev/null;done
+
+for i in {1...10};do curl localhost/images/ > /dev/null;done
+

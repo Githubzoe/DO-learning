@@ -1,0 +1,213 @@
+
+As discussed today, we went through Info portal details including tech stack, server location, main content on site, features , sources of data, etc. Below are the action items for next meeting:
+
+Abdullah and Afzaal will navigate through website and create login account to see all features and functions
+
+Afzaal will go through the email "GFM Team Structure, Products and stakeholders "
+Afzaal to get infrastructure details from Asif
+Abdullah and Afzaal to clarify all questions from Qaiser or Moin/Team related to Info
+ 
+ 
+ as discussed today, we went through Info portal details including tech stack, server location, main content on site, sources, etc. Below are the action items for next meeting:
+
+Afzaal will navigate through website and create login account to see all features and functions
+
+ Afzaal will go through the email "GFM Team Structure, Products and stakeholders "
+
+Afzaal to get infrastructure details from Asif
+ Afzaal to clarify all questions from Qaiser or Moin/Team related to Info   
+(1 liked)
+
+
+media products are with us now in pakistan:
+
+News data sources from MIX
+
+Info and DU with us
+
+all media prodcts are with us
+
+News Data = DCP = Data Contribution platform
+
+Content Team is in EGYPT
+
+GFM is Content Media:
+
+Direct FN..
+
+Global market Access
+
+
+amber framework
+Mysql
+
+Amber.js
+
+Mubsher info
+
+Java Sping framework
+
+Jobs Queue .. Sping Integrations
+
+News website
+
+News.. maps.. and banner ads
+
+
+Mix.. news data
+
+AWS gma..  mix ..
+
+Mix servers AWS..
+
+
+Mubsher.info
+
+Du on our infrastructure
+
+Non media products get migrated
+
+
+Dcp
+
+Data contribution platform
+
+
+Mix .. different services .
+
+Serveless components.. services used it to..
+
+Rt.. client applications use to get news data
+
+
+Mix is hosted on rackspace.  Full access to ops team
+
+Dcp .. data to.. mix.. to mubsher.info
+
+Info database is MySQL
+
+Price data.. update data.. med
+
+Historical data.  Info ki database.. k historical tables
+
+
+News. Company data . Market data..
+
+Company data.  Market data.. from med
+
+Email .. applications.. 23 September
+
+
+Historcal DB My SQL
+
+
+UAT and Production URLs of projects/portals discussed are mentioned below. User credentials also shared for some environments
+
+ 
+3 accounts:  
+
+1 DU ki Db acount
+1 COntext
+1 Training
+
+OMS database...
+
+Clomubo back end
+
+Training and context
+
+2 authentication : DU db in db for a user login
+2mnd level.. OMS .. Du play backend
+
+Du Leanr.. depends on Du DB
+
+content and data is comming from our own databse
+
+
+Du News is comming from Info.mubsher database
+
+
+DU News
+Du Learn.. created in DU databse
+
+DU admin portal is angular based..
+
+DU interface is Amber
+
+frola 
+
+http://108.128.95.112/manage-prediction
+
+user = testadmin
+password = test123
+
+
+Perdiction contest
+
+
+
+Info Ka Infrasture .. complete details.. all serrvers details.. med and mix compenenet where hosted .. space hy
+
+DU ka comoplete ...  DU ka infrasture... UAT and Prod with us ,, AWS Account with GFM
+
+
+Mixed Content: The page at 'https: was loaded over HTTPS, but requested an insecure script 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'. This request has been blocked; the content must be served over HTTPS.
+
+
+sshd_config
+
+find . -name sshd_config
+
+find . -type f -name sshd_config
+
+
+ssh directfn@172.17.247.51
+
+sshpass -p opKj#e&8HDs ssh root@172.17.247.51
+
+
+ssh -p “opKj#e&8HDs"  ssh root@172.17.247.51
+ssh root@172.17.247.51–p7654 root@172.17.247.51’s password:
+
+ssh -vi ec2-du-test-keypair.pem ubunut@du-uat.directfn.com
+
+git@bitbucket.org:gfm-devops/knowledge_transfer.git
+
+bitbucket.org/gfm-devops/knowledge_transfer.git
+
+54.247.180.89:8080 <- jenkins with elastic IP  .. Jenkins server
+
+git clone git@bitbucket.org:gfm-devops/kt-devops.git
+
+Service desk.  Logo theam.  Flow. Auto reply
+
+It decypa, dcp, tadawal, uat and prodiction deployments
+
+~* any thing match
+
+= exact match
+
+~ case sensitive
+
+
+
+prepare a checklist for DB server migration:
+
+
+Mix checking URL
+
+
+
+docker exec -it 8ba8809e7a1e nginx -s reload
+
+ location = /etel {                                                                                  
+          root /usr/share/nginx/html/etel                                                                                  
+    index  index.html index.htm;
+     try_files $uri $uri/ /index.html;                                                                    
+   }                             
+location /third_path {
+     root /usr/share/nginx/html/etel
+
+     
+   }
+

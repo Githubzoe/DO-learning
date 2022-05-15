@@ -1,0 +1,32 @@
+ffn nginx conf
+
+include /etc/nginx/conf.d/*.conf;
+	include /etc/nginx/sites-enabled/*;
+
+/var/log/nginx/mubasher.info-access.log 
+
+
+
+first URL : English Home page
+
+https://fnn.mubasher.info/countries/eg/publisher/almysryalyoum
+
+nginx Logs:
+
+39.42.168.26 - - [05/Nov/2021:05:06:34 +0000] "GET / HTTP/1.1" 302 0 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36"
+
+
+39.42.168.26 - - [05/Nov/2021:05:06:48 +0000] "GET /countries/eg/publisher/almysryalyoum HTTP/1.1" 200 36205 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36"
+
+
+39.42.168.26 - - [05/Nov/2021:05:06:49 +0000] "GET /assets/ui/images/mobile-%7B%7Bimage.img%7D%7D HTTP/1.1" 404 1627 "https://fnn.mubasher.info/countries/eg/publisher/almysryalyoum" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36"
+
+
+39.42.168.26 - - [05/Nov/2021:05:06:49 +0000] "GET /mubasherFileServer/File.MubasherCharts/File.Delay_Index_Intraday_Charts_Dir/39d67d8ab4f4c10bf22aa353e27879133c.csv HTTP/1.1" 200 380 "https://fnn.mubasher.info/countries/eg/publisher/almysryalyoum" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36"
+
+
+39.42.168.26 - - [05/Nov/2021:05:06:50 +0000] "GET /api/1/events?countries=eg&from=2021%2F10%2F30&to=2021%2F11%2F06 HTTP/1.1" 200 1490 "https://fnn.mubasher.info/countries/eg/publisher/almysryalyoum" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36"
+
+
+74.125.151.16 - - [05/Nov/2021:05:07:14 +0000] "GET / HTTP/1.1" 302 0 "-" "Mediapartners-Google"
+74.125.151.14 - - [05/Nov/2021:05:07:15 +0000] "GET /countries/eg/publisher/almysryalyoum HTTP/1.1" 200 36172 "-" "Mediapartners-Google"

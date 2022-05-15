@@ -1,0 +1,29 @@
+FNN URL and Directory
+
+
+almasryalyoum.mubasher.info 
+/countries/eg/publisher/almysryalyoum 
+
+/assets/ui/images/mobile-%7B%7Bimage.img%7D%7D
+
+HTTP/1.1" 404 1627 "https://almasryalyoum.mubasher.info/countries/eg/publisher/almysryalyoum
+
+/mubasherFileServer/File.MubasherCharts/File.Delay_Index_Intraday_Charts_Dir/39d67d8ab4f4c10bf22aa353e27879133c.csv 
+
+200 380 "https://almasryalyoum.mubasher.info/countries/eg/publisher/almysryalyoum" 
+
+GET /api/1/events?countries=eg&from=2021%2F11%2F06&to=2021%2F11%2F13 HTTP/1.1" 200 1073 "https://almasryalyoum.mubasher.info/countries/eg/publisher/almysryalyoum"
+
+
+
+
+39.36.38.243 - - [11/Nov/2021:05:12:29 +0000] "GET / HTTP/1.1" 302 0 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36"
+39.36.38.243 - - [11/Nov/2021:05:12:32 +0000] "GET / HTTP/1.1" 301 169 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36"
+39.36.38.243 - - [11/Nov/2021:05:12:32 +0000] "GET / HTTP/1.1" 302 0 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36"
+39.36.38.243 - - [11/Nov/2021:05:12:33 +0000] "GET /countries/eg/publisher/almysryalyoum HTTP/1.1" 200 36199 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36"
+39.36.38.243 - - [11/Nov/2021:05:12:34 +0000] "GET /assets/ui/images/mobile-%7B%7Bimage.img%7D%7D HTTP/1.1" 404 1627 "https://almasryalyoum.mubasher.info/countries/eg/publisher/almysryalyoum" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36"
+39.36.38.243 - - [11/Nov/2021:05:12:34 +0000] "GET /mubasherFileServer/File.MubasherCharts/File.Delay_Index_Intraday_Charts_Dir/39d67d8ab4f4c10bf22aa353e27879133c.csv HTTP/1.1" 200 380 "https://almasryalyoum.mubasher.info/countries/eg/publisher/almysryalyoum" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36"
+39.36.38.243 - - [11/Nov/2021:05:12:35 +0000] "GET /api/1/events?countries=eg&from=2021%2F11%2F06&to=2021%2F11%2F13 HTTP/1.1" 200 1073 "https://almasryalyoum.mubasher.info/countries/eg/publisher/almysryalyoum" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36"
+74.125.151.67 - - [11/Nov/2021:05:13:01 +0000] "GET / HTTP/1.1" 302 0 "-" "Mediapartners-Google"
+39.36.38.243 - - [11/Nov/2021:05:14:42 +0000] "GET /countries/eg/publisher/almysryalyoum HTTP/1.1" 200 0 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36"
+74.125.151.64 - - [11/Nov/2021:05:15:02 +0000] "GET /countries/eg/publisher/almysryalyoum HTTP/1.1" 200 36245 "-" "Mediapartners-Google"
