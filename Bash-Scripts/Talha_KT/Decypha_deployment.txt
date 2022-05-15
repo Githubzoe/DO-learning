@@ -1,0 +1,206 @@
+
+#!/bin/bash
+
+cd /home/directfn/app/tomcat-7032/deployment/
+FOLDER=`date +%Y-%m-%d:%H.%M`
+mkdir $FOLDER
+cd $FOLDER
+scp userName@IP:/home/webuser/app/Decypha_Prod_releases/Web/newrelease/dfnplus.war .
+# Test the nginx configuration using nginx -t
+
+if [[ $? -ne 0 ]];
+then
+	echo "Connectivity issue with host 213.42.25.222"
+	exit 1
+fi
+
+tomcat_pid=`ps x -o   pid,cmd   | grep /home/directfn/app/tomcat-7032 | grep -v  'grep /home/directfn/app/tomcat-7032' |   awk '{print $1}'`
+echo $tomcat_pid
+
+mv /home/directfn/app/tomcat-7032/bin/startup.sh /home/directfn/app/tomcat-7032/bin/startup.sh_
+
+if [[ $tomcat_pid -gt 0 ]];
+then
+	kill -9 $tomcat_pid
+	echo "Tomcat Process ID: $tomcat_pid Killed"
+else
+	echo "Tomcat Not running"
+fi
+
+
+if [[ -d /home/directfn/app/tomcat-7032/webapps/ROOT ]];
+then
+	mkdir -p /home/directfn/app/tomcat-7032/backup/$FOLDER
+	mv /home/directfn/app/tomcat-7032/webapps/ROOT /home/directfn/app/tomcat-7032/backup/$FOLDER/
+	echo "ROOT backup Done"
+else
+	echo "ROOT not avaliable"
+fi
+
+
+if [[ -f /home/directfn/app/tomcat-7032/webapps/dfnplus.war ]];
+then
+	mkdir -p /home/directfn/app/tomcat-7032/rollback/$FOLDER
+	mv /home/directfn/app/tomcat-7032/webapps/dfnplus.war /home/directfn/app/tomcat-7032/rollback/$FOLDER/
+	echo "dfnplus.war backup Done"
+else
+	echo "dfnplus.war not avaliable"
+fi
+
+cp /home/directfn/app/tomcat-7032/deployment/$FOLDER/dfnplus.war /home/directfn/app/tomcat-7032/webapps/
+
+cd /home/directfn/app/tomcat-7032/
+rm -rf work/*
+rm -rf temp/*
+rm -rf logs/*
+rm -rf dfnPlusLogs/*
+
+mv /home/directfn/app/tomcat-7032/bin/startup.sh_ /home/directfn/app/tomcat-7032/bin/startup.sh
+cd /home/directfn/app/tomcat-7032/bin/
+#Check if tomcat node starts up automatically using 'ps -x | grep -ai tom' for 2 mins
+./startup.sh
+
+echo "Tomcat Server Starting...."
+
+while (true)
+do
+	cd /home/directfn/app/tomcat-7032/logs
+        tomcat_status=`cat catalina.out | grep "INFO: Server startup in"| wc -l`
+        if [[ $tomcat_status -gt 0 ]];
+        then
+                break
+        fi
+done
+
+cd /home/directfn/
+./rsync.sh
+echo "rsync DONE"
+
+# Test the nginx configuration using nginx -t
+# systemctl reload nginx
+
+echo -------------------------------------------------------
+echo !!!------  DFN_PLUS Production Deployed     --------!!!
+echo -------------------------------------------------------
+
+exit 0
+
+==========================================================================
+The Build to Deploy is Placed on UAT and we have to Move it to Production
+==========================================================================
+Location of BUILD TO MOVE:
+/home/webuser/app/Decypha_Prod_releases/Web/newrelease
+
+scp webuser@172.16.231.50:/home/webuser/app/Decypha_Prod_releases/Web/newrelease/dfnplus.war .
+
+============================
+DO THIS DEPLOYMENT AFTER 7PM
+============================
+
+PROD:-
+/home/webuser/app/Decypha_Prod_releases/Web/newrelease
+UAT:-
+/home/webuser/app/UAT-Portal/deployment
+=================
+User: directfn
+=================
+Step 1:
+copy file to dfnplus.war to server
+
+Step 2:
+=================
+User: directfn
+=================
+cd /home/directfn/app/tomcat-7032/deployment/
+mkdir (date)
+cd [date]<- directory
+cp /home/directfn/talha/dfnplus.war .
+
+Step 3:
+=================
+User: directfn
+=================
+mv /home/directfn/app/tomcat-7032/bin/startup.sh /home/directfn/app/tomcat-7032/bin/startup.sh_
+
+Step 4:
+=================
+User: directfn
+=================
+ps aux | grep -i tom
+kill -9 {tomcat_pid}
+
+Step 5:
+=================
+User: directfn
+=================
+cd /home/directfn/app/tomcat-7032/backup/
+mkdir (date)
+cd [date]<- directory
+mv /home/directfn/app/tomcat-7032/webapps/ROOT .
+
+
+Step 6:
+=================
+User: directfn
+=================
+cd /home/directfn/app/tomcat-7032/rollback/
+mkdir (date)
+cd [date]<- directory
+mv /home/directfn/app/tomcat-7032/webapps/dfnplus.war .
+
+Step 7:
+=================
+User: directfn
+=================
+cd /home/directfn/app/tomcat-7032/webapps
+cp /home/directfn/app/tomcat-7032/deployment/([dated-directory])/dfnplus.war .
+
+
+Step 8:
+=================
+User: directfn
+=================
+cd /home/directfn/app/tomcat-7032/
+rm -rf work/*
+rm -rf temp/*
+rm -rf logs/*
+rm -rf dfnPlusLogs/*
+
+Step 9:
+=================
+User: directfn
+=================
+mv /home/directfn/app/tomcat-7032/bin/startup.sh_ /home/directfn/app/tomcat-7032/bin/startup.sh
+tomcat would run automatically after renaming the startup.sh file
+
+Step 10:
+=================
+User: directfn
+=================
+cd /home/directfn/
+./rsync.sh
+su - root
+pass: mubasher
+nginx -t
+systemctl reload nginx
+
+
+
+=======================
+====WATCHER PATHS======
+=======================
+/home/directfn/app/watcher
+
+54.74.248.243 decypha.com [beta1.decypha.com]
+54.76.63.173 beta2.decypha.com
+
+/etc/nginx/conf.d
+
+upstream tomcat7032 {
+    server 172.20.156.22:8080 ;
+    server 172.20.152.21:8080 backup;
+    check interval=10000 rise=2 fall=3 timeout=5000 type=http;
+    check_http_send "GET /usermgr/membership HTTP/1.0\r\n\r\n";
+    check_http_expect_alive http_2xx http_3xx;
+}
+

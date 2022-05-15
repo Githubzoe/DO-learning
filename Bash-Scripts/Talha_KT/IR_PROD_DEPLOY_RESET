@@ -1,0 +1,301 @@
+2277: /home/directfn/app/solr_limited_sym/server
+2417: /home/directfn/app/solr_limited_sym/server
+2958: /home/directfn/app/ir_backend_all_sym/bin
+9496: /home/directfn/prasad/Solr/solr-8.8.0-ins1/server
+
+IR-UAT Watcher needs to be started again
+/usr/share/nginx/html/ir-static <- nginx path for html
+
+===============
+IR-UAT RESET  |
+===============
+
+STOP
+==================
+Watcher is runing on this path:
+/home/directfn/app/watcher/all_watcher.sh
+
+kill watcher first
+kill ir_backend_all_sym
+kill solr_limited_sym
+
+START
+==================
+Start Solr first
+/home/directfn/app/solr_limited_sym
+./start.sh
+/home/directfn/app/solr_limited_sym/server/solr/data
+check the data <- folder is there after restart with data
+
+START IR_BACKEND
+/home/directfn/app/ir_backend_all_sym/bin
+./run.sh -d -F &
+Search for data in this path below:
+/home/directfn/app/ir_backend_all_sym/tmp
+app.gen  dds_ser_data  ref_data
+These above folder would be present
+
+===============
+IR-PROD RESET |
+===============
+
+No Need to stop Quote server in case of reset if runing
+kill watcher first
+kill ir_backend_all_sym
+kill solr_limited_sym
+Watcher Directory:
+/home/directfn/app/watcher
+ibe_watcher.sh <- start this 
+
+START
+==================
+Start Solr first
+/home/directfn/app/solr_limited_sym
+./start.sh
+/home/directfn/app/solr_limited_sym/server/solr/data
+check the data <- folder is there after restart with data
+
+START IR_BACKEND
+/home/directfn/app/ir_backend_limited_sym/bin
+./run.sh -d -F &
+Search for data in this path below:
+/home/directfn/app/ir_backend_all_sym/tmp
+app.gen  dds_ser_data  ref_data
+These above folder would be present
+
+===============================================
+
+===========
+Important |
+===========
+quoteserver are runing or run them if not runing 
+
+/home/directfn/app/solr_limited_sym/server/solr
+data <= rename this folder to any or move it
+
+/home/directfn/app/solr_limited_sym
+ibe_solr <= rename this folder to any or move it
+
+then run install.sh in solr bin folder
+
+ir_backend_limited_sym <- start
+
+
+
+=================================
+Details Shared By Usama & Chiran
+=================================
+
+1 - completely stopped Secondary node
+2 - removed ibe_solr folder and server/ibe/data/data folder from Solr 
+3 - reboot server
+4 - cleared IBE logs
+5 - removed logs folder from ibe 
+6 - started SOLR 
+7 - used command ./run.sh -d -f & instead of ./run.sh -d -F & to run the backend 
+8 - checked logs there should be no error in IRMarketBackend_NoHupOut
+
+Secondary server needs to be run 
+and this is shared by Chiran 
+
+
+at the time of last loading ..rt=30 ustream might failing
+2. solr cache files currupted
+3. it takes like 2-3 hours sometimes to fully load fresh solr cache.. u might check before all loaded
+
+whats the diff between small f and capital F
+small f clears only logs 
+Capital F clears tmp cache and logs 
+
+always use f  instead of F to lessen the restart time.
+
+====================================================================================
+IBE if dont start then move the logs directory or rename it and then start the IBE.|
+====================================================================================
+
+
+==================
+IR_PROD_DEPLOYMENT
+==================
+USER: directfn
+Password: mubasher
+
+Note Do IR_PROD_DEPLOYMENT on both Primary & Secondary
+
+/usr/share/nginx/html/ir-static/ <- place here the builds
+
+
+=================
+WEB SOCKETS ISSUE
+=================
+
+Check the websocket 
+AA & IR
+19-09-2021
+The IR-quoteserver was not starting
+it couldnot find the logs directory
+thus created a new directory
+reboot and restart all services
+
+
+
+
+
+=============================
+WATCHER - EMAIL CODE
+=============================
+-----------------------------------------------------------------------------
+-----------------------------------IBE---------------------------------------
+-----------------------------------------------------------------------------
+#!/bin/bash
+while true
+do
+ibeid=`ps x | grep "IRMarketBackend" | grep -v "grep" | wc -l`
+if [ $ibeid -le 0 ]; then
+#cd /home/directfn/app/ir_backend_limited_sym/bin 
+#./run.sh -d -F
+cd /home/directfn/app/watcher/
+python sendmail.py
+sleep 60
+fi
+sleep 1
+done
+
+--------------------------------------------------------------------------------
+--------------------------------QS-Watcher--------------------------------------
+--------------------------------------------------------------------------------
+#!/bin/bash
+echo 'jsonqs_watcher_start' `date`
+while true
+do
+numproc=`/sbin/pidof direct.quoteserver_ir | wc -l`
+#numproc=`/sbin/pidof direct23r | wc -l`
+if [ $numproc -le 0 ]; then
+cd  /home/directfn/app/direct.json_qouteserver_IR/bin
+sh qs_run.sh > /home/directfn/app/direct.json_qouteserver_IR/backup_logs/logbackup.log
+python send_mail.py
+sleep 30
+fi
+sleep 1
+done
+----------------------------------------------------------------------------------
+-------------------------------SOLR-WATCHER---------------------------------------
+----------------------------------------------------------------------------------
+
+
+
+----------------------------------------------------------------------------------
+--------------------------------PYTHON-MAIL---------------------------------------
+----------------------------------------------------------------------------------
+
+import smtplib
+from email.MIMEMultipart import MIMEMultipart
+from email.MIMEText import MIMEText
+import sys 
+import string
+fromaddr="watcher@dfnplus.com"
+#toaddr="feed.alerts@theglobalmarketaccess.com"
+toaddr="sysops@globalfinancialmedia.com"
+#toaddr="r.danesha@theglobalmarketaccess.com"
+msg = MIMEMultipart()
+msg['From'] = fromaddr
+msg['To'] = toaddr
+msg['Subject'] = "172.20.152.22 Direct.json_qouteserver_IR Restarted"
+
+#body =body_detail
+body = "Direct.json_qouteserver_IR Restarted please check"
+msg.attach(MIMEText(body, 'plain'))
+
+server = smtplib.SMTP('172.18.41.71')
+server.starttls()
+#server.login(fromaddr, "YOUR PASSWORD")
+text = msg.as_string()
+server.sendmail(fromaddr, toaddr, text)
+server.quit()
+=======================================================================================
+
+
+ibeid=`ps x | grep "IRMarketBackend" | grep -v "grep" | wc -l`
+
+ps x | grep "Djetty.port=8989" | grep -v "grep" | wc -l
+ps x | grep "Djetty.port=7577" | grep -v "grep" | wc -l
+
+-Djetty.port=8989 <- solr-reader
+-Djetty.port=7577 <-writer
+
+
+#!/bin/bash
+echo 'solr_watcher_started: ' `date` > /home/directfn/app/watcher/logs/solr_watcher_logs.log
+while true
+do
+numproc_solr_R=`ps x | grep "Djetty.port=8989" | grep -v "grep" | wc -l`
+numproc_solr_W=`ps x | grep "Djetty.port=7577" | grep -v "grep" | wc -l`
+if [[ $numproc_solr_R -le 0 ]] || [[ $numproc_solr_W -le 0 ]]; then
+
+cd /home/directfn/app/solr_limited_sym/bin/
+`sh solr stop`  > /home/directfn/app/watcher/logs/solr_stopper_logs.log
+`sh solr start` > /home/directfn/app/watcher/logs/solr_starter_logs.log
+python solr_send_mail.py
+sleep 30
+fi
+sleep 1
+done
+
+================================================================================================
+
+import smtplib
+from email.MIMEMultipart import MIMEMultipart
+from email.MIMEText import MIMEText
+import sys
+import string
+from datetime import datetime
+
+now = datetime.now()
+# dd/mm/YY H:M:S
+dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
+fromaddr="watcher@dfnplus.com"
+#toaddr="feed.alerts@theglobalmarketaccess.com"
+toaddr="m.riaz@globalfinancialmedia.com,m.talha@globalfinancialmedia.com"
+#toaddr="v.ashan@theglobalmarketaccess.com"
+#comp=sys.argv[1]
+msg = MIMEMultipart()
+msg['From'] = fromaddr
+msg['To'] = toaddr
+msg["Cc"] = "mianasifriaz.pk@gmail.com,talhapasha81@gmail.com"
+msg['Subject'] = "172.20.152.22 - IR Primary Solr is Down, Now Restarting"
+
+#body =body_detail
+body = "172.20.152.22 - IR Primary Solr Restarted"+ dt_string
+msg.attach(MIMEText(body, 'plain'))
+
+server = smtplib.SMTP('172.18.41.71')
+server.starttls()
+#server.login(fromaddr, "YOUR PASSWORD")
+text = msg.as_string()
+#server.sendmail(fromaddr, toaddr, text)
+server.sendmail(fromaddr, msg["To"].split(",") + msg["Cc"].split(","), text)
+server.quit()
+
+===========================================================================
+------------------------ADD-HOURS-IN-CURRENT-TIMES-------------------------
+===========================================================================
+from datetime import datetime
+from datetime import timedelta
+
+system_dt = datetime.now()
+print(system_dt)
+add_hours = 5
+pk_dt = system_dt + timedelta(hours = add_hours)
+print(pk_dt)
+
+=================================================================
+---------------------------MiX URL-------------------------------
+=================================================================
+http://data.feedgma.com/mix2/ClientServiceProvider?UNC=0&M=1&H=1&UID=IRPORTAL&SID=IRPORTAL&UE=KSE&L=EN&RT=32&S=KSE~WARBABANK%60R&CIT=CP%2CSTK%2CCPCLS%2CAUD%2CFFHIST&FC=1
+=================================================================
+======================================
+
+======================================
+---------------
+======================================
+support@mubashermedia.com / 1234567890

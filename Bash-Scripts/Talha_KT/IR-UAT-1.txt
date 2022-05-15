@@ -1,0 +1,156 @@
+
+
+
+
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address               Foreign Address             State       PID/Program name   
+tcp        0      0 0.0.0.0:5007                0.0.0.0:*                   LISTEN      15665/java          
+tcp        0      0 0.0.0.0:80                  0.0.0.0:*                   LISTEN      1946/nginx          
+tcp        0      0 0.0.0.0:22                  0.0.0.0:*                   LISTEN      1647/sshd           
+tcp        0      0 0.0.0.0:443                 0.0.0.0:*                   LISTEN      1946/nginx          
+tcp        0      0 :::11196                    :::*                        LISTEN      15665/java          
+tcp        0      0 :::8989                     :::*                        LISTEN      14985/java          
+tcp        0      0 :::445                      :::*                        LISTEN      1923/httpd          
+tcp        0      0 :::8382                     :::*                        LISTEN      15665/java          
+tcp        0      0 :::8383                     :::*                        LISTEN      15665/java          
+tcp        0      0 :::9989                     :::*                        LISTEN      14985/java          
+tcp        0      0 :::3306                     :::*                        LISTEN      1874/mysqld         
+tcp        0      0 :::4047                     :::*                        LISTEN      15665/java          
+tcp        0      0 ::ffff:127.0.0.1:7983       :::*                        LISTEN      31698/java          
+tcp        0      0 ::ffff:127.0.0.1:7984       :::*                        LISTEN      32252/java          
+tcp        0      0 ::ffff:127.0.0.1:6577       :::*                        LISTEN      15112/java          
+tcp        0      0 ::ffff:127.0.0.1:7985       :::*                        LISTEN      579/java            
+tcp        0      0 :::8787                     :::*                        LISTEN      1923/httpd          
+tcp        0      0 :::7093                     :::*                        LISTEN      15665/java          
+tcp        0      0 ::ffff:127.0.0.1:7989       :::*                        LISTEN      14985/java          
+tcp        0      0 :::22                       :::*                        LISTEN      1647/sshd           
+tcp        0      0 :::8983                     :::*                        LISTEN      31698/java          
+tcp        0      0 :::9336                     :::*                        LISTEN      15665/java          
+tcp        0      0 :::8984                     :::*                        LISTEN      32252/java          
+tcp        0      0 :::7577                     :::*                        LISTEN      15112/java          
+tcp        0      0 :::8985                     :::*                        LISTEN      579/java 
+
+
+rsync -arvzh directfn/ root@ir-uat-uae:/home/directfn/
+
+
+Mixed Content: The page at 'https://sicp2021epresentations.com/login' was loaded over HTTPS, but requested an insecure XMLHttpRequest endpoint 'http://52.73.101.121:4000/user/login'. This request has been blocked; the content must be served over HTTPS.
+
+
+Reset MySql root password at centos7:-
+1. Stop mysql:
+systemctl stop mysqld
+
+
+2. Set the mySQL environment option 
+systemctl set-environment MYSQLD_OPTS="--skip-grant-tables"
+
+
+3. Start mysql usig the options you just set
+systemctl start mysqld
+
+
+4. Login as root
+mysql -u root
+
+
+5. Update the root user password with these mysql commands
+mysql> UPDATE mysql.user SET authentication_string = PASSWORD('MyNewPassword')
+    -> WHERE User = 'root' AND Host = 'localhost';
+mysql> FLUSH PRIVILEGES;
+mysql> quit
+
+
+*** Edit ***
+As mentioned my shokulei in the comments, for 5.7.6 and later, you should use 
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY 'MyNewPass';
+Or you'll get a warning
+
+
+6. Stop mysql
+systemctl stop mysqld
+
+
+7. Unset the mySQL envitroment option so it starts normally next time
+systemctl unset-environment MYSQLD_OPTS
+
+
+8. Start mysql normally:
+systemctl start mysqld
+
+
+Try to login using your new password:
+7. mysql -u root -p
+
+
+
+ <HostDetails>
+                <!--<Host>192.168.10.96</Host>-->
+                <Host>localhost</Host>
+                <Port>3306</Port>
+                <Database>ir</Database>
+                <Username>iruser</Username>
+                <Password>ir@directfn</Password>
+                <!--<Username>janith</Username>-->
+                <!--<Password>594980@Knight</Password>-->
+            </HostDetails>
+
+            <Config DBMap="DBMapping.xml"/>
+
+        </Plugin>
+        <Plugin Alias="DBHandler2" Name="com.directfn.db.DBConnector">
+
+            <HostDetails>
+                <Host>localhost</Host>
+                <Port>3306</Port>
+                <Database>ir</Database>
+                <Username>iruser</Username>
+                <Password>ir@directfn</Password>
+                <!-- <Username>iruser</Username>
+                <Password>ir@directfn</Password> -->
+            </HostDetails>
+
+First run solr
+Then IR_Backend
+./run.sh -d -f &
+
+
+/usr/local/apache2/modules/mod_suexec.so
+
+/usr/local/apache2/modules/mod_suexec.so
+
+User daemon
+Group daemon
+DocumentRoot "/usr/local/apache2/htdocs"
+
+
+
+docker run -dit --name apache22 -p 8787:80 -v "$PWD":/usr/local/apache2/htdocs/ httpd:2.2
+
+docker cp src/. container_id:/target
+docker cp container_id:/src/. target
+
+version: '3.7'
+services: 
+    apache:
+        container_name: apache22
+    image: httpd:2.2
+    volumes:
+        - "/root:/usr/local/apache2/htdocs/"
+    restart: always
+    ports:
+        - 8787:80
+
+
+For deployment of IR-UAT-UAE
+
+docker cp src/. container_id:/target
+docker cp container_id:/src/. target
+
+copy to /var/www/html/ <- in docker container
+
+apachectl -k restart
+also change ownership to 501
+chown -R 501:501 [folder: i.e. nbk]
+
+ETEL

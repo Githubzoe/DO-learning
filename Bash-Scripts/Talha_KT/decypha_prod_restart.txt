@@ -1,0 +1,66 @@
+[root@decypha-pri directfn]# netstat -ntlp
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp        0      0 0.0.0.0:22005           0.0.0.0:*               LISTEN      16718/./direct.quot 
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      1158/sshd           
+tcp        0      0 127.0.0.1:25            0.0.0.0:*               LISTEN      1114/master         
+tcp        0      0 0.0.0.0:443             0.0.0.0:*               LISTEN      721/nginx: master p 
+tcp        0      0 0.0.0.0:10050           0.0.0.0:*               LISTEN      17343/zabbix_agentd 
+tcp        0      0 0.0.0.0:6379            0.0.0.0:*               LISTEN      18171/redis-server  
+tcp        0      0 0.0.0.0:11211           0.0.0.0:*               LISTEN      29345/memcached     
+tcp        0      0 0.0.0.0:9006            0.0.0.0:*               LISTEN      16718/./direct.quot 
+tcp        0      0 0.0.0.0:4432            0.0.0.0:*               LISTEN      721/nginx: master p 
+tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN      721/nginx: master p 
+tcp        0      0 0.0.0.0:8081            0.0.0.0:*               LISTEN      721/nginx: master p 
+tcp        0      0 0.0.0.0:8082            0.0.0.0:*               LISTEN      721/nginx: master p 
+tcp6       0      0 :::22                   :::*                    LISTEN      1158/sshd           
+tcp6       0      0 172.20.152.21:1527      :::*                    LISTEN      18828/java          
+tcp6       0      0 :::8985                 :::*                    LISTEN      20943/java          
+tcp6       0      0 ::1:25                  :::*                    LISTEN      1114/master         
+tcp6       0      0 :::9019                 :::*                    LISTEN      22542/java          
+tcp6       0      0 :::21919                :::*                    LISTEN      1621/java           
+tcp6       0      0 :::10050                :::*                    LISTEN      17343/zabbix_agentd 
+tcp6       0      0 :::12100                :::*                    LISTEN      22542/java          
+tcp6       0      0 127.0.0.1:8005          :::*                    LISTEN      1621/java           
+tcp6       0      0 :::3333                 :::*                    LISTEN      22542/java          
+tcp6       0      0 :::3334                 :::*                    LISTEN      22542/java          
+tcp6       0      0 :::11211                :::*                    LISTEN      29345/memcached     
+tcp6       0      0 :::9100                 :::*                    LISTEN      22255/node_exporter 
+tcp6       0      0 :::8080                 :::*                    LISTEN      1621/java           
+tcp6       0      0 :::80                   :::*                    LISTEN      721/nginx: master p 
+tcp6       0      0 :::27505                :::*                    LISTEN      22542/java          
+tcp6       0      0 127.0.0.1:7985          :::*                    LISTEN      20943/java          
+[root@decypha-pri directfn]# ps aux | grep -i tom
+directfn  1621  7.7 16.2 16054032 5287056 ?    Sl   Sep15 138:41 /usr/java/jdk1.7.0_80/bin/java -Djava.util.logging.config.file=/home/directfn/app/tomcat-7032/conf/logging.properties -server -Xms4096m -Xmx8192m -Djava.awt.headless=true -Dfile.encoding=UTF-8 -Dcom.sun.management.jmxremote=true -Denv=dxb_prod -XX:PermSize=1024m -XX:MaxPermSize=2048m -XX:+DisableExplicitGC -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djava.endorsed.dirs=/home/directfn/app/tomcat-7032/endorsed -classpath /home/directfn/app/tomcat-7032/bin/bootstrap.jar:/home/directfn/app/tomcat-7032/bin/tomcat-juli.jar -Dcatalina.base=/home/directfn/app/tomcat-7032 -Dcatalina.home=/home/directfn/app/tomcat-7032 -Djava.io.tmpdir=/home/directfn/app/tomcat-7032/temp org.apache.catalina.startup.Bootstrap start
+root      7442  0.8  0.0 772012 30844 ?        Ssl  Jun23 990:02 /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent -config /opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.toml -envconfig /opt/aws/amazon-cloudwatch-agent/etc/env-config.json -pidfile /opt/aws/amazon-cloudwatch-agent/var/amazon-cloudwatch-agent.pid
+root     15216  0.0  0.0 112816   984 pts/0    S+   12:21   0:00 grep --color=auto -i tom
+[root@decypha-pri directfn]# ps aux | grep -i java
+directfn  1621  7.7 16.2 16054032 5287056 ?    Sl   Sep15 138:41 /usr/java/jdk1.7.0_80/bin/java -Djava.util.logging.config.file=/home/directfn/app/tomcat-7032/conf/logging.properties -server -Xms4096m -Xmx8192m -Djava.awt.headless=true -Dfile.encoding=UTF-8 -Dcom.sun.management.jmxremote=true -Denv=dxb_prod -XX:PermSize=1024m -XX:MaxPermSize=2048m -XX:+DisableExplicitGC -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djava.endorsed.dirs=/home/directfn/app/tomcat-7032/endorsed -classpath /home/directfn/app/tomcat-7032/bin/bootstrap.jar:/home/directfn/app/tomcat-7032/bin/tomcat-juli.jar -Dcatalina.base=/home/directfn/app/tomcat-7032 -Dcatalina.home=/home/directfn/app/tomcat-7032 -Djava.io.tmpdir=/home/directfn/app/tomcat-7032/temp org.apache.catalina.startup.Bootstrap start
+root     15269  0.0  0.0 112816   988 pts/0    S+   12:21   0:00 grep --color=auto -i java
+directfn 18828 37.3  4.3 11695604 1398092 ?    Sl   Sep11 2474:55 /home/directfn/app/solr/java/jdk1.7.0_79/bin/java -jar /home/directfn/IMDB/lib/derbyrun.jar server start -h 172.20.152.21 -p 1527
+directfn 20943  194 17.6 19663784 5738508 ?    Sl   Sep11 12872:06 /usr/java/jdk1.8.0_151/bin/java -server -Xms1024m -Xmx1024m -XX:NewRatio=3 -XX:SurvivorRatio=4 -XX:TargetSurvivorRatio=90 -XX:MaxTenuringThreshold=8 -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:ConcGCThreads=4 -XX:ParallelGCThreads=4 -XX:+CMSScavengeBeforeRemark -XX:PretenureSizeThreshold=64m -XX:+UseCMSInitiatingOccupancyOnly -XX:CMSInitiatingOccupancyFraction=50 -XX:CMSMaxAbortablePrecleanTime=6000 -XX:+CMSParallelRemarkEnabled -XX:+ParallelRefProcEnabled -verbose:gc -XX:+PrintHeapAtGC -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+PrintGCTimeStamps -XX:+PrintTenuringDistribution -XX:+PrintGCApplicationStoppedTime -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=9 -XX:GCLogFileSize=4M -Xloggc:/home/directfn/app/solr/solr/server/logs/solr_gc.log -Djetty.port=8985 -DSTOP.PORT=7985 -DSTOP.KEY=solrrocks -Duser.timezone=UTC -Djetty.home=/home/directfn/app/solr/solr/server -Dsolr.solr.home=/home/directfn/app/solr/solr/server/../decypha -Dsolr.install.dir=/home/directfn/app/solr/solr -Xss256k -XX:OnOutOfMemoryError=/home/directfn/app/solr/solr/bin/oom_solr.sh 8985 /home/directfn/app/solr/solr/server/logs -jar start.jar --module=http
+directfn 22542  0.3 19.7 8620960 6422528 ?     Sl   Sep11  24:27 /usr/java/jdk1.6.0_27/bin/java -server -Dcom.sun.management.jmxremote.port=3333 -Djava.rmi.server.hostname=172.17.241.187 -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false -Xmx6144m -Xms6144m -classpath lib/:lib/scanner.jar:lib/log4j-1.2.16.jar:lib/ojdbc5.jar:lib/commons-io-2.3.jar:lib/javassist.jar:lib/gson-1.7.1.jar com.dfn.scanner.Scanner
+[root@decypha-pri directfn]# pwdx 22542 20943 18828 1621
+22542: /home/directfn/app/scanner2
+20943: /home/directfn/app/solr/solr/server
+18828: /home/directfn/IMDB
+1621: /home/directfn/app/tomcat-7032/bin
+[root@decypha-pri directfn]# ^C
+[root@decypha-pri directfn]# 
+[root@decypha-pri directfn]# ps aux | grep -i quot
+root     15966  0.0  0.0 112812   988 pts/0    S+   12:23   0:00 grep --color=auto -i quot
+directfn 16718  1.2  0.0 853248 19108 ?        Sl   01:00   8:37 ./direct.quoteserver
+[root@decypha-pri directfn]# pwdx 16718
+16718: /home/directfn/app/direct.qouteserver/bin
+
+22542: /home/directfn/app/scanner2
+20943: /home/directfn/app/solr/solr/server
+18828: /home/directfn/IMDB
+1621: /home/directfn/app/tomcat-7032/bin
+16718: /home/directfn/app/direct.qouteserver/bin
+
+run every service in any way but run tomcat at the end
+also run 
+
+
+

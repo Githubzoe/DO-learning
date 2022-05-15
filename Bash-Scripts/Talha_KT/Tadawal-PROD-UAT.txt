@@ -1,0 +1,35 @@
+
+su root <= to become root
+ssh mubasher@tadawal-UAT-PROD
+
+du.mubashertrade.com - DU PROD
+du-uat.mubashertrade.com - DU UAT
+tdwlgmuat-mtplus.mubashertrade.com - TDWL Game UAT
+tdwlgm-mtplus.mubashertrade.com - TDWL Game PROD
+trdgmuat2-mtplus.mubashertrade.com - Egypt Trading Game UAT
+trdgmuat-mtplus.mubashertrade.com - Egypt Trading Game PROD
+
+/etc/nginx/conf.d <- nginx conf
+cd /usr/share/nginx/html/ <- root path for the builds
+
+============================================================
+du.mubashertrade.com - DU PROD
+du-uat.mubashertrade.com - DU UAT
+tdwlgmuat-mtplus.mubashertrade.com - TDWL Game UAT
+tdwlgm-mtplus.mubashertrade.com - TDWL Game PROD
+trdgmuat2-mtplus.mubashertrade.com - Egypt Trading Game UAT
+trdgmuat-mtplus.mubashertrade.com - Egypt Trading Game PROD
+============================================================
+
+mtplus-tdwl-uat <- trading game uat
+mtplus-tdwl-prod <- trading game prod
+
+/usr/share/nginx/html/mtplus-tdwl-prod
+
+/var/log/nginx/tdwlgm-mtplus.mubashertrade.com.ssl-error.log
+
+
+
+vpnc /home/jenkins/vpn/test_vpn/cisco.conf 
+
+vpnc-disconnect

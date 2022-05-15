@@ -1,0 +1,309 @@
+DU-UAT
+==================================[11:16 AM] ======
+
+
+83420: /du/services/du-payment
+5671: /du/services/du-config-server
+5770: /du/services/du-zipkin
+5904: /du/services/du-zipkin
+5592: /du/services/du-service-registery
+6032: /du/services/du-zipkin
+5832: /du/services/du-zipkin
+5725: /du/services/du-zipkin
+
+======================
+Payment
+======================
+sudo kill 208711
+cd /du/services/du-payment/
+nohup java -jar payment-0.0.1-SNAPSHOT.jar &
+tail -f nohup.out 
+ps -ef | grep payment
+sudo kill 218910
+nohup java -jar payment-0.0.1-SNAPSHOT.jar &
+tail -f nohup.out 
+ps -ef | grep payment
+sudo kill 219468
+cd /du/services/du-payment/
+
+======================
+Config-Server
+======================
+cd du-config-server/
+ps -ef | grep config-server-0.0.1-SNAPSHOT.jar 
+nohup java -jar config-server-0.0.1-SNAPSHOT.jar &
+ps -ef | grep config-server-0.0.1-SNAPSHOT.jar 
+cd ../du-service-registery/
+ps -ef | grep service-registory-0.0.1-SNAPSHOT.jar 
+nohup java -jar service-registory-0.0.1-SNAPSHOT.jar &
+ps -ef | grep service-registory-0.0.1-SNAPSHOT.jar 
+cd ../du-zipkin/ 
+ps -ef | grep du-mubasher-zipkin-server-0.0.1.jar 
+nohup java -jar du-mubasher-zipkin-server-0.0.1.jar &
+ps -ef | grep du-mubasher-zipkin-server-0.0.1.jar 
+cd ../du-user/
+ps -ef | grep du-user-service-0.1.0-SNAPSHOT.jar 
+nohup java -jar du-user-service-0.1.0-SNAPSHOT.jar &
+ps -ef | grep du-user-service-0.1.0-SNAPSHOT.jar 
+cd ../du-email-service/ 
+ps -ef | grep email-service-0.0.1-SNAPSHOT.jar 
+nohup java -jar email-service-0.0.1-SNAPSHOT.jar &
+cd ../du-apigateway/
+ 
+nohup java -jar du-api-gateway-0.0.2-SNAPSHOT.jar &
+cd ../du-learn/
+
+------------------------------------------------------
+
+ubuntu@ip-1ServerIP:~/temp/service_files_java$ ps aux | grep -i 83420
+ubuntu     83420  0.1  7.2 4723216 582272 ?      Sl   Aug04  13:02 java -jar payment-0.0.1-SNAPSHOT.jar
+ubuntu    150612  0.0  0.0   8128   668 pts/1    S+   09:44   0:00 grep --color=auto -i 83420
+ubuntu@ip-1ServerIP:~/temp/service_files_java$ ps aux | grep -i 5671
+ubuntu      5671  0.1  4.7 4690028 383468 ?      Sl   Jul27  22:46 java -jar config-server-0.0.1-SNAPSHOT.jar
+ubuntu    150614  0.0  0.0   8128   672 pts/1    S+   09:44   0:00 grep --color=auto -i 5671
+ubuntu@ip-1ServerIP:~/temp/service_files_java$ ps aux | grep -i 5770
+ubuntu      5770  0.2  7.7 4735536 620500 ?      Sl   Jul27  60:20 java -jar ../du-apigateway/du-api-gateway-0.0.2-SNAPSHOT.jar
+ubuntu    150621  0.0  0.0   8128   736 pts/1    S+   09:45   0:00 grep --color=auto -i 5770
+ubuntu@ip-1ServerIP:~/temp/service_files_java$ ps aux | grep -i 5904
+ubuntu      5904  0.8  8.3 4753788 670836 ?      Sl   Jul27 171:14 java -jar ../du-user/du-user-service-0.1.0-SNAPSHOT.jar
+ubuntu    150623  0.0  0.0   8128  2912 pts/1    S+   09:45   0:00 grep --color=auto -i 5904
+ubuntu@ip-1ServerIP:~/temp/service_files_java$ ps aux | grep -i 5592
+ubuntu      5592  0.7  6.8 4718600 547528 ?      Sl   Jul27 148:36 java -jar service-registory-0.0.1-SNAPSHOT.jar
+ubuntu    150627  0.0  0.0   8128   740 pts/1    S+   09:45   0:00 grep --color=auto -i 5592
+ubuntu@ip-1ServerIP:~/temp/service_files_java$ ps aux | grep -i 6032
+ubuntu      6032  0.1  6.7 4698276 545760 ?      Sl   Jul27  26:23 java -jar ../du-predict/predict-0.1.2-BETA.jar
+ubuntu    150629  0.0  0.0   8128  2960 pts/1    S+   09:45   0:00 grep --color=auto -i 6032
+ubuntu@ip-1ServerIP:~/temp/service_files_java$ ps aux | grep -i 5832
+ubuntu      5832  0.0  2.6 4652596 209412 ?      Sl   Jul27  18:55 java -jar ../du-email-service/email-service-0.0.1-SNAPSHOT.jar
+ubuntu    150632  0.0  0.0   8128  2920 pts/1    S+   09:45   0:00 grep --color=auto -i 5832
+ubuntu@ip-1ServerIP:~/temp/service_files_java$ ps aux | grep -i 5725
+ubuntu      5725  0.1  6.8 4671508 551108 ?      Sl   Jul27  22:38 java -jar du-mubasher-zipkin-server-0.0.1.jar
+ubuntu    150635  0.0  0.0   8128  2852 pts/1    S+   09:45   0:00 grep --color=auto -i 5725
+
+
+=============================================
+Ustad-e-Mohtram ki Service File
+=============================================
+/etc/systemd/system/first_investor.service
+ 
+##########################################################
+[Unit]
+Description=DU-Payment
+ 
+[Service]
+WorkingDirectory=/du/services/du-payment
+ExecStart=/usr/bin/java -Xmx1024m -jar /srv/apps/first_investor/running-app/first_investor.war -Dspring.profiles.active=prod --spring.config.location=file:/srv/apps/first_investor/running-app/
+Type=simple
+User=root
+ 
+[Install]
+WantedBy=multi-user.target
+##########################################################
+
+================================
+Working systemctl file for jars 
+================================
+
+[Unit]
+Description=DU-Learn
+After={process name}
+[Service]
+User=ubuntu
+# The configuration file application.properties should be here:
+
+#change this to your workspace
+WorkingDirectory=/du/services/du-learn
+
+# Warm up time for the process of 10 sec (delay time)
+ExecStartPre=/bin/sleep 10
+#path to executable.
+#executable is a bash script which calls jar file
+ExecStart=/usr/bin/java -Xmx1024m -jar du-learn.jar
+StandardOutput=file:/var/log/du-services/du-learn.out.txt
+StandardError=file:/var/log/du-services/du-learn.err.txt
+Type=simple
+User=ubuntu
+
+SuccessExitStatus=143
+TimeoutStopSec=10
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+
+
+====================
+DU-UAT runing the followin services
+1. REDIS
+2. NGINX
+3. PGSQL(12/13) => 5432:5433
+
+12-main.pid
+13-main.pid
+==================
+POSTGRESQL  Monit 
+==================
+
+check process postgres with pidfile /var/run/postgresql/12-main.pid
+   group database
+   start program = "systemctl start postgresql@12-main.service"
+   stop  program = "systemctl stop postgresql@12-main.service"
+   if failed host localhost port 5432 protocol pgsql then restart
+
+
+check process postgres with pidfile /var/run/postgresql/13-main.pid
+   group database
+   start program = "systemctl start postgresql@13-main.service"
+   stop  program = "systemctl stop postgresql@13-main.service"
+   if failed host localhost port 5433 protocol pgsql then restart
+
+/var/lib/postgresql/12/main
+/var/lib/postgresql/13/main
+
+systemctl status postgresql@12-main.service
+systemctl status postgresql@13-main.service
+
+
+174524: /du/services/du-payment
+5770: /du/services/du-zipkin
+5671: /du/services/du-config-server
+5904: /du/services/du-zipkin
+5592: /du/services/du-service-registery
+6032: /du/services/du-zipkin
+5832: /du/services/du-zipkin
+5725: /du/services/du-zipkin
+
+sudo systemctl daemon-reload
+sudo systemctl start
+sudo systemctl status
+sudo systemctl enable <- to make them run on boot
+
+du-api-gateway-SNAPSHOT.jar
+
+du-service-registory-SNAPSHOT.jar
+
+du-service-registery
+du-zipkin
+then anyother service can be up
+
+Place the new jar file in the folder and rename it to the filename of the jar placed in that folder.
+Then simply stop the service you have added.
+
+sudo systemctl stop du-config-server.service
+sudo systemctl stop du-api-gateway.service 
+sudo systemctl stop du-email.service 
+sudo systemctl stop du-payment.service 
+sudo systemctl stop du-predict.service 
+sudo systemctl stop du-service-registery.service
+sudo systemctl stop du-user.service 
+sudo systemctl stop du-zipkin.service
+
+Then start the service
+
+sudo systemctl start du-service-registery.service 
+sudo systemctl start du-zipkin.service 
+sudo systemctl start du-user.service 
+sudo systemctl start du-payment.service 
+sudo systemctl start du-predict.service 
+sudo systemctl start du-api-gateway.service 
+sudo systemctl start du-config-server.service 
+sudo systemctl start du-email.service
+
+
+sudo systemctl enable du-service-registery.service 
+Created symlink /etc/systemd/system/multi-user.target.wants/du-service-registery.service → /etc/systemd/system/du-service-registery.service.
+sudo systemctl enable du-zipkin.service 
+Created symlink /etc/systemd/system/multi-user.target.wants/du-zipkin.service → /etc/systemd/system/du-zipkin.service.
+sudo systemctl enable du-user.service 
+Created symlink /etc/systemd/system/multi-user.target.wants/du-user.service → /etc/systemd/system/du-user.service.
+sudo systemctl enable du-email.service 
+Created symlink /etc/systemd/system/multi-user.target.wants/du-email.service → /etc/systemd/system/du-email.service.
+sudo systemctl enable du-predict.service 
+Created symlink /etc/systemd/system/multi-user.target.wants/du-predict.service → /etc/systemd/system/du-predict.service.
+sudo systemctl enable du-payment.service 
+Created symlink /etc/systemd/system/multi-user.target.wants/du-payment.service → /etc/systemd/system/du-payment.service.
+sudo systemctl enable du-api-gateway.service 
+Created symlink /etc/systemd/system/multi-user.target.wants/du-api-gateway.service → /etc/systemd/system/du-api-gateway.service.
+sudo systemctl enable du-config-server.service 
+Created symlink /etc/systemd/system/multi-user.target.wants/du-config-server.service → /etc/systemd/system/du-config-server.service.
+
+#!/bin/bash
+echo "starting PGSQL_12"
+systemctl start postgresql@12-main.service
+
+
+ps aux | grep -i du-payment | awk {'print $2'} 
+
+ps aux | grep -i du-payment | awk {'print $2'} {'print $2'}
+
+
+
+/root/script/runner.sh
+
+
+1.config server
+2.service registery
+3.zipkin
+4.user
+5.apigateway
+6.email
+7.payment
+8.predict
+
+ExecStartPre=/bin/sleep 10
+
+nginx.service
+
+du-config-server.service
+After=nginx.service
+du-service-registery.service
+After=du-config-server.service
+du-zipkin.service
+After=du-service-registery.service
+du-user.service
+After=du-zipkin.service
+du-api-gateway.service 
+After=du-user.service
+du-email.service 
+After=du-api-gateway.service 
+du-payment.service 
+After=du-email.service
+du-predict.service
+After=du-payment.service
+
+/etc/systemd/system <- where systemd process are placed
+Then start the service
+
+sudo systemctl start du-config-server.service
+sleep 5 
+sudo systemctl start du-service-registery.service 
+sleep 5
+sudo systemctl start du-zipkin.service 
+sleep 5
+sudo systemctl start du-user.service 
+sleep 5
+sudo systemctl start du-api-gateway.service 
+sleep 5
+sudo systemctl start du-email.service
+sleep 5
+sudo systemctl start du-payment.service 
+sleep 5
+sudo systemctl start du-predict.service
+
+
+/home/chwasulliah/Downloads/justin_dashboard/output
+
+
+DU-Predict (Ahmad Bhai)
+Ask Dev For Health-Check Endpoint
+Port: 4700 (Internally)
+
+Externally which is through API-Gateway (8080)
+
+curl localhost:4700/api/v1/predict/leaderboard/healthcheck
+
+
+/api/v1/predict/leaderboard/healthcheck
+
+predict-0.1.3-BETA.jar

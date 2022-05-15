@@ -1,0 +1,75 @@
+==================================================
+Storage mounting on EC2 LVM
+==================================================
+df -h
+fdisk
+fdisk -l
+ls
+fdisk
+df -h
+lvdisplay
+lvm
+fdisk /dev/xvdf
+pv
+apt install pv
+pvcreate /dev/xvdf
+pvdisplay 
+vgcreate vgFnn /dev/xvdf 
+pvdisplay 
+pvs
+vgs
+lvs
+pvdisplay
+vgdisplay
+lvdisplay
+lvcreate -n lv1Fnn vgFnn
+lvcreate --help
+lvcreate -l 100%FREE -n lv1Fnn vgFnn
+lvsdisplay
+lvdisplay
+mkfs.ext4 /dev/vgFnn/lv1Fnn 
+fdisk -l
+df -h
+mkdir /mnt/storage
+mount /dev/mapper/vgFnn-lv1Fnn /mnt/storage
+cd /mnt/storage/
+ls
+cd ~
+ls
+fstab
+cp mysql-apt-config_0.8.10-1_all.deb /mnt/storage/
+cd /mnt/storage/
+ls
+rm mysql-apt-config_0.8.10-1_all.deb 
+ls
+ll
+vim /etc/storage
+vim /etc/fstab 
+ls
+cd ..
+ls
+cd ..
+ls
+cd ~
+umount /mnt/storage/
+ls
+cd storage/
+ls
+cd ..
+ls
+cd storage/
+ls
+pwd
+cd ~
+cd ..
+ls
+mkdir storage
+lsbkid
+lsbk
+blkid
+vim /etc/fstab
+mount -a
+df -h
+cd ~
+vim ~/.bash_history 
+exit

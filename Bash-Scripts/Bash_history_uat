@@ -1,0 +1,2613 @@
+Tadwal UAT Prod History
+
+
+java -version
+
+df -h
+
+su -
+
+cd /home/mubasher
+
+ls -l
+
+tar -zxvf jdk-8u281-linux-x64.tar.gz
+
+ls -l
+
+cd jdk1.8.0_281/
+
+ll
+
+cd ..
+#1625408227
+ls -l
+#1625408230
+cd /usr/
+#1625408233
+ls-l
+#1625408235
+ls -l
+#1625408243
+mkdir java
+#1625408246
+su -
+#1625408428
+exit
+#1625409527
+su -
+#1625409542
+exit
+#1625409581
+su -
+#1627559554
+cd /etc/nginx/
+#1627559556
+su -
+#1628401845
+clear
+#1628404779
+ll
+#1628404784
+pwd
+#1628404814
+ping 172.18.56.61 
+#1628405595
+ll
+#1628405598
+cd 172.18.56.61/
+#1628405600
+ll
+#1628405975
+cd /home/mubasher/
+#1628405976
+ll
+#1628405980
+cd 172.18.56.51
+#1628405982
+ll
+#1628405987
+cd html/
+#1628405989
+ll
+#1628406055
+cd ..
+#1628406056
+ll
+#1628406058
+cd ..
+#1628406058
+ll
+#1628406063
+cd 172.18.56.64
+#1628406066
+cd 172.18.56.61
+#1628406068
+cd /home/
+#1628406082
+cd /home/mubasher/172.18.56.61/html/
+#1628406084
+ll
+#1628406111
+cd /usr/share/nginx/html/
+#1628406112
+ll
+#1628406157
+cp /home/mubasher/172.18.56.61/html/* .
+#1628406161
+ll
+#1628406178
+cp /home/mubasher/172.18.56.61/html/* .
+#1628406206
+ll
+#1628406257
+cd ..
+#1628406258
+ll
+#1628406263
+cd ..
+#1628406264
+ll
+#1628406272
+cd /home/mubasher/172.18.56.61/html/
+#1628406274
+ll
+#1628406293
+cp * /usr/share/nginx/html/
+#1628406304
+cd /usr/share/nginx/html/
+#1628406305
+ll
+#1628406309
+su -
+#1628406459
+ll
+#1628406469
+cp -r /home/mubasher/172.18.56.61/html/* .
+#1628406474
+ll
+#1628406479
+pwd
+#1628406481
+su -
+#1628408323
+.
+#1628408331
+cd /home/mubasher/
+#1628408331
+ll
+#1628408337
+cd 172.18.56.61
+#1628408338
+ll
+#1628401848
+su -
+#1628411688
+su -
+#1628408435
+su -
+#1628499232
+cd /etc/nginx/
+#1628499236
+su -
+#1628504977
+cd /usr/share/nginx/html/
+#1628504979
+ll
+#1628504990
+su -
+#1628510087
+cd /usr/share/nginx/html/
+#1628510088
+ll
+#1628510164
+chown mubasher:mubasher dumt-prod
+#1628510171
+su -
+#1628511405
+cd /home/mubasher/
+#1628511406
+ll
+#1628511411
+cd 172.18.56.51
+#1628511413
+ll
+#1628511421
+cd conf.d/
+#1628511422
+ll
+#1628511430
+ll *.conf
+#1628512643
+nginx -t
+#1628512655
+su -
+#1628660190
+nginx -t
+#1628663588
+cd /home/mubasher/
+#1628663590
+ll
+#1628663594
+cd 172.18.56.61
+#1628663596
+ll
+#1628663609
+cd html/
+#1628663610
+ll
+#1628663617
+cd 
+#1628663641
+cd /home/mubasher/172.18.56.61/html/trdgm2
+#1628663643
+ll
+#1628663653
+pwd
+#1628664523
+clear
+#1628664641
+cd ..
+#1628664642
+ll
+#1628664646
+cd ..
+#1628664647
+ll
+#1628664650
+cd conf.d/
+#1628664651
+ll
+#1628664670
+pwd
+#1628664525
+su -
+#1628665078
+vi ll
+#1628665083
+pwd
+#1628665110
+cd /etc/nginx/
+#1628660195
+su -
+#1628688733
+cd app'/
+#1628688739
+cd app/
+#1628688740
+ll
+#1628688758
+cd /etc/nginx/co
+#1628688768
+cd /usr/share/nginx/
+#1628688771
+ll
+#1628688783
+cd ..
+#1628688898
+cd /usr/share/nginx/html/
+#1628688899
+ll
+#1628689531
+su -
+#1628741681
+df -h
+#1628745860
+cd /etc/nginx/
+#1628745862
+su -
+#1628837867
+curl ifconfig.me
+#1628837951
+su -
+#1629115398
+ls
+#1629115406
+ls -ltrah
+#1629115421
+vim ~/.bash_history 
+#1629115444
+cd /usr/share/nginx/html/
+#1629115445
+ls
+#1629115450
+ls -ltrah
+#1629115576
+cd ~
+#1629115587
+ls -ltrah
+#1629115603
+cd /usr/share/nginx/html/
+#1629115679
+mkdir temp
+#1629115688
+rm temp/
+#1629115693
+ls -ltrah
+#1629115698
+rm -rf temp/
+#1629115704
+cd ~
+#1629115763
+mkdir temp
+#1629115764
+cd temp/
+#1629115765
+pwd
+#1629115833
+cd ..
+#1629115840
+vim ~/.bash_history 
+#1629115857
+cd /usr/share/nginx/html/
+#1629115860
+ls -ltrah
+#1629115862
+ls
+#1629116136
+cd /etc/nginx/conf.d
+#1629116141
+sudo su root
+#1629116158
+su root
+#1629116472
+cd ~
+#1629116473
+ls
+#1629116477
+mkdir backups
+#1629116483
+cd backups/
+#1629116491
+mkdir 20210816
+#1629116498
+cd ..
+#1629116499
+cd temp/
+#1629116500
+ls
+#1629116506
+unzip dist.zip 
+#1629116520
+cat /etc/os-release 
+#1629116540
+yum install unzip
+#1629116547
+sudo root
+#1629116552
+su root
+#1629116739
+cd /usr/share/nginx/html/
+#1629116741
+ls
+#1629116759
+mv mtplus-tdwl-uat /home/mubasher/backups/20210816/
+#1629116776
+mv /home/mubasher/temp/mtplus-tdwl-uat/ .
+#1629116781
+ls
+#1629116785
+ls -ltrah
+#1629116796
+cd ..
+#1629116800
+ls -ltrah
+#1629116807
+cd ~
+#1629116808
+ls
+#1629116815
+cd temp/
+#1629116816
+ls
+#1629116818
+ls -ltrah
+#1629116836
+chown mubasher:mubasher  mtplus-tdwl-uat/
+#1629116843
+chown -R mubasher:mubasher  mtplus-tdwl-uat/
+#1629116847
+sudo root
+#1629116853
+su root
+#1629116888
+ls -ltrah
+#1629116898
+mv mtplus-tdwl-uat/ /usr/share/nginx/html/
+#1629116914
+cd /usr/share/nginx/html/
+#1629116916
+ls -ltrah
+#1629116924
+cd ~
+#1629116927
+htop
+#1629116933
+df -h
+#1629116947
+exit
+#1629370823
+ls
+#1629370826
+sudo su -
+#1629370832
+su - rot
+#1629370835
+su - ropt
+#1629370837
+su - root
+#1629466907
+ls
+#1629466913
+ls -ltrah
+#1629466923
+su root
+#1629466965
+ls
+#1629466967
+cd temp/
+#1629466967
+ls
+#1629466971
+cd ..
+#1629466972
+ls
+#1629466978
+pwd
+#1629467030
+cd temp/
+#1629467036
+ls -ltrah
+#1629467083
+cd ..
+#1629467086
+cd backups/
+#1629467086
+ls
+#1629467095
+mkdir 20210820
+#1629467096
+ls
+#1629467097
+cd ..
+#1629467109
+cd /usr/share/nginx/html/
+#1629467109
+ls
+#1629467112
+ls -ltrah
+#1629467181
+cd -
+#1629467182
+;s
+#1629467183
+ls
+#1629467191
+cd backups/
+#1629467191
+ls
+#1629467195
+cd 20210820/
+#1629467216
+mv /usr/share/nginx/html/mtplus-tdwl-prod .
+#1629467217
+ls
+#1629467219
+cd ..
+#1629467219
+ls
+#1629467221
+cd ..
+#1629467223
+cd temp/
+#1629467223
+ls
+#1629467228
+unzip dist.zip 
+#1629467230
+ls -ltrah
+#1629467245
+mv dist mtplus-tdwl-prod
+#1629467250
+ls -ltrah
+#1629467290
+mv /usr/share/nginx/html/mtplus-tdwl-prod .
+#1629467308
+cd /usr/share/nginx/html/
+#1629467308
+ls
+#1629467311
+ls -ltrah
+#1629467330
+mv /home/mubasher/temp/mtplus-tdwl-prod/ .
+#1629467333
+ls -ltrah
+#1629467377
+cd mtplus-tdwl-prod
+#1629467379
+ls -ltrah
+#1629467381
+cd ..
+#1629467381
+ls
+#1629467401
+ls -ltrah
+#1629467405
+exit
+#1629467517
+cd /etc/nginx/conf.d
+#1629467526
+su root
+#1629467707
+ls
+#1629467711
+cd /usr/share/nginx/
+#1629467712
+ls
+#1629467716
+cd html/
+#1629467716
+ls
+#1629467719
+ls -ltrah
+#1629467733
+ls mtplus-tdwl-prod
+#1629467746
+systemctl nginx -t
+#1629467752
+nginx -t
+#1629467784
+su root
+#1629468001
+ls
+#1629468033
+cd ~
+#1629468034
+ls
+#1629468039
+cd backups/
+#1629468039
+ls
+#1629468044
+cd 20210820
+#1629468044
+ls
+#1629468056
+cd ..
+#1629468057
+ls
+#1629468063
+cd /usr/share/nginx/
+#1629468063
+ls
+#1629468066
+cd html/
+#1629468066
+ls
+#1629468076
+ls -ltrah
+#1629468084
+rm mtplus-tdwl-prod
+#1629468100
+mv mtplus-tdwl-prod /home/mubasher/
+#1629468101
+ls
+#1629468103
+ls -ltrah
+#1629468126
+cp -r /home/mubasher/backups/20210820/mtplus-tdwl-prod/ .
+#1629468128
+ls -ltrah
+#1629468144
+cd mtplus-tdwl-prod
+#1629468150
+ls
+#1629468215
+cd ~
+#1629468216
+ls
+#1629468229
+cd backups/20210820/
+#1629468230
+ls
+#1629468241
+zip -r mtplus-tdwl-prod.zip mtplus-tdwl-prod/
+#1629468254
+cat /etc/os-release 
+#1629468265
+yum install zip
+#1629468272
+su root
+#1629468440
+exit
+#1629468961
+ls
+#1629468965
+cd /etc/nginx/
+#1629468968
+su root
+#1629469317
+ls
+#1629469319
+cd temp/
+#1629469319
+ls
+#1629469328
+rm dist.zip 
+#1629469354
+ls
+#1629469356
+cd ..
+#1629469356
+ls
+#1629469364
+cd backups/
+#1629469364
+ls
+#1629469369
+cd 20210820/
+#1629469370
+ls
+#1629469377
+cd ..
+#1629469377
+ls
+#1629469389
+cd ..
+#1629469390
+ls
+#1629469392
+cd temp/
+#1629469393
+ls
+#1629469396
+l
+#1629469396
+sls
+#1629469397
+ls
+#1629469402
+unzip dist.zip 
+#1629469411
+ls
+#1629469415
+mv dist mtplus-tdwl-prod
+#1629469416
+ls
+#1629469426
+cd /usr/share/nginx/html/
+#1629469431
+ls -ltrah
+#1629469447
+mv mtplus-tdwl-prod /home/mubasher/
+#1629469462
+mv mtplus-tdwl-prod /home/mubasher/backups/
+#1629469480
+mv /home/mubasher/temp/mtplus-tdwl-prod .
+#1629469482
+ls -ltrah
+#1629469491
+cd mtplus-tdwl-prod
+#1629469493
+ls -ltrah
+#1629469498
+cd ..
+#1629469499
+ls
+#1629469537
+cd mtplus-tdwl-prod
+#1629469538
+ls
+#1629469543
+cat appConfig.js 
+#1629469547
+ls -ltarh
+#1629469567
+cp /home/mubasher/backups/mtplus-tdwl-prod/appConfig.js .
+#1629469572
+ls -ltrah
+#1629469577
+cat appConfig.js 
+#1629470139
+ls -ltrah
+#1629470158
+cd /var/log/nginx/
+#1629470159
+ls
+#1629470163
+su root
+#1629471778
+ls
+#1629471798
+rm -rf mtplus-tdwl-prod
+#1629471800
+ls -ltrah
+#1629471807
+exit
+#1629605054
+su root
+#1629605388
+exit
+#1629811984
+telnet tdwl-phoenix.mubashertrade.com 443
+#1629870577
+telnet mfg-demo-phoenix.mubashertrade.com 443
+#1629985574
+ls
+#1629985593
+cd backups/
+#1629985593
+ls
+#1629985604
+mkdir 20210826
+#1629985653
+cd 20210816/
+#1629985653
+ls
+#1629985660
+cd ..
+#1629985662
+pwd
+#1629985827
+exit
+#1629986035
+pwd
+#1629986039
+cd temp/
+#1629986073
+ls
+#1629986078
+rm dist.zip 
+#1629986101
+ls
+#1629986175
+cd ..
+#1629986251
+mv dist.zip /te
+#1629986253
+ls
+#1629986255
+ls -ltrah
+#1629986265
+mv dist.zip temp/
+#1629986266
+ls
+#1629986267
+cd temp/
+#1629986267
+ls
+#1629986275
+unzip dist.zip 
+#1629986276
+ls
+#1629986290
+mv mtplus-tdwl-uat/ mtplus-tdwl-uat_old
+#1629986322
+cd ..
+#1629986323
+ls
+#1629986328
+cd backups/
+#1629986328
+ls
+#1629986332
+cd 20210816/
+#1629986333
+ls
+#1629986344
+cd ..
+#1629986347
+ls
+#1629986348
+cd temp/
+#1629986349
+ls
+#1629986358
+mv dist mtplus-tdwl-uat
+#1629986359
+ls
+#1629986363
+ls -ltrah
+#1629986377
+cd mtplus-tdwl-uat
+#1629986377
+ls
+#1629986379
+cd ..
+#1629986407
+cd /usr/share/nginx/html/
+#1629986407
+ls
+#1629986419
+ls -ltrah
+#1629986452
+mv mtplus-tdwl-uat /home/mubasher/backups/20210826/
+#1629986468
+mv /home/mubasher/temp/mtplus-tdwl-uat .
+#1629986471
+ls -ltrah
+#1629986488
+cd mtplus-tdwl-prod
+#1629986488
+l
+#1629986490
+sls
+#1629986491
+ls
+#1629986493
+ls -ltrah
+#1629986502
+cd ,,
+#1629986503
+cd ..
+#1629986505
+ls
+#1629986507
+ls -ltrah
+#1629986513
+cd mtplus-tdwl-uat
+#1629986514
+ls
+#1629986517
+ls -ltrah
+#1629986530
+cd ~
+#1629986530
+ls
+#1629986532
+cd temp/
+#1629986532
+ls
+#1629986540
+ls -ltrah
+#1629986554
+cd /usr/share/nginx/
+#1629986554
+ls
+#1629986556
+cd html/
+#1629986557
+ls
+#1629986567
+ls -ltrah
+#1629986572
+cd mtplus-tdwl-uat
+#1629986572
+ls
+#1629986578
+ls -ltarh
+#1629986583
+vim appConfig.js 
+#1629986632
+rm appConfig.js 
+#1629986634
+ls
+#1629986657
+cp /home/mubasher/backups/20210816/mtplus-tdwl-uat/appConfig.js .
+#1629986658
+ls
+#1629986660
+ls -ltarh
+#1629986673
+vim appConfig.js
+#1629986693
+exit
+#1630046664
+cd temp/
+#1630046665
+ls
+#1630046680
+unzip dist.zip 
+#1630046681
+ls
+#1630046702
+mv dist mtplus-tdwl-uat
+#1630046704
+cd di
+#1630046708
+cd mtplus-tdwl-uat
+#1630046709
+ls
+#1630046711
+cd ..
+#1630046711
+ls
+#1630046716
+cd ..
+#1630046716
+ls
+#1630046719
+cd backups/
+#1630046719
+ls
+#1630046733
+mkdir 20210827
+#1630046766
+cd 20210826
+#1630046767
+ls
+#1630046772
+cd mtplus-tdwl-uat/
+#1630046772
+ls
+#1630046805
+cp appConfig.js ../../../temp/mtplus-tdwl-uat
+#1630046818
+ls
+#1630046827
+cd ..
+#1630046827
+ls
+#1630046828
+cd ..
+#1630046829
+ls
+#1630046842
+cd /usr/share/nginx/html/
+#1630046844
+ls -ltrah
+#1630046882
+mv mtplus-tdwl-uat /home/mubasher/backups/20210827/
+#1630046883
+ls
+#1630046889
+ls -ltrah
+#1630046911
+cd 
+#1630046913
+cd ~
+#1630046915
+cd temp/
+#1630046915
+ls
+#1630046927
+mv mtplus-tdwl-uat /usr/share/nginx/html/
+#1630046928
+ls
+#1630046934
+cd /usr/share/nginx/html/
+#1630046937
+ls -ltrah
+#1630046943
+exit
+#1630058923
+ls
+#1630058928
+cd backups/
+#1630058928
+ls
+#1630058933
+cd 20210827
+#1630058934
+ls
+#1630058950
+mv mtplus-tdwl-uat_beta
+#1630058956
+mv mtplus-tdwl-uat/ mtplus-tdwl-uat_beta
+#1630058957
+ls
+#1630058959
+cd ..
+#1630058961
+cd..ls
+#1630058962
+cd ..ls
+#1630058963
+cd ..
+#1630058964
+ls
+#1630058966
+cd te
+#1630058972
+cd temp/
+#1630058975
+unzip dist
+#1630058976
+ls
+#1630058987
+mv dist  mtplus-tdwl-uat
+#1630058987
+ls
+#1630058990
+cd mtplus-tdwl-uat
+#1630058990
+ls
+#1630058994
+cd ..
+#1630058994
+l
+#1630058996
+cd ..
+#1630058997
+ls
+#1630058998
+cd .
+#1630058999
+cd ..
+#1630058999
+ls
+#1630059003
+cd mubasher/backups/
+#1630059003
+ls
+#1630059017
+cd 20210827/
+#1630059017
+l
+#1630059019
+ll
+#1630059023
+cd mtplus-tdwl-uat_beta/
+#1630059023
+ls
+#1630059036
+cp appConfig.js /home/mubasher/temp/mtplus-tdwl-uat/
+#1630059039
+cd ...
+#1630059040
+cd ..
+#1630059040
+sl
+#1630059046
+cd /home/mubasher/temp/
+#1630059047
+ls
+#1630059049
+cd mtplus-tdwl-uat
+#1630059050
+ls
+#1630059051
+cd ..
+#1630059064
+cd /usr/share/nginx/html/
+#1630059064
+ls
+#1630059085
+ls -ltrah
+#1630059095
+cd ..
+#1630059095
+ls
+#1630059104
+zip -r html.zip html/
+#1630059110
+sudo zip -r html.zip html/
+#1630059130
+cd html/
+#1630059131
+ls
+#1630059132
+ls 
+#1630059134
+ls -ltrah
+#1630059147
+mv mtplus-tdwl-uat /home/mubasher/backups/20210827/
+#1630059157
+mv /home/mubasher/temp/mtplus-tdwl-uat .
+#1630059160
+ls -ltrah
+#1630059163
+cd mtplus
+#1630059163
+ls
+#1630059170
+cd mtplus-tdwl-uat/
+#1630059171
+ls
+#1630059175
+ls -ltrah
+#1630059186
+su root
+#1630059220
+sudo su -
+#1630132109
+ls
+#1630132111
+cd temp/
+#1630132112
+ls
+#1630132117
+unzip dist.zip 
+#1630132119
+ls
+#1630132139
+mv dist mtplus-tdwl-uat
+#1630132140
+cd ..
+#1630132141
+ls
+#1630132143
+cd backups/
+#1630132144
+ls
+#1630132151
+mkdir 20210828
+#1630132164
+cd /usr/share/nginx/html/
+#1630132183
+mv mtplus-tdwl-uat/ /home/mubasher/backups/20210828
+#1630132183
+ls
+#1630132187
+ls -ltrah
+#1630132193
+cd ~
+#1630132193
+ls
+#1630132196
+cd temp/
+#1630132196
+ls
+#1630132199
+cd ..
+#1630132201
+cd backups/
+#1630132202
+ls
+#1630132205
+cd 2021082
+#1630132209
+cd 20210828
+#1630132213
+cd mtplus-tdwl-uat/
+#1630132224
+cp appConfig.js ../../../temp/mtplus-tdwl-uat
+#1630132230
+cd /usr/share/nginx/html/
+#1630132231
+;s
+#1630132232
+ls
+#1630132239
+mv /home/mubasher/temp/mtplus-tdwl-uat .
+#1630132242
+ls -ltarh
+#1630132247
+cd mtplus-tdwl-uat/
+#1630132249
+ls -ltrah
+#1630132253
+exit
+#1630297990
+ls
+#1630298001
+pwd
+#1630298005
+cd temp/
+#1630298006
+ls
+#1630298117
+unzip dist.zip 
+#1630298119
+ls
+#1630298140
+mv dist.zip dist-30-08-2021.zip
+#1630298141
+ls
+#1630298152
+mv dist mtplus-tdwl-uat
+#1630298190
+ls
+#1630298193
+cd ..
+#1630298193
+ls
+#1630298196
+cd backups/
+#1630298196
+ls
+#1630298204
+cd 20210828/l
+#1630298205
+cd 20210828/
+#1630298206
+ls
+#1630298208
+cd mtplus-tdwl-uat/
+#1630298208
+ls
+#1630298225
+cp appConfig.js ../../../temp/mtplus-tdwl-uat/
+#1630298228
+cd ..
+#1630298229
+l
+#1630298232
+cd ..
+#1630298232
+ls
+#1630298238
+mkdir 20210830
+#1630298244
+cd /usr/share/nginx/html/
+#1630298244
+ls
+#1630298249
+ls -ltrah
+#1630298272
+mv mtplus-tdwl-uat /home/mubasher/backups/20210830/
+#1630298273
+ls
+#1630298276
+ls -ltarh
+#1630298299
+mv /home/mubasher/temp/mtplus-tdwl-uat .
+#1630298302
+ls -ltrah
+#1630298309
+cd mtplus-tdwl-uat/
+#1630298310
+ls
+#1630298313
+ls -ltrah
+#1630298316
+exit
+#1630322379
+cd temp/
+#1630322380
+ls
+#1630322403
+unzip dist.zip 
+#1630322404
+ls
+#1630322412
+mv dist mtplus-tdwl-uat
+#1630322413
+cd ..
+#1630322413
+ls
+#1630322415
+cd backups/
+#1630322415
+ls
+#1630322418
+cd 202108
+#1630322418
+ls
+#1630322422
+cd 20210830/
+#1630322422
+ls
+#1630322433
+mv mtplus-tdwl-uat_v1
+#1630322439
+mv mtplus-tdwl-uat/ mtplus-tdwl-uat_v1
+#1630322442
+cd mtplus-tdwl-uat_v1/
+#1630322442
+ls
+#1630322451
+cp appConfig.js ../../../temp/mtplus-tdwl-uat
+#1630322453
+cd ..
+#1630322457
+cd ~
+#1630322462
+cd /usr/share/nginx/html/
+#1630322463
+ls
+#1630322467
+ll
+#1630322475
+ls -tltrah
+#1630322487
+mv /home/mubasher/backups/20210830/
+#1630322497
+mv mtplus-tdwl-uat /home/mubasher/backups/20210830/
+#1630322498
+ls
+#1630322500
+ls -ltrah
+#1630322509
+mv /home/mubasher/temp/mtplus-tdwl-uat .
+#1630322512
+ls -ltrah
+#1630322519
+cd mtplus-tdwl-uat/
+#1630322520
+ls
+#1630322523
+ls -ltrah
+#1630322526
+exit
+#1630508757
+ls
+#1630508758
+cd te
+#1630508760
+cd temp/
+#1630508761
+ls
+#1630508770
+ls -ltrah
+#1630508774
+unzip dist
+#1630508776
+ls
+#1630508783
+mv dist mtplus-tdwl-uat
+#1630508785
+cd mtplus-tdwl-uat
+#1630508785
+ls
+#1630508809
+cp ../../backups/20210830/mtplus-tdwl-uat/appConfig.js .
+#1630508812
+ls
+#1630508814
+ls -ltarh
+#1630508820
+cd ..
+#1630508820
+ls
+#1630508821
+cd ..
+#1630508823
+cd backups/
+#1630508823
+ls
+#1630508877
+mkdir 20210901
+#1630508882
+cd 20210901/
+#1630508882
+ls
+#1630508890
+cd /usr/share/nginx/html/
+#1630508890
+ls
+#1630508892
+ls- ltarh
+#1630508894
+ls -ltrah
+#1630508938
+mv mtplus-tdwl-uat /home/mubasher/backups/20210901/
+#1630508964
+mv /home/mubasher/temp/mtplus-tdwl-uat .
+#1630508967
+ls -ltrah
+#1630508970
+cd mtplus
+#1630508975
+cd mtplus-tdwl-uat/
+#1630508977
+ls -ltrah
+#1630508980
+exit
+#1631273651
+cd temp/
+#1631273651
+l
+#1631273652
+ls
+#1631273655
+unzip dist
+#1631273656
+ls
+#1631273660
+rm -rf dist
+#1631273665
+unzip dist.zip 
+#1631273666
+ls
+#1631273677
+mv mv dist mtplus-tdwl-uat
+#1631273682
+mv dist mtplus-tdwl-uat
+#1631273683
+ls
+#1631273686
+ls -ltrah
+#1631273795
+cd /etc/nginx/
+#1631273795
+ls
+#1631273820
+cd /usr/share/nginx/html/
+#1631273821
+ls
+#1631273830
+cd ..
+#1631273831
+ls
+#1631273832
+cd backups/
+#1631273833
+ls
+#1631273839
+mkdir 20210910
+#1631273845
+cd 20210910/
+#1631273850
+pwd
+#1631273866
+mv /usr/share/nginx/html/mtplus-tdwl-uat .
+#1631273867
+ls
+#1631273872
+cd mtplus-tdwl-uat/
+#1631273872
+ls
+#1631273889
+cp appConfig.js ../../../temp/mtplus-tdwl-uat .
+#1631273904
+cd //
+#1631273905
+cd ~
+#1631273909
+cd temp/
+#1631273909
+ls
+#1631273910
+cd mtplus-tdwl-uat
+#1631273910
+ls
+#1631273917
+rm appConfig.js 
+#1631273933
+cp ../../backups/20210910/mtplus-tdwl-uat/appConfig.js .
+#1631273933
+ls
+#1631273935
+cd ..
+#1631273937
+ls
+#1631273938
+pwd
+#1631273962
+mv /home/mubasher/temp/mtplus-tdwl-uat .
+#1631273964
+ls -ltarh
+#1631274614
+exit
+#1631520074
+ls
+#1631520077
+htop
+#1631523995
+ls
+#1631524002
+sudo netstat -ntlp
+#1631524008
+su root
+#1631524017
+netstat -ntlp
+#1631524040
+ps aux | grep -i tom
+#1631524043
+ps aux | grep -i java
+#1631524045
+ps aux | grep -i nginx
+#1631524066
+docker ps
+#1631524081
+cat /etc/os-release 
+#1631524408
+exit
+#1631618413
+ll
+#1631618418
+cd temp/
+#1631618418
+ls
+#1631618422
+ls -ltarh
+#1631618428
+unzip dist.zip 
+#1631618429
+ls
+#1631618438
+mv dist mtplus-tdwl-uat
+#1631618446
+cd mtplus-tdwl-uat
+#1631618446
+ls
+#1631618449
+rm appConfig.js 
+#1631618453
+d ..
+#1631618454
+cd ..
+#1631618455
+ls
+#1631618456
+cd ..
+#1631618456
+ls
+#1631618463
+cd backups/
+#1631618465
+ls
+#1631618608
+mkdir 20210914
+#1631618787
+cd /usr/share/nginx/html/
+#1631618788
+ls
+#1631618801
+ls -ltrah
+#1631618851
+mv mtplus-tdwl-uat /home/mubasher/backups/20210914/
+#1631618857
+cd ~
+#1631618858
+l
+#1631618860
+cd backups/
+#1631618860
+ls
+#1631618868
+cd 20210914/
+#1631618868
+ls
+#1631618870
+cd mtplus-tdwl-uat/
+#1631618871
+ls
+#1631618885
+cp appConfig.js ../../../temp/mtplus-tdwl-uat/
+#1631618888
+cd ~
+#1631618890
+cd temp/
+#1631618890
+l
+#1631618894
+cd mtplus-tdwl-uat
+#1631618894
+ls
+#1631618896
+ll
+#1631618899
+cd ..
+#1631618899
+ls
+#1631618902
+cd ~
+#1631618907
+cd /usr/share/nginx/html/
+#1631618915
+mv /home/mubasher/temp/mtplus-tdwl-uat .
+#1631618918
+ls -ltrah
+#1631618920
+exit
+#1631885080
+ls
+#1631885081
+cd temp/
+#1631885082
+l
+#1631885083
+ls
+#1631885091
+unzip dist.zip 
+#1631885097
+ls ls -ltarh
+#1631885101
+ls -ltrah
+#1631885111
+mv dist mtplus-tdwl-uat
+#1631885111
+ls
+#1631885116
+cd ..
+#1631885117
+ls
+#1631885119
+cd app/
+#1631885119
+ls
+#1631885120
+cd ..ls
+#1631885121
+cd ..
+#1631885122
+ls
+#1631885124
+cd backups/
+#1631885124
+ls
+#1631885135
+cd 20210914/
+#1631885135
+l
+#1631885136
+ls
+#1631885138
+cd mtplus-tdwl-uat/
+#1631885138
+ls
+#1631885161
+cp appConfig.js ../../../temp/
+#1631885162
+cd ..
+#1631885163
+ls
+#1631885165
+cd ..
+#1631885165
+ls
+#1631885166
+cd temp/
+#1631885167
+ls
+#1631885172
+cd mtplus-tdwl-uat
+#1631885172
+ls
+#1631885175
+rm appConfig.js 
+#1631885177
+l
+#1631885180
+ls
+#1631885181
+cd ..
+#1631885181
+ls
+#1631885188
+cp appConfig.js mtplus-tdwl-uat
+#1631885188
+ls
+#1631885190
+cd mtplus-tdwl-uat
+#1631885191
+ls
+#1631885192
+cd ..
+#1631885192
+ls
+#1631885193
+cd ..
+#1631885193
+ls
+#1631885196
+cd backups/
+#1631885196
+lsc
+#1631885198
+ls
+#1631885207
+mkdir 20210917
+#1631885210
+cd 202101
+#1631885212
+cd 2021017
+#1631885213
+ls
+#1631885220
+cd 20210917/
+#1631885220
+l
+#1631885221
+ls
+#1631885249
+cd /usr/share/nginx/html/
+#1631885250
+ls
+#1631885256
+ls -ltarh
+#1631885273
+cd mtplus-tdwl-uat /home/mubasher/backups/20210917/
+#1631885296
+mv /home/mubasher/temp/mtplus-tdwl-uat .
+#1631885298
+ls -ltrah
+#1631885303
+cd ..
+#1631885303
+sl
+#1631885305
+cd ..
+#1631885307
+cd html/
+#1631885308
+ls
+#1631885312
+cd mtplus-tdwl-
+#1631885314
+cd mtplus-tdwl-uat/
+#1631885315
+ls
+#1631885323
+cd ,,
+#1631885323
+l
+#1631885325
+cd ..
+#1631885325
+ls
+#1631885328
+ls -ltarh
+#1631885341
+cd /home/mubasher/
+#1631885341
+ls
+#1631885347
+cd backups/20210917
+#1631885348
+ls
+#1631885367
+mv /usr/share/nginx/html/mtplus-tdwl-uat/ .
+#1631885368
+ls
+#1631885369
+cd mtplus-tdwl-uat/
+#1631885370
+ls
+#1631885371
+ls -ltarh
+#1631885381
+mv mtplus-tdwl-uat/ /usr/share/nginx/html/
+#1631885386
+cd /usr/share/nginx/html/
+#1631885389
+ls -ltarh
+#1631885396
+cd mtplus-tdwl-uat/
+#1631885396
+l
+#1631885399
+ls -ltrah
+#1631885402
+exit
+#1632035887
+ls
+#1632035890
+cd temp/
+#1632035891
+ls
+#1632035895
+ls -ltrah
+#1632035965
+ls
+#1632036016
+ls -ltarh
+#1632036020
+unzip dist.zip 
+#1632036022
+ls
+#1632036033
+mv dist mtplus-tdwl-uat
+#1632036035
+cd mtplus-tdwl-uat
+#1632036036
+ls
+#1632036038
+rm appConfig.js 
+#1632036044
+cp ../appConfig.js .
+#1632036045
+ls
+#1632036046
+cd ..
+#1632036046
+ls
+#1632036049
+cd ~
+#1632036051
+cd backups/
+#1632036052
+ls
+#1632036057
+mkdir 20210919
+#1632036062
+cd 20210919/
+#1632036063
+l
+#1632036064
+ls
+#1632036081
+mv /usr/share/nginx/html/mtplus-tdwl-uat/ .
+#1632036081
+ls
+#1632036083
+cd ..
+#1632036083
+ls
+#1632036084
+cd ..
+#1632036085
+ls
+#1632036088
+cd /usr/share/nginx/html/
+#1632036105
+mv /home/mubasher/temp/mtplus-tdwl-uat .
+#1632036107
+ls -ltrah
+#1632036110
+exit
+#1632045435
+ls
+#1632045438
+cd temp/
+#1632045438
+ls
+#1632045443
+rm dist.zip 
+#1632045488
+ls
+#1632045492
+unzip dist.zip 
+#1632045498
+mv dist mtplus-tdwl-uat
+#1632045499
+ls
+#1632045504
+cd mtplus-tdwl-uat
+#1632045504
+ls
+#1632045506
+rm appConfig.js 
+#1632045508
+cd ..
+#1632045514
+cp appConfig.js mtplus-tdwl-uat
+#1632045516
+cd mtplus-tdwl-uat
+#1632045518
+ls -ltrah
+#1632045521
+cd ..
+#1632045522
+ls
+#1632045524
+cd backups/
+#1632045524
+ls
+#1632045529
+cd 20210919/
+#1632045530
+ls
+#1632045538
+mv mtplus-tdwl-uat/ mtplus-tdwl-uat_alpha
+#1632045552
+mv /usr/share/nginx/html/mtplus-tdwl-uat/ .
+#1632045553
+ls
+#1632045555
+cd ..
+#1632045574
+cd /usr/share/nginx/html/
+#1632045574
+ls
+#1632045582
+mv /home/mubasher/temp/mtplus-tdwl-uat .
+#1632045589
+ls -ltrah
+#1632045597
+cd mtplus-tdwl-uat/
+#1632045598
+ls
+#1632045600
+exit
+#1632290044
+ls
+#1632290047
+cd temp/
+#1632290047
+l
+#1632290049
+ls
+#1632290055
+unzip dist.zip 
+#1632290059
+ls
+#1632290073
+mv dist mtplus-tdwl-uat
+#1632290079
+cd mtplus-tdwl-uat
+#1632290080
+ls
+#1632290082
+rm appConfig.js 
+#1632290086
+ls
+#1632290091
+rm appConfig.js 
+#1632290093
+ls
+#1632290095
+cd ..
+#1632290095
+ls
+#1632290100
+cp appConfig.js mtplus-tdwl-uat
+#1632290103
+cd mtplus-tdwl-uat
+#1632290103
+ls
+#1632290105
+cd ..
+#1632290105
+ls
+#1632290106
+cd ..
+#1632290106
+ls
+#1632290110
+cd backups/
+#1632290110
+ls
+#1632290121
+mkdir 20210922
+#1632290126
+cd 20210922/
+#1632290142
+mv /usr/share/nginx/html/mtplus-tdwl-uat/ .
+#1632290142
+ls
+#1632290144
+cd ..
+#1632290149
+cd /usr/share/nginx/
+#1632290151
+cd html/
+#1632290151
+ls
+#1632290160
+mv /home/mubasher/temp/mtplus-tdwl-uat .
+#1632290161
+ls
+#1632290163
+ls -ltrah
+#1632290168
+exit
+#1632306124
+ls
+#1632306147
+cd temp/
+#1632306150
+ls
+#1632306155
+unzip dist.zip 
+#1632306156
+ls
+#1632306178
+mv dist mtplus-tdwl-uat
+#1632306186
+cp appConfig.js mtplus-tdwl-uat
+#1632306200
+cd mtplus-tdwl-uat
+#1632306206
+ls -ltrah
+#1632306211
+cd ..
+#1632306212
+ls
+#1632306216
+cd ..
+#1632306224
+cd backups/20210922/
+#1632306232
+mv mtplus-tdwl-uat/ mtplus-tdwl-uat_alpha
+#1632306237
+cd /usr/share/nginx/html/
+#1632306253
+mv mtplus-tdwl-uat/ /home/mubasher/backups/20210922/
+#1632306259
+mv /home/mubasher/temp/mtplus-tdwl-uat .
+#1632306262
+ls -ltarh
+#1632306448
+exit
+#1632477825
+ls
+#1632477826
+cd /usr/
+#1632477827
+ls
+#1632477827
+cd share/
+#1632477828
+ls
+#1632477829
+cd nginx/
+#1632477829
+ls
+#1632477830
+cd html/
+#1632477830
+ls
+#1632477876
+su - root
+#1632478134
+cd /etc/
+#1632478134
+ls
+#1632478135
+cd nginx/
+#1632478135
+ls
+#1632478140
+su - root
+#1632478758
+vim ~/.bash_history 
+#1632478774
+locate backups
+#1632478779
+cd
+#1632478780
+ls
+#1632478783
+cd backups/
+#1632478783
+ls
+#1632478786
+ls -ltrah
+#1632478794
+cd 20210922
+#1632478795
+ls
+#1632478809
+cd ..
+#1632478810
+ls
+#1632478811
+su - root
+#1633583729
+ls
+#1633583730
+cd temp/
+#1633583731
+ls
+#1633583738
+ls -ltrah
+#1633583986
+ls
+#1633583991
+cd ~
+#1633583991
+ls
+#1633583993
+exit
+#1633584029
+ls
+#1633584031
+cd temp/
+#1633584031
+ls
+#1633584073
+unzip dist.zip 
+#1633584074
+ls
+#1633584082
+mv dist mtplus-tdwl-uat
+#1633584088
+cd mtplus-tdwl-uat
+#1633584089
+ls
+#1633584094
+rm appConfig.js 
+#1633584102
+cd ..
+#1633584103
+l
+#1633584105
+cd ..
+#1633584105
+ls
+#1633584107
+cd backups/
+#1633584108
+ls
+#1633584117
+mkdir 20211007
+#1633584121
+cd 20211007/
+#1633584183
+mv /usr/share/nginx/html/mtplus-tdwl-uat/ .
+#1633584184
+ls
+#1633584185
+cd mtplus-tdwl-uat/
+#1633584186
+ls
+#1633584201
+cp appConfig.js ../../../temp/mtplus-tdwl-uat/
+#1633584202
+ls
+#1633584203
+cd ..
+#1633584203
+ls
+#1633584204
+cd ..
+#1633584205
+ls
+#1633584206
+cd ..
+#1633584206
+ls
+#1633584208
+cd temp/
+#1633584208
+l
+#1633584209
+ls
+#1633584212
+cd mtplus-tdwl-uat
+#1633584212
+ls
+#1633584214
+ls -ltarh
+#1633584221
+cd ..
+#1633584222
+l
+#1633584223
+sl
+#1633584224
+ls
+#1633584246
+mv mtplus-tdwl-uat /usr/share/nginx/html/
+#1633584253
+cd /usr/share/nginx/html/
+#1633584254
+ls
+#1633584255
+ls -ltarh
+#1633584263
+cd mtplus-tdwl-uat
+#1633584264
+ls -ltarh
+#1633584280
+exit
+#1633943105
+ls
+#1633943107
+cd temp/
+#1633943108
+ls
+#1633943115
+unzip dist.zip 
+#1633943116
+ls
+#1633943127
+mv dist mtplus-tdwl-uat
+#1633943129
+ls
+#1633943132
+cd ..
+#1633943132
+ls
+#1633943134
+cd backups/
+#1633943135
+ls
+#1633943144
+mkdir 20211011
+#1633943148
+cd 20211011/
+#1633943148
+ls
+#1633943180
+mv /usr/share/nginx/html/mtplus-tdwl-uat .
+#1633943181
+ls
+#1633943183
+cd mtplus-tdwl-uat/
+#1633943183
+ls
+#1633943256
+cp appConfig.js ../../../temp/mtplus-tdwl-uat/
+#1633943261
+cd ..
+#1633943261
+ls
+#1633943262
+cd ..
+#1633943262
+ls
+#1633943263
+cd ..
+#1633943264
+ls
+#1633943265
+cd temp/
+#1633943265
+ls
+#1633943267
+cd mtplus-tdwl-uat
+#1633943269
+ls -ltarh
+#1633943281
+rm appConfig.js 
+#1633943352
+cp ../../backups/20211007/mtplus-tdwl-uat/appConfig.js .
+#1633943353
+ls
+#1633943361
+cd /usr/share/nginx/html/
+#1633943361
+ls
+#1633943374
+mv /home/mubasher/temp/mtplus-tdwl-uat .
+#1633943377
+ls -ltarh
+#1633943385
+exit
+#1634099868
+cd temp/
+#1634099874
+ls -ltrah
+#1634099885
+unzip dist.zip
+#1634099891
+mv dist mtplus-tdwl-uat
+#1634099893
+ls
+#1634099902
+cd mtplus-tdwl-uat
+#1634099905
+rm appConfig.js 
+#1634099919
+cp /usr/share/nginx/html/mtplus-tdwl-uat/appConfig.js .
+#1634099919
+ls
+#1634099924
+cd ..
+#1634099924
+ls
+#1634099926
+cd ..
+#1634099927
+cd backups/
+#1634099928
+ls
+#1634099935
+mkdir 20211013
+#1634099939
+cd 20211013/
+#1634099949
+mv /usr/share/nginx/html/mtplus-tdwl-uat/ .
+#1634099950
+ls
+#1634099953
+cd ..
+#1634099961
+cd /usr/share/nginx/html
+#1634099963
+ls
+#1634099971
+mv /home/mubasher/temp/mtplus-tdwl-uat .
+#1634099973
+ls -ltarh
+#1634099980
+cd mtplus-tdwl-uat/
+#1634099982
+ls -ltarh
+#1634099983
+exit
+#1634534320
+cd /usr/share/nginx/
+#1634534322
+ll
+#1634534325
+cd html/
+#1634534326
+ll
+#1634534492
+cd mtplus-tdwl-prod-new
+#1634534493
+ll
+#1634534502
+cat appConfig.js 
+#1634534683
+ll
+#1634534695
+cd /usr/share/nginx/
+#1634534696
+ll
+#1634534715
+cd html/
+#1634534716
+ll
+#1634534770
+cd /etc/nginx/conf.d
+#1634534775
+su -
+#1634721410
+ls
+#1634721412
+cd temp/
+#1634721412
+l
+#1634721413
+ls
+#1634721418
+unzip dist.zip 
+#1634721420
+ls
+#1634721431
+cd /usr/share/nginx/html/
+#1634721431
+ls
+#1634721432
+ls -ltarh
+#1634721447
+cd ~
+#1634721448
+ls
+#1634721449
+cd backups/
+#1634721449
+ls
+#1634721612
+mkdir 20211020
+#1634721613
+cd 2021
+#1634721616
+cd 20211020/
+#1634721616
+ls
+#1634721653
+cd ..
+#1634721654
+ls
+#1634721656
+cd temp/
+#1634721656
+ls
+#1634721661
+mv dist mtplus-tdwl-prod
+#1634721662
+ls
+#1634721671
+cd mtplus-tdwl-prod/
+#1634721671
+ls
+#1634721674
+rm appConfig.js 
+#1634721702
+ls
+#1634721713
+cp /usr/share/nginx/html/mtplus-tdwl-prod/appConfig.js .
+#1634721714
+ls
+#1634721715
+cd ..
+#1634721715
+ls
+#1634721721
+cd /usr/share/nginx/html/
+#1634721722
+ls -ltarh
+#1634721740
+mv mtplus-tdwl-prod /home/mubasher/backups/20211020/
+#1634721751
+mv /home/mubasher/temp/mtplus-tdwl-prod .
+#1634721755
+ls -ltrah
+#1634721758
+exit
+#1634761443
+telnet 172.18.55.52 8080
+#1634799793
+ifconfig
+#1634810360
+l
+#1634810361
+ls
+#1634810363
+cd backups/
+#1634810364
+ls
+
+mkdir 20211021
+
+cd /usr/share/nginx/html/
+
+ls
+
+ls -ltarh
+
+cd duuat-payment/
+
+ls
+
+cd ..
+
+cd /etc/nginx/
+
+ls
+
+sudo cd /etc/nginx/
+
+sudo su -
+
+su root
+
+ls
+
+ls -ltrah
+
+ls -ltarh
+
+ls
+
+ls -ltrah
+
+cd ~
+
+ls
+
+cd temp/
+
+unzip dist.zip 
+
+mv dist dumt-prod
+
+cd dumt-prod/
+
+ls
+
+rm appConfig.js 
+
+cp /usr/share/nginx/html/dumt-prod/appConfig.js .
+
+ls -ltarh
+
+cd ..
+
+ls
+
+cd ..
+
+sl
+
+ls
+
+cd backups/ls
+
+cd backups/
+
+ls
+
+cd 20211021/
+
+ls
+
+mv /usr/share/nginx/html/dumt-prod .
+
+ls
+
+cd ..
+
+ls
+
+cd /usr/share/nginx/html/
+
+ls
+
+mv /home/mubasher/temp/dumt-prod .
+
+ls -ltarh
+
+cd /home/mubasher/temp/
+
+ls
+
+unzip payment.zip 
+
+ls
+
+mv payment du-payment
+
+ls
+
+mv du-payment/ /usr/share/nginx/html/
+
+cd /usr/share/nginx/html/
+
+ls -ltarh
+
+cd dumt-uat/payment
+
+ls
+
+cd ..
+
+ls
+
+cd ..
+
+ls
+
+cd dumt-prod
+
+ls
+
+ls ../dumt-uat
+
+mkdir payment
+
+cd payment/
+
+mv ../../du-payment/
+
+mv ../../du-payment .
+
+ls
+
+mv du-payment/* .
+
+ls
+
+rm -f du-payment/
+
+rm -rf du-payment/
+
+ls
+
+cd ..
+
+ls
+
+cd payment/
+
+pwd
+
+ls
+
+cd ..
+
+ls
+
+cd payment/
+
+ls
+
+pwd
+
+exit
+
+exit
+
+ls
+
+cd app`
+
+cd app
+
+ls
+
+cd ..
+
+ls
+
+ip a
+
+cd /etc/nginx/conf.d
+
+sudo su
+
+su root
+
+exit
+
+cat /etc/os-release 
+
+cd /etc/
+
+ls
+
+ls -ltrah
+#1634814994
+cd ssh/
+
+ls
+
+cat sshd_config 
+
+vim .ssh/authorized_keys 
+
+cat /.ssh/authorized_keys 
+
+ls
+
+cd temp/
+
+ls
+
+unzip dist.zip 
+
+ls /usr/share/nginx/html/
+
+ls -ltrah /usr/share/nginx/html/
+
+mv dist mtplus-tdwl-prod
+
+cd mtplus-tdwl-prod
+
+ls
+
+rm appConfig.js 
+
+ls
+
+cp /usr/share/nginx/html/mtplus-tdwl-prod/appConfig.js .
+
+ls
+
+ls -ltarh
+
+cd ..
+
+ls
+
+cd /usr/share/nginx/html/
+
+ls
+
+ls -ltarh
+
+mv mtplus-tdwl-prod /home/mubasher/backups/20211021/
+
+mv /home/mubasher/temp/mtplus-tdwl-prod .
+
+ls -ltrah
+
+exit
+

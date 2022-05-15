@@ -1,0 +1,108 @@
+STEP 1: WEB
+===========================
+
+===========================
+ssh into web as root
+ps -x | grep -ai tom
+To kill the watcher as well use ./stop.sh
+pwdx [Tomcatpid]
+cd [Tomcat running Directory]
+kill -9 [Tomcatpid]
+
+do the above or either we can
+run the stop scipt in
+cd /srv/tomcat-tc/bin/
+./stop.sh
+
+STEP 2: GO TO DB FROM WEB AND STOP MYSQL
+ssh rs.db.mubasher.info 
+service mysql stop && service mysql status
+
+===========================
+USER = root | pass = jgf$kj2#
+===========================
+STEP 3: MED(FILESERVER)
+Check if the bridge server is runing on 9090 or not.
+IF runing kill it
+check using netstat -ntlp (9090 <- process listening on 9090)
+cd /home/directfn/app/info_new_med/bridgeserver
+df -h
+cd logs/
+ls -ltrh
+sudo mv *DD-MM-YYYY* /srv/med_logs/ <= (move the dated logs to /srv/med_logs/)
+df -h #Check if available space is greater than 10%
+cd /srv/med_logs
+gzip *.txt & <-- compress the logs in background
+ls *.txt <= for checking the remaining files
+
+
+===========================
+USER = directfn | Fileserver
+===========================
+STEP 4: RESTART BRIDGESERVER
+sudo su - directfn
+cd ~/app/info_new_med/bridgeserver
+./bridgeserver.sh <= run bridgeserver
+./telnet.sh <= run telnet
+telnet>users <= type users in telnet to check users
+telnet>servers <= type servers in telnet to check servers
+
+===========================
+USER = root | DB Server
+===========================
+STEP 5: START MYSQL 
+service mysql start && service mysql status
+
+===========================
+USER = directfn | WEB SERVER
+===========================
+STEP 6: RUN ./uncommit.sh
+ssh username@IP ./uncommit.sh
+[Check commit & uncommit changes 
+adds upto 19 for both before & after]
+
+===========================
+USER = root  
+===========================
+STEP 7: RUN WATCHER
+cd /srv/tomcat-tc/bin
+./startup.sh
+Start the watcher back up
+cd /srv/tomcat-tc/runner/
+./tomcat_watcher.sh &
+
+STEP 8: To Verify
+cd /srv/logs/mis_logs/fdi
+cd /srv/logs/mis_logs/prices/ <- more panic if not updated
+Check if the logs are growing or not.
+In Case if not growing call Ahmad bhai (PANIC)
+
+BackUP Logs Path:
+/storage/backups-catalina/
+
+
+===================
+> catelina.out <= do this to empty this file
+
+===================
+Bakool Ahmad Bhai |
+===================
+issue mix main aya hai
+/root/mis_logs/fdi/handling_log
+aur med main aya hai (not sure)
+/root/mis_logs/prices/handling_log
+aur med main aya hai 
+/root/mis_logs/prices/instant_feed/handling_log
+
+
+To Mount the Drive in FNN-WEB
+
+go the /srv
+then type mount -a
+also check the /etc/fstab
+
+
+==================================
+
+
+

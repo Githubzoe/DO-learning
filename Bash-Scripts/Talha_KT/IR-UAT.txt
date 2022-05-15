@@ -1,0 +1,531 @@
+IR-UAT
+
+In case of new Exchange we add the symbol in the AllExchangeList.xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<ExchangeList>
+    <Exchanges>
+        <Exchange exg="TDWL"></Exchange>
+        <Exchange exg="DFM"></Exchange>
+        <Exchange exg="BSE"></Exchange>
+        <Exchange exg="KSE"></Exchange>
+        <Exchange exg="MSM"></Exchange>
+        <Exchange exg="ADSM"></Exchange>
+        <Exchange exg="DSM"></Exchange>
+        <Exchange exg="CASE"></Exchange>
+	<Exchange exg="ASE"></Exchange>
+    </Exchanges>
+</ExchangeList>
+
+IBE only uses the Appconfig.xml
+
+we also need to add the symbol in the Appconfig.xml
+in the subscription
+
+<Subscriptions>
+                        <!--<Exchange Name="TDWL" Type="228"/>-->
+                        <!--<Exchange Name="KSE" Type="228"/>-->
+                        <!--<Exchange Name="MSM" Type="228"/>-->
+                        <!--<Exchange Name="ADSM" Type="228"/>-->
+                        <!--<Exchange Name="DSM" Type="228"/>-->
+                        <!--<Exchange Name="DFM" Type="228"/>-->
+                        <!--<Exchange Name="BSE" Type="228"/>-->
+                        <!--<Exchange Name="CASE" Type="228"/>-->
+
+                        <Exchange Name="TDWL" Type="28"/>
+                        <Exchange Name="KSE" Type="28"/>
+                        <Exchange Name="MSM" Type="28"/>
+                        <Exchange Name="ADSM" Type="28"/>
+                        <Exchange Name="DSM" Type="28"/>
+                        <Exchange Name="DFM" Type="28"/>
+                        <Exchange Name="BSE" Type="28"/>
+                        <Exchange Name="CASE" Type="28"/>
+                        <Exchange Name="ASE" Type="28"/>  
+</Subscriptions>
+Like in the above case we added ASE
+
+After this we need to restart the IBE with "F" to clear logs and cache
+and rebuild it from scratch
+
+
+TO add exchange_symbol in the UAT/PROD
+# exchange_symbol location
+/home/directfn/app/ir_backend_all_sym/config/ProductionExchangeSymbolList.xml
+
+Then add the symbol i.e. 
+<Exchange exg="DFM">
+            <Symbol sym="MASQ"></Symbol>
+            <Symbol sym="GFC"></Symbol>
+            <Symbol sym="DIB"></Symbol>
+            <Symbol sym="ALRAMZ"></Symbol>
+            <Symbol sym="AMANAT"></Symbol> <- In this case we added the AMANAT Symbol in DFM
+        </Exchange>
+
+Also Create an nginx block in default.conf (First take a backup of default.conf) | Like Shown Below
+In case of any other name just replace (amanat with [Name_provided])
+
+########### amanat  ######################
+
+        location ~ ^/amanat/assets/{
+                root /var/www/html/;
+        }
+
+        location /amanat/price {
+            proxy_pass http://data.feedgma.com/mix2/ClientServiceProvider;
+            proxy_set_header  Accept-Encoding  "";
+        }
+
+        location /amanat/chart {
+            proxy_pass http://data.feedgma.com/mix2/ClientServiceProvider;
+            proxy_set_header  Accept-Encoding  "";
+        }
+
+        location /amanat/search {
+            proxy_pass http://data.feedgma.com/mix2/ClientServiceProvider;
+            proxy_set_header  Accept-Encoding  "";
+        }
+        location /amanat/content{
+            proxy_pass http://data.feedgma.com/mix2/ClientServiceProvider;
+            proxy_set_header  Accept-Encoding  "";
+        }
+
+        location /amanat/calender_events {
+            proxy_pass http://data.feedgma.com/mix2/ClientServiceProvider;
+            proxy_set_header  Accept-Encoding  "";
+        }
+
+        location /amanat/announcement {
+            proxy_pass http://data.feedgma.com/mix2/ClientServiceProvider;
+            proxy_set_header  Accept-Encoding  "";
+        }
+        location /amanat/fundamental {
+            proxy_pass http://data.feedgma.com/mix2/ClientServiceProvider;
+            proxy_set_header  Accept-Encoding  "";
+        }
+
+        location /amanat/filecontent {
+            proxy_pass http://data.feedgma.com/dcms_ftpuser;
+            proxy_set_header  Accept-Encoding  "";
+        }
+
+        location /amanat/ibe/{
+            proxy_pass http://127.0.0.1:8382;
+            proxy_set_header  Accept-Encoding  "";
+        }
+
+        location /amanat/ir/ {
+
+                rewrite ^ /amanatUrl/ ;
+        }
+
+        location /amanat/mobile/ {
+
+            rewrite ^ /amanatUrl/ ;
+        }
+
+        location /amanatUrl/{
+            proxy_pass http://127.0.0.1:8787/amanat/index.html;
+        }
+
+################################ end amanat ###
+
+Save the File and reload nginx
+service nginx reload give 3-5 min for the reload to take place.
+
+Happy Searching :p 
+
+
+IP-UAT TCN now run apache on Docker container we would add the files to /var/www/html/ using docker cp command
+
+
+{housing <- ASE | THBK}
+
+MYSQL USER_PASS
+
+user:iruser
+password:ir@directfn
+
+http://ir-demo.directfn.net/housing/ibe/?UNC=0&M=1&H=1&UID=IRPORTAL&SID=IRPORTAL&UE=ASE&L=EN&RT=32&S=ASE~THBK&CIT=CP%2CSTK%2CCPCLS%2CAUD%2CFFHIST&FC=1
+http://data.feedgma.com/mix2/ClientServiceProvider?UNC=0&M=1&H=1&UID=IRPORTAL&SID=IRPORTAL&UE=ASE&L=EN&RT=32&S=ASE~THBK&CIT=CP%2CSTK%2CCPCLS%2CAUD%2CFFHIST&FC=1
+
+public ip
+ir-uat
+86.96.239.77
+
+http://86.96.239.77:8383/?SID=&RT=666&CMD=HOME
+
+
+
+{housing <- ASE | THBK} <- We fallow the example with these Exchange and Symbol
+To add New Exchange in the IR we need to do the following
+========
+Step 1:
+========
+/home/directfn/app/ir_backend_all_sym/config
+ProductionExchangeList.xml
+ProductionExchangeSymbolList.xml
+AppConfig.xml
+
+Do the changes in these 3 files
+Add new Exchange and New ExchangeSymbollist
+
+ProductionExchangeList.xml <- in this add the Exchange
+
+<?xml version="1.0" encoding="UTF-8"?>
+<ExchangeList>
+    <Exchanges>
+        <Exchange exg="TDWL"></Exchange>
+        <Exchange exg="DFM"></Exchange>
+        <Exchange exg="BSE"></Exchange>
+        <Exchange exg="KSE"></Exchange>
+        <Exchange exg="ADSM"></Exchange>
+        <Exchange exg="CASE"></Exchange>
+        <Exchange exg="MSM"></Exchange>
+        <Exchange exg="ASE"></Exchange> <- added this Exchange
+    </Exchanges>
+</ExchangeList>
+
+Now add the exchange_symbol
+
+========
+Step 2:
+========
+ProductionExchangeSymbolList.xml
+Note: If we are adding new Exchange new create a new block and add the Exchange and Exchange_symbol
+If not then only add the Exchange_symbol
+In Below Case new Exchange is Added
+
+<Exchange exg="ASE">
+            <Symbol sym="THBK"></Symbol> <- new exchange and the symbol is added
+</Exchange>
+
+========
+Step 3:
+========
+Now in the AppConfig.xml
+
+Line No
+1094                         <Url><![CDATA[
+1095                                 http://data.feedgma.com/mix2/ClientServiceProvider?UNC=0&M=1&H=1&UID     ={UID}&SID={SID}&L={LANG}&RT=52&AE=1&AS=1&E=TDWL&UE=KSE,MSM,ADSM,DFM,BSE,DSM,TDWL,CASE,ASE
+1096                                 ]]></Url>
+
+Add the newly added exchange Symbol ad the end of this URL in our Case its "ASE"
+
+Now add a new Block in AppConfig.xml
+
+Line No.                        <!--ASE-->
+1149                    <Request Name="RT32" Mapping="RT32" RetryAttempts="4">
+1150 
+1151                         <Url><![CDATA[
+1152                                 http://data.feedgma.com/mix2/ClientServiceProvider?SID={SID}&UID={UI     D}&RT=32&L={LANG}&UNC=0&S=ASE~{SYMBOL}&CIT=CP,STK,CPCLS,AUD,FFHIST&FC=1
+1153                                 ]]></Url>
+1154 
+1155                         <Params>
+1156                             <Param Name="LANG" Provider="com.directfn.alarabia.LanguageGenerator"/>
+1157                             <Param Name="SYMBOL" Provider="com.directfn.alarabia.CaseIndexGenerator"     />
+1158                             <Param Name="SID" Provider="com.directfn.alarabia.auth.SidGenerator"/>
+1159                             <Param Name="UID" Provider="com.directfn.alarabia.auth.UidGenerator"/>
+1160                         </Params>
+1161                     </Request>
+1162 
+
+And modify the above block with Exchange Name in Our Case it was "ASE" (for future change the ASE with the new exchange name)
+
+Also add the Exchange in the Subscriptions Block in AppConfig.xml
+
+Line No                 <Subscriptions>
+48                         <!--<Exchange Name="TDWL" Type="228"/>-->
+49                         <!--<Exchange Name="KSE" Type="228"/>-->
+50                         <!--<Exchange Name="MSM" Type="228"/>-->
+51                         <!--<Exchange Name="ADSM" Type="228"/>-->
+52                         <!--<Exchange Name="DSM" Type="228"/>-->
+53                         <!--<Exchange Name="DFM" Type="228"/>-->
+54                         <!--<Exchange Name="BSE" Type="228"/>-->
+55                         <!--<Exchange Name="CASE" Type="228"/>-->
+56 
+57                         <Exchange Name="TDWL" Type="28"/>
+58                         <Exchange Name="KSE" Type="28"/>
+59                         <Exchange Name="MSM" Type="28"/>
+60                         <Exchange Name="ADSM" Type="28"/>
+61                         <Exchange Name="DSM" Type="28"/>
+62                         <Exchange Name="DFM" Type="28"/>
+63                         <Exchange Name="BSE" Type="28"/>
+64                         <Exchange Name="CASE" Type="28"/>
+65                         <Exchange Name="ASE" Type="28"/>
+66                    </Subscriptions>
+
+
+========
+Step 4:
+========
+Now we will modify the MySQL and add new Exchange and Symbol
+{housing <- ASE | THBK}
+
+MYSQL USER_PASS
+user:iruser
+password:ir@directfn
+mysql -u iruser -p
+pass: ir@directfn
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| ir                 |
++--------------------+
+2 rows in set (0.00 sec)
+
+mysql> use ir;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+
+mysql> show tables;
++---------------------+
+| Tables_in_ir        |
++---------------------+
+| alerts              |
+| analyst_contacts    |
+| credit_ratings      |
+| document_urls       |
+| financial           |
+| financial_bkp       |
+| hindi               |
+| segments            |
+| symbols_auth        |
+| users               |
+| v_analyst_contact   |
+| v_credit_rating     |
+| v_document_urls     |
+| v_financial_details |
+| v_segment_details   |
+| v_video_urls        |
+| video_urls          |
++---------------------+
+17 rows in set (0.00 sec)
+
+mysql> select * from symbols_auth;
+insert into symbols_auth values(15,1001,"CASE","ETEL");
++----+---------+-------------+----------+
+| id | user_id | symbol      | exchange |
++----+---------+-------------+----------+
+|  1 |       2 | DEMO        | DEMO     |
+|  2 |       4 | DEMO1       | DEMO1    |
+|  3 |       4 | DEMO2       | DEMO2    |
+|  4 |       2 | MASQ        | DFM      |
+|  5 |    1000 | MASQ        | DFM      |
+|  6 |    2000 | DIB         | DFM      |
+|  7 |    3000 | 8060        | TDWL     |
+|  8 |    4000 | 1120        | TDWL     |
+|  9 |    5000 | WARBABANK`R | KSE      |
+| 10 |    6000 | CONTENT     | CONTENT  |
+| 11 |    7000 | ALRAMZ      | DFM      |
+| 12 |    8000 | NBOB        | MSM      |
+| 13 |    9000 | 4161        | TDWL     |
+| 14 |   10000 | THBK        | ASE      |
++----+---------+-------------+----------+
+14 rows in set (0.00 sec)
+
+We have ran the insert query to insert symbol and exchange
+
+========
+Step 5:
+========
+Now we will add the nginx conf
+
+########### housing  ASE| TBHK ######################
+        location ~ ^/housing/assets/{
+                root /var/www/html/;
+        }
+        location /housing/price {
+            proxy_pass http://data.feedgma.com/mix2/ClientServiceProvider;
+            proxy_set_header  Accept-Encoding  "";
+        }
+        location /housing/chart {
+            proxy_pass http://data.feedgma.com/mix2/ClientServiceProvider;
+            proxy_set_header  Accept-Encoding  "";
+        }
+        location /housing/search {
+            proxy_pass http://data.feedgma.com/mix2/ClientServiceProvider;
+            proxy_set_header  Accept-Encoding  "";
+        }
+        location /housing/content{
+            proxy_pass http://data.feedgma.com/mix2/ClientServiceProvider;
+            proxy_set_header  Accept-Encoding  "";
+        }
+        location /housing/calender_events {
+            proxy_pass http://data.feedgma.com/mix2/ClientServiceProvider;
+            proxy_set_header  Accept-Encoding  "";
+        }
+        location /housing/announcement {
+            proxy_pass http://data.feedgma.com/mix2/ClientServiceProvider;
+            proxy_set_header  Accept-Encoding  "";
+        }
+        location /housing/fundamental {
+            proxy_pass http://data.feedgma.com/mix2/ClientServiceProvider;
+            proxy_set_header  Accept-Encoding  "";
+        }
+        location /housing/filecontent {
+            proxy_pass http://data.feedgma.com/dcms_ftpuser;
+            proxy_set_header  Accept-Encoding  "";
+        }
+        location /housing/ibe/{
+            proxy_pass http://127.0.0.1:8382;
+            proxy_set_header  Accept-Encoding  "";
+        }
+        location /housing/console/{
+            proxy_pass http://127.0.0.1:8383;
+            proxy_set_header  Accept-Encoding  "";
+        }
+        location /housing/ir/ {
+                rewrite ^ /housingUrl/ ;
+        }
+        location /housing/mobile/ {
+            rewrite ^ /housingUrl/ ;
+        }
+        location /housingUrl/{
+            proxy_pass http://127.0.0.1:8787/housing/index.html;
+        }
+################################ end housing ###
+
+========
+Step 6:
+========
+Now Reload Nginx 
+Reload Nginx
+su root , mubasher
+systemctl reload nginx
+
+========
+Step 7:
+========
+Now restart IBE
+/home/directfn/app/ir_backend_all_sym/bin
+./kill.sh
+./run.sh -d -F & <- run with Capital F to clear logs
+
+=========================================
+
+Done with UAT.
+
+Now we will do all the above steps in Prod IR-Pri-Sec
+
+/home/directfn/app/ir_backend_limited_sym/config <- in the config add the config as done above for UAT
+
+/home/directfn/app/ir_backend_limited_sym/bin <- Run this 
+
+/etc/nginx/conf.d/ir_data
+make a new file in the above path in our case its ir_housing.data
+
+     location = /housingmemc {
+     internal;
+
+     memc_connect_timeout 100ms;
+     memc_send_timeout 100ms;
+     memc_read_timeout 100ms;
+     memc_ignore_client_abort on;
+
+     set $memc_key $query_string;
+     set $memc_exptime 43200;
+
+     memc_pass memcached;
+	 }
+
+     location /housing{
+     rewrite ^ /housingemberUrl/ last;
+        }
+
+     location /housingemberUrl/{
+     #alias /usr/share/nginx/html/ir-static/new_static_sites/IR-HTML5/index.html;
+     alias      /usr/share/nginx/html/ir-static/housing/;
+     index index.html;
+        }
+
+
+     location /housing/assets/{
+     root      /usr/share/nginx/html/ir-static;
+        }
+
+     location /housing/price {
+      proxy_pass http://data.feedgma.com/mix2/ClientServiceProvider;
+     #proxy_pass http://data.feedgma.com/mix2;
+     proxy_set_header  Accept-Encoding  "";
+       }
+
+     location /housing/chart {
+     proxy_pass http://data.feedgma.com/mix2/ClientServiceProvider;
+     proxy_set_header  Accept-Encoding  "";
+        }
+
+     location /housing/content {
+     proxy_pass http://data.feedgma.com/mix2/ClientServiceProvider;
+     proxy_set_header  Accept-Encoding  "";
+        }
+
+     location /housing/fundamental {
+     proxy_pass http://data.feedgma.com/mix2/ClientServiceProvider;
+     proxy_set_header  Accept-Encoding  "";
+        }
+
+     location /housing/filecontent {
+     proxy_pass http://data.feedgma.com/dcms_ftpuser;
+     proxy_set_header  Accept-Encoding  "";
+        }
+	
+	
+     location /housing/ibe{
+
+     #set $key $uri&$args;
+     #set_md5 $key;	
+     #srcache_fetch GET /memc $key;
+     #srcache_store_no_cache on;
+
+     #srcache_store_statuses 200 301 302;
+     #srcache_store PUT /memc $key;
+
+     proxy_pass http://IRIBE/ibeData/;
+     proxy_set_header Accept-Encoding "";
+      
+	 }
+
+     location /housing/calender_events {
+     proxy_pass http://data.feedgma.com/mix2/ClientServiceProvider;
+     proxy_set_header Accept-Encoding "";
+        }
+
+     location /housing/announcement {
+     proxy_pass http://data.feedgma.com/mix2/ClientServiceProvider;
+     proxy_set_header Accept-Encoding "";
+        }
+
+    location /housing/search {
+     proxy_pass http://data.feedgma.com/mix2/ClientServiceProvider;
+     proxy_set_header Accept-Encoding "";
+        }
+==========================================
+
+Reload Nginx and Restart IBE.
+
+
+/etc/nginx/conf.d/upstream.list
+update the upstream list set the load-balancing
+A-A or A-P
+
+## IR Related Components
+
+upstream IRIBE {
+        # limited symbols IBE
+        server 172.20.152.22:8384;
+        #server 172.20.156.23:8384 ;
+        server 172.20.156.23:8384 backup;
+        #server 172.16.231.17:8382 backup;
+        check interval=2000 rise=2 fall=2 timeout=5000 type=tcp;
+        check_http_send "GET /ibeData/?UNC=0&M=1&H=1&UID=131883&SID=BD584E3E-DB9B-9ECF-E040-007F01005D49&UE=A&L=EN&RT=32&CIT=CP%2CSTK%2CCPCLS%2CAUD%2CFFHIST&FC=1&SRC=DFM&=MASQ&S=DFM~MASQ HTTP/1.0\r\n\r\n";
+        check_http_expect_alive http_2xx http_3xx;
+}
+
+Set this according to your need.
+
+ETEL

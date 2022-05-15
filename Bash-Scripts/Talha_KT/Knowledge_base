@@ -1,0 +1,172 @@
+sudo yum install php54 php54-php-common php54-php-fpm  
+sudo yum install php54-php-mysql php54-php-pecl-memcache php54-php-pecl-memcached php54-php-gd php54-php-mbstring php54-php-mcrypt php54-php-xml php54-php-pecl-apc php54-php-cli php54-php-pear php54-php-pdo
+
+
+version: '3.7'
+services: 
+  database:
+    container_name: docker-local-mysql
+    image: mysql
+    volumes:
+      - "./data:/var/lib/mysql"
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+
+
+version: '3.1'
+
+services:
+  mysql_db:
+    container_name: "mysql_db"
+    image: "mysql" # use latest official postgres version
+    restart: always
+    env_file:
+      - database.env # configure postgres
+    volumes:
+      - ./mysql:/var/lib/mysql
+    ports:
+      - 3306:3306
+
+volumes:
+  mysql:
+
+===============
+
+/usr/share/nginx/html_Uat_bkp/dfnplusmoc/companies/
+181487
+181428
+181100
+181099
+181098
+160858
+112167
+164806
+166103
+
+locate 181487 181428 181100 181099 181098 160858 112167 164806 166103
+/dfnplusmoc/companies/181487.jpg:1 Failed to load resource: the server responded with a status of 404 ()
+/dfnplusmoc/companies/181428.jpg:1 Failed to load resource: the server responded with a status of 404 ()
+/dfnplusmoc/companies/181100.jpg:1 Failed to load resource: the server responded with a status of 404 ()
+/dfnplusmoc/companies/181099.jpg:1 Failed to load resource: the server responded with a status of 404 ()
+/dfnplusmoc/companies/181098.jpg:1 Failed to load resource: the server responded with a status of 404 ()
+/dfnplusmoc/companies/160858.jpg:1 Failed to load resource: the server responded with a status of 404 ()
+/dfnplusmoc/companies/112167.jpg:1 Failed to load resource: the server responded with a status of 404 ()
+/dfnplusmoc/companies/164806.jpg:1 Failed to load resource: the server responded with a status of 404 ()
+/dfnplusmoc/companies/166103.jpg:1
+
+/home/webuser/html-gluster_bkp/dfnplus/companies/112167.jpg
+/home/webuser/html-gluster_bkp/dfnplus/individuals/images/164806.jpg
+/home/webuser/html-gluster_bkp/dfnplus/individuals/images/166103.jpg
+/home/webuser/html-gluster_bkp/dfnplus/individuals/images/181098.jpg
+/home/webuser/html-gluster_bkp/dfnplus/individuals/images/181100.jpg
+/home/webuser/html-gluster_bkp/dfnplus/individuals/images/181428.jpg
+/home/webuser/html-gluster_bkp/dfnplus/individuals/images/181487.jpg
+
+
+sudo cp /home/webuser/html-gluster_bkp/dfnplus/individuals/images/164806.jpg /usr/share/nginx/html/dfnplus/companies/
+sudo cp /home/webuser/html-gluster_bkp/dfnplus/individuals/images/166103.jpg /usr/share/nginx/html/dfnplus/companies/
+sudo cp /home/webuser/html-gluster_bkp/dfnplus/individuals/images/181098.jpg /usr/share/nginx/html/dfnplus/companies/
+sudo cp /home/webuser/html-gluster_bkp/dfnplus/individuals/images/181100.jpg /usr/share/nginx/html/dfnplus/companies/
+sudo cp /home/webuser/html-gluster_bkp/dfnplus/individuals/images/181428.jpg /usr/share/nginx/html/dfnplus/companies/
+sudo cp /home/webuser/html-gluster_bkp/dfnplus/individuals/images/181487.jpg /usr/share/nginx/html/dfnplus/companies/
+
+
+
+newsImage?RT=62&ITC=3&MIMG=1&FILEID=21246850&L=EN
+
+data.feedgma.com/mix2/ClientServiceProvider?
+
+data.feedgma.com/mix2/ClientServiceProvider?RT=62&ITC=3&MIMG=1&FILEID=21246850&L=EN
+
+# old link of mix(migrated to new link -> http://data.feedgma.com/mix2/ClientServiceProvider;)
+proxy_pass  http://data.feedgma.com/mix2/ClientServiceProvider;
+
+GOLDEN WORDS OF WISDOM BY USAMA BHAI
+mix has been replaced with new url which is 
+http://data.feedgma.com/mix2/ClientServiceProvider;
+
+========================================================
+WEB fnn-web1.dirctfn.com
+FILESERVER fnn-fileserver.dirctfn.com
+========================================================
+ ##FNF##
+79.125.65.126 fnn-web1.dirctfn.com
+52.51.230.225 fnn-fileserver.dirctfn.com
+ 
+172.31.20.70 fnn-web1.dirctfn.com
+172.31.18.233 fnn-fileserver.dirctfn.com.private
+
+directfn / 320
+
+------------------------------------------
+find . -type f -exec grep -l "mubasher-vas-messaging-support:jar:2.3.6" {} +
+find . -type f -exec grep -l "static1.mubasher.info" {} +
+------------------------------------------
+
+elk log analysis
+
+grafana mongodb free or enterprise query language database
+
+elk use instead of grafana 
+
+
+yum downgrade 
+
+systemctl files are placed at
+/lib/systemd/system/
+
+monit is placed at /etc/monitrc
+monit -t to check the configuration
+after placing them at the bottom of the file
+
+MubasherConstants.java
+
+mis_server.xml
+
+[5:08 PM] Muhammad Ahmed
+    
+IPONewsPortalController.java
+    
+IPOHomePortalController.java
+
+
+
+IR PROD
+FIrst run this one: /home/directfn/app/direct.qouteserver_aa/bin
+Second then run this one: /home/directfn/app/direct.json_qouteserver_IR/bin
+
+QUOTE SERVER -> SOLR -> IR_BACKEND
+
+
+Question to ASK Ustad-e-Mohtram
+(ASHAN)
+
+aacalc_javadm <- why we run this
+direct.qouteserver_aa <- why we run this as well
+Watcher Quote server <- why 
+
+FRVL1
+
+
+DESTINATION="/home/directfn/app/direct.json_qouteserver_IR/logs"
+BACKUPPATH="/home/directfn/app/direct.json_qouteserver_IR/backup_logs"
+
+======================
+to check the public ip
+======================
+dig +short myip.opendns.com @resolver1.opendns.com
+
+
+yum install https://repo.aerisnetwork.com/pub/aeris-release-7.rpm
+
+curl localhost:4600/api/v1/learn/lectures/healthcheck
+
+====================
+TO check the inodes
+====================
+df -ih
+--------------------
+
+

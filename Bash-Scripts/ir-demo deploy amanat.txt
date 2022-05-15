@@ -1,0 +1,34 @@
+ir-demo deployment
+
+
+http://ir-demo.directfn.net/clients
+
+amant
+
+1. grab the deployment
+
+2 scp to the server  
+
+username@IP:/home/directfn/temp/afzaal
+
+3. move manat folder from /var/www/html to backup
+
+4. unzip the new depolyment and put in the /var/www/html
+
+5. change ownership of the new manant folder to afzaal:afzaal
+
+6. deploy the build to docker
+
+docker cp  51cdff01c7ef:/var/www/html/backup
+docker exec -it 51cdff01c7ef /bin/bash
+
+
+scp  Downloads/ETEL.zip   username@IP:/home/directfn/temp/afzaal
+
+vim ~/.bash_history
+
+
+ docker cp  51cdff01c7ef:/var/www/html/backup
+docker exec -it 51cdff01c7ef /bin/bash
+
+chown -R directfn:directfn amanat

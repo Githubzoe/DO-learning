@@ -1,0 +1,35 @@
+# show grants for user 
+SHOW GRANTS FOR 'user'@'host';
+i.e.
+SHOW GRANTS FOR 'ahmed'@'%';
+
+# show users and hosts
+SELECT user,host FROM mysql.user;
+
+
+Creating Another Super User
+While not particularly secure, in some cases you may wish to create another ‘super user’, that has ALL privileges across ALL databases on the server. That can be performed similar to above, but by replacing the database_name with the wildcard asterisk:
+GRANT ALL PRIVILEGES ON *.* TO 'ahmed'@'%';
+
+MySQL> SYSTEM mysql -u user -p
+SYSTEM mysql -u talha -p
+
+show databases; <- databases list
+
+use database_name; <- switch database
+
+
+Store IP in Database
+CREATE TABLE IF NOT EXISTS `ip_addresses` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `ip_address` INT(4) UNSIGNED NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+INSERT INTO `ip_addresses` (`ip_address`) VALUES (INET_ATON("127.0.0.1"));
+
+SELECT id, INET_NTOA(`ip_address`) as ip FROM `ip_addresses`;
+
+
+SET PASSWORD FOR 'root'@'localhost' = PASSWORD('MySuperSecretPassword');
+FLUSH PRIVILEGES;
