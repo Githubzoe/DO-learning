@@ -20,6 +20,8 @@ git config --global user.name "Afzaal Ahmad"
 
 git log   // commit history
 
+git log -p -5 // to see last 5 commits
+
 git branch Ops
 
 Head is on dev branch
@@ -65,7 +67,7 @@ $ git remote set-url origin git@github.com:afzaal0007/afzaal-devops.git
  
 git remote rename origin desitny
 
-ssh -vT git@github.com
+ssh -vT git@github.com  // to check the ssh into git hub
 
 ssh -T git@github.com
 
@@ -90,4 +92,123 @@ The git remote rename command takes two arguments:
 
 An existing remote name, for example, origin
 A new name for the remote, for example, destination
+
+git commands
+
+git add
+
+git status
+
+git rm --cached file1.txt
+
+git add -A     add all to the staging area
+
+git restore file1.txt   // restore file from staging area to the working directory
+
+git status
+
+
+restoring from staging area
+
+git reset file1.txt
+git reset head file.txt
+git rm --cached file1.txt
+git restore --staged file1.txt
+
+
+configuring user name and email address
+
+git config --global user.name "afzaal0007"
+
+git config --global user.email "afzaaluet@gmail.com"
+
+git config --global --list
+
+pwd
+
+git log   // to check the commits
+
+git log --online
+
+git log --summary
+
+git log --stat
+
+
+git commit -m "First Commit to the Learning Repo"
+
+
+git file commands
+
+git ls-files   // to check the files in the staging area
+
+git mv file4.txt file3.py
+
+git rm file1,file2,file3
+
+git restore --staged file3.txt
+
+
+
+git commands
+
+git add
+
+git status
+
+git rm --cached file1.txt
+
+git add -A     add all to the staging area
+
+git restore file1.txt   // restore file from staging area to the working directory
+
+git status
+
+
+restoring from staging area
+
+git reset file1.txt
+git reset head file.txt
+git rm --cached file1.txt
+git restore --staged file1.txt
+
+
+configuring user name and email address
+
+git config --global user.name "afzaal0007"
+
+git config --global user.email "afzaaluet@gmail.com"
+
+git config --global --list
+
+
+git log   // to check the commits
+
+git log --online
+
+git log --summary
+
+git log --stat
+
+
+git commit -m "First Commit to the Learning Repo"
+
+
+git file commands
+
+git ls-files   // to check the files in the statging area
+
+git mv file4.txt file3.py
+
+
+git restore --staged file3.txt
+
+git checkout -f  // sari files staging wali aa jaien gi. files ka status stagging wala ho jaye ga
+
+
+
+
+
+
+
 
