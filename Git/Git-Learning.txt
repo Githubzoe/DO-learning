@@ -12,6 +12,8 @@ git status
 
 git add .    // to stage all files
 
+git add -A // to stage all files
+
 git rm --cached <file>..." to unstage
 
 git config --global user.email "afzaaluet@gmail.com"
@@ -193,20 +195,23 @@ git log --stat
 
 git commit -m "First Commit to the Learning Repo"
 
+git commit -a -m "skipped stagging area and directly committing "
 
 git file commands
 
-git ls-files   // to check the files in the statging area
+git ls-files   // to check the files in the stagging area
 
 git mv file4.txt file3.py
 
 
 git restore --staged file3.txt
 
-git checkout -f  // sari files staging wali aa jaien gi. files ka status stagging wala ho jaye ga
+git checkout -f   // sari files staging area wali aa jaien gi in the working area .... files ka status stagging wala ho jaye ga
 
 
+git diff    // comparing working tree files  with stagging area files
 
+git diff --staged   // compare stagging area with last commit
 
 
 
