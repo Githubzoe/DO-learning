@@ -36,4 +36,11 @@ Identity added: /c/Users/l/.ssh/githubkey (afzaaluet@gmail.com)
 
 ssh-add ~/.ssh/githubkey
 
+ssh -T git@github.com
+
+Hi afzaal0007! You've successfully authenticated, but GitHub does not provide shell access.
+
+
+git remote -v
+
 
