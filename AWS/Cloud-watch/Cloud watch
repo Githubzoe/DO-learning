@@ -22,3 +22,16 @@ Cloud watch
 
 
 1.Dynamic DNS Update with Lambda when IP Change of an EC2 
+
+
+8. Cloud watch Scripts for metrics
+
+If some metrics is not push to cloud watch we can write a script to push metrics to cloud watch like Memory Utilization script to push metrics of data to cloud watch
+
+like nagios scripts
+
+9. cloud watch api Putmatrixdata api  to monitor resources up to 1 second
+
+10. cloudwatch for IIS ?
+
+11. Cloud watch for Web Server ?
