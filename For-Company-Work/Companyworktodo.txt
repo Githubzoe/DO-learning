@@ -1,0 +1,34 @@
+Company work to do / implement
+
+AWS Cloud watch => 
+
+1.  Create CPU Ulitiozation alerts for 90 %
+2.  Create Disk Space alarms for 10 GB left
+3.  Create high Memory Alarms
+   
+
+
+   SSM Agent work:
+
+ 1.  Enable automatic Patching and updates for all servers
+
+2. Check SSM Agents / status on each server
+
+
+Ec2 backup & Recovery:
+
+1.  enable automatic backup for servers
+
+2. Check EC2 recovery agent status
+
+3. do a test recovery
+
+
+Lambda Work:
+
+
+1. Dynamically update Route 53 DNS record when instance created or deleted
+
+2. Start stop EC2 automatically at regular intervals
+
+
