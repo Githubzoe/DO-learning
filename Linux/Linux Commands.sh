@@ -1,5 +1,7 @@
 Linux Commands
 
+ls | grep githubkey
+
 SSH Private key location
 
 /home/johndoe/.ssh/id_rsa
