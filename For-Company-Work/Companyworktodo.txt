@@ -32,3 +32,22 @@ Lambda Work:
 2. Start stop EC2 automatically at regular intervals
 
 
+
+RDS work
+
+1. Check automatic backup and snapshots
+
+2. RDS Cloud watch Monitoring Matrices
+
+3. Backup and Maintenance window
+
+4. Check Event Based RDS Monitoring
+
+5. Event Subscription or alerts
+
+6. create alarms directly from RDS console
+
+
+CloudFormation Template / Terraform work:
+
+1. Do the infrastructure As code for all environnement : like DEV, DA, Stagging, UAT and Production 
