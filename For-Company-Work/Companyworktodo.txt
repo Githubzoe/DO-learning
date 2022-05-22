@@ -52,7 +52,16 @@ RDS work
 
 6. create alarms directly from RDS console
 
+7. Connecte RDS Mysql Database with EC2 Instance Privately
+
+
 
 CloudFormation Template / Terraform work:
 
 1. Do the infrastructure As code for all environnement : like DEV, DA, Stagging, UAT and Production 
+
+
+XRAY work:
+
+1. Check Application MAP : API and Services calling each other
+
