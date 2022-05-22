@@ -5,6 +5,11 @@ AWS Cloud watch =>
 1.  Create CPU Ulitiozation alerts for 90 %
 2.  Create Disk Space alarms for 10 GB left
 3.  Create high Memory Alarms
+
+Clud Watch Action Item:
+
+Create a dashboard
+
    
 
 

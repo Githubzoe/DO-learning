@@ -43,4 +43,6 @@ like nagios scripts
 
 13. Create Alarms in cloud watch
 
-14. 
+14. in Text chart in the dashboard we can run playbooks = Actions against Matrices in RED
+
+15. Custom Martics in Cloud watch = ?
