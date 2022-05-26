@@ -215,5 +215,7 @@ git diff --staged   // compare stagging area with last commit
 
 
 
+git config --list
+
 
 

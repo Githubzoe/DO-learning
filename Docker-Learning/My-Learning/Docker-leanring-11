@@ -1,0 +1,155 @@
+sudo apt-get update
+
+sudo apt-get upgrade
+
+sudp apt-get install docker.io
+
+docker --version
+
+docker info
+
+docker help
+
+sudo docker pull ubuntu
+
+sudo docker images
+
+
+sudo docker rmi image-id 	// to remove image from the system .. i.e ubntu image for the containers
+
+
+sudo docker run -it -d ubuntu
+
+docker run -interactive terminal  -demaon ImageName
+
+
+sudo docker ps   // to see all containers running in the system
+
+sudo docker ps -a   // to see all containers in the system
+
+sudo docker stop container-ID
+sudo docker kill container-ID
+sudo docker rm container-ID
+
+
+sudo docker run -it -d ubuntu
+
+
+Go inside or bash inside the container
+
+sudo docker ps    // get the container-ID
+
+sudo docker exec -it container-ID bash
+
+exit		// to exit the container
+
+
+docker exec -it conatiner_name bash
+
+docker inspect Conatiner_name
+
+docker logs
+
+cat > index.html <<EOF
+
+> Afzaal's website in conatiner 
+> EOF
+
+curl -# -LO https://softwareDownload/Download.tar.gz
+
+mv wordpress/*        move all contents of word press to current directory
+
+rm wordpress/ -rf
+
+apachectl -M    //which apache modules are loaded
+
+a2enmod      rewrite              //enable apache rewrite module
+
+apache requirements
+
+docker rm $(docker ps -aq)    //remove all stopped conatinerzs
+
+docker rm -f $(docker ps -aq)
+
+docker run --rm -it php:7.2-apache bash                // run container temporairly .. when exit finish the conatainer
+
+docker run -d php:7.2-apache bash
+
+docker exec -it COnatiner-id   bash
+
+ps -aux
+
+id www-data
+
+docker images | grep php
+
+docker rmi RepoName/php:Image-Tag
+
+cd /home/afzaal/Downloads/Compressed/KamranAzeemSb/learn-docker-master/examples/wordpress
+
+// docker file directory
+
+docker build -t afzaaluet/php:7.2-apache-wordPress . 
+
+
+docker run --name mySql-Conatiner -e MYSQL_ROOT_PASSWORD=root@admin1 -p 3307:3306 -v mysql-data:/var/lib/mysql -d mysql:latest
+
+
+DB nAME =wp
+uSERNAME= wp-u
+P
+docker run --name WordPress -p 82:80 -v wordpress-data:/var/www/html -d afzaaluet/php:7.2-apache-wordPress
+
+docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' e37fef285bab 
+172.17.0.2
+
+netstat -antp | grep docker-proxy
+
+
+docker volume ls
+
+docker exec  -t mySql-Conatiner ls -ln /var/lib/mysql
+
+docker exec -t WordPress ls -ln /var/www/html
+
+docker logs WordPress
+
+docker logs -f WordPress   //follow up mode for logs
+
+docker login 
+
+/root/.docker/.config.json            //conatins docker hub credentials
+
+Multi COnatiner application docker = ??
+
+docker compose = ??
+
+docker network ls
+
+docker-compose up -d
+
+docker-compose ps
+
+docker-compse start
+
+docker-compose stop
+
+docker-compose.yml
+
+docker-compose up --build -d 
+
+docker-compse  rm -f
+
+/var/run/docker.sock          // listen to docker events
+
+
+docker-compose stop ; docker-compose rm -f
+
+
+
+
+
+
+
+
+

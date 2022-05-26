@@ -54,6 +54,8 @@ RDS work
 
 7. Connecte RDS Mysql Database with EC2 Instance Privately
 
+8. Enable Deletion Protection for all Important / necessary databases
+
 
 
 CloudFormation Template / Terraform work:

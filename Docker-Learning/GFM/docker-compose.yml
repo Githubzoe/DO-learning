@@ -1,0 +1,67 @@
+version: "3.8"
+services:
+  db:
+    image: mysql:8.0
+    restart: always
+    container_name: mysql80
+    environment:
+      MYSQL_DATABASE: 'du_predict'
+      MYSQL_USER: 'du_user'
+      MYSQL_PASSWORD: 'password1234'
+      MYSQL_ROOT_PASSWORD: 'du_admin_123456'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - ./db/mysql-data:/var/lib/mysql
+      - ./db/mysql-dump/dump.sql:/docker-entrypoint-initdb.d/dump.sql
+  redis:
+    image: redis:alpine
+    container_name: redis-container
+    command: redis-server --requirepass itsAtopSC56T*
+    ports:
+      - '6379:6379'
+    volumes:
+      - ./cache/redis-data:/data
+  mongo:
+    image: mongo
+    container_name: mongo-container
+    environment:
+      - ./db/mongo-data/init-mono.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - ./db/mongo-data/mongo-volume:/data/db
+    ports:
+      - '27017:27017'
+  activemq:
+    image: rmohr/activemq:latest
+    container_name: activemq-container
+    ports:
+     - 8161:8161
+     - 61616:61616
+     - 61613:61613
+    environment:
+     ACTIVEMQ_NAME: amq
+     ACTIVEMQ_REMOVE_DEFAULT_ACCOUNT: 'True'
+     ACTIVEMQ_ADMIN_LOGIN: admin
+     ACTIVEMQ_ADMIN_PASSWORD: admin
+    volumes:
+     - ./avtivemq/activemq-data/data:/data/activemq
+     - ./avtivemq/activemq-data/log:/var/log/activemq
+#  angular-ui:
+#    build:
+#      context: ./portal/info-client
+#      dockerfile: Dockerfile
+#    image: client-poprtal
+#    container_name: client-portal
+  # cdn:
+  #   image: cdn-js-widget-img
+  #   build:
+  #     context: .
+  #     dockerfile: ./services/info_widget/new-info-js-widgets/Dockerfile
+  #   container_name: cdn-js-widget
+  #   restart: always
+  #   ports:
+  #     - '2412:2412'
+  #   expose:
+  #     - '2412'
+#docker exec -it mysql80  mysql -uroot -p

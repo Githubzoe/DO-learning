@@ -1,0 +1,59 @@
+docker image ls
+
+docker image ls --all
+
+docker run hello-world
+
+docker container run --publish 8181:8181 --detach --name bb bulletinboard:1.0
+
+
+ git config --global user.email "afzaaluet@gmail.com"
+  git config --global user.name "afzaal007"
+
+
+
+sudo docker rm -f container-id
+
+docker commit container-id new
+
+sudo docker rm -f $(sudo docker ps -a -q)
+
+
+sudp docker run -it -d ubuntu
+
+sudo docker exec -it docker-id bashs
+
+apt-get update
+
+apt-get install apache2
+
+service apache2 status
+
+service apache2 start
+
+
+sudo docker run -d -p0.0.0.0:80:80 mysql:latest
+
+sudo docker run -it --name sl mysql /bin/bash
+
+sudo docker start sl
+
+sudo docker images
+
+sudo docker image rm -f mysql
+
+sudo docker kill sl 
+
+sudo docker image rm -f Image_ID
+
+sudo docker rin -dit --name phishrod -p 8080:80 -v "$PWD" :/usr/local/apache2/htdocs/httpd:2.4
+
+
+
+
+
+
+
+
+
+

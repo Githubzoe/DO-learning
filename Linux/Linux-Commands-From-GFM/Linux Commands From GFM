@@ -1,0 +1,21 @@
+Linux Commands From GFM
+
+apt-get update -y
+
+
+Remove a program 
+
+sudo apt remove brave-browser
+
+sudo apt purge brave-browser
+
+rm -rf ~/.config/BraveSoftware
+
+rm -rf ~/.cache/BraveSoftware
+
+
+df -h   // to check the disk space
+
+date
+
+
