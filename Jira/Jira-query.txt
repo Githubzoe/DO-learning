@@ -1,0 +1,2 @@
+project in (Devops) and assignee = currentUser() and status not in (Done, Close, Closed, "Dev. Done") AND statusCategory in (2, 4) order by statusCategory DESC, updated DESC
+
