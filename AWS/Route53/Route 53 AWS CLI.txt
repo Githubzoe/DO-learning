@@ -1,0 +1,5 @@
+Route 53 AWS CLI
+
+aws route53 list-hosted-zones-by-name
+
+aws route53 get-hosted-zone --id
