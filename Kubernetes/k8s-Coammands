@@ -1,0 +1,4 @@
+Kuberneetes Commands
+
+sudo snap install microk8s --classic
+
