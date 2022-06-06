@@ -1,0 +1,10 @@
+Start Stop EC2 using lambda and event bridge
+
+https://aws.amazon.com/premiumsupport/knowledge-center/start-stop-lambda-eventbridge/#:~:text=%20To%20stop%20and%20start%20EC2%20instances%20at,trigger%20your%20function%20on%20a%20schedule.%20More%20
+
+
+sample cron strings when creating a rule with schedule in the eventbridge
+
+Mon to Friday seclection , Day Of month and year
+
+https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html

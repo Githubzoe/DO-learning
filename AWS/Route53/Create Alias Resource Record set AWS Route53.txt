@@ -1,0 +1,25 @@
+Create Alias Resource Record set AWS  Route 53 CLI
+
+
+Amazon API = Change Resource record set
+
+aws route53 list-hosted-zones-by-name
+
+
+aws route53 change-resource-record-sets --hosted-zone-id /hostedzone/Z0XXXXXXX --change-batch '{"Changes": [ { "Action": "UPSERT", "ResourceRecordSet": { "Name": "test.dev.domain.com", "Type": "A", "AliasTarget":{ "HostedZoneId": "Z0XXXXX","DNSName": "aesdgdfg-46456.eu-central-1.elb.amazonaws.com","EvaluateTargetHealth": false} } } ]}'
+
+
+
+This worked out, So, basically I was required to use 2 Hosted Zone, one which I found in Route53, and other one which I found in ELB side. I dunno why that's the requirement, but okay. Please add an answer, I will accept it. Thanks a lot. :-
+
+The issue was caused by using wrong HostedZoneId in AliasTarget. The correct one is the HostedZoneId associated with your ALB. It can be found in the EC2 console, in Description tab of your ALB under Hosted zone option.
+
+The command should use two HostedZoneIds:
+
+aws route53 change-resource-record-sets \
+    --hosted-zone-id /hostedzone/<zone-id-from-route53>\
+    --change-batch \
+     '{"Changes": [ { "Action": "UPSERT", "ResourceRecordSet": { "Name": "test.dev.domain.com", "Type": "A", "AliasTarget":{ "HostedZoneId": "<zone-id-of-ALB>","DNSName": "aesdgdfg-46456.eu-central-1.elb.amazonaws.com","EvaluateTargetHealth": false} } } ]}'
+
+
+Please include that we require 2 different hosted zones for this to work, one which is under ELB, and one which is the target Hosted Zone in route53. :-) The first one in command is the one from route53. :-)

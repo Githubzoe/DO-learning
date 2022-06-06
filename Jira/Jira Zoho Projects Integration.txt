@@ -1,0 +1,36 @@
+Jira Zoho Projects Integration
+
+1. Go to settings => Application Integration => generate a Public key from Zoho
+2. Go to Jira => settings => Applications => Link Applications => Enter Zoho Desk URL
+
+
+
+Information Required from Jira Party:
+
+1. Jira URL
+
+
+What we need from Zoho Party.
+
+1. Zoho URL
+2. Public Key From Zoho  (Go to settings => Application Integration => generate a Public key from Zoho)
+3. 
+
+
+Go to Jira => Enter URL https://desk.zoho.com
+
+Enter the application name: Zoho Desk
+
+Application type = generic Application
+
+Consumer key =   from Zoho desk integration page
+
+Consumer Name =   from Zoho desk integration page
+
+Application link has been created in Jira
+
+Go back to Zoho integration page and click on Authenticate Jira
+
+Map Zoho Desk Department in Jira
+
+Zoho Departments = Projects in Jira
